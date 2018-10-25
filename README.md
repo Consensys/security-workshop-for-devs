@@ -44,6 +44,14 @@ Weak Randomness
 
 -- Intro and Slides Link -- 
 
+### Challenges
+
+
+
 ### The Ultimate CTF
+
+
+
+# Credit
 
 By [ConsenSys Diligence](https://consensys.net/diligence/) and the [Mythril](https://mythril.ai) team.
