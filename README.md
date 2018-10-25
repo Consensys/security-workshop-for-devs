@@ -2,7 +2,7 @@
 	<img src="/static/notrekt-logo.png" height="200px"/>
 </p>
 
-# How Not to Get Rekt: The DevCon4 Workshop
+# How To Not Get Rekt: The DevCon4 Workshop
 
 ## Preparation
 
