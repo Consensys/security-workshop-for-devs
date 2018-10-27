@@ -28,15 +28,22 @@ In this workshop you'll get a sneak peek into the future: We'll be using the lat
 https://faucet.metamask.io/
 https://faucet.ropsten.be/
 
-Installing the Mythril Classic Experimental Branch
+**Installing the Experimental Build of Mythril Classic:**
+
+We'll use the newest and most awesome build of Mythril Classic during the workshop. 
+
 
 **Installing the Truffle Prototype:**
 
-Mythril Platform will be fully integrated into [Truffle Suite] in the near future. For now, you can try an early prototype.
+Mythril Platform will be fully integrated into [Truffle Suite] in the near future. For now, you can try an early prototype. Run the following to install it:
+
+```
+$ npm install -g truffle_plus_analyze
+```
 
 **Installing Guardrails Alpha:**
 
-[Guardrails] is Github app that hooks into the smart contract development workflow. 
+[Guardrails] is Github app that hooks into the development workflow and reports security issues on every pull request. To use it, install the [Guardrails Github app](https://github.com/apps/guardrails). We'll try it on a sample Truffle project later.
 
 **Support:**
 
