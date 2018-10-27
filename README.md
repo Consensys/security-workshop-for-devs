@@ -8,12 +8,12 @@
   * [Part 1 - The Smart Contract Secure SDLC](#part-1---the-smart-contract-secure-sdlc)
   * [Part 2 - Threat Modeling](#part-2---threat-modeling)
   * [Part 3 - Security Verification and Hacking](#part-3---security-verification-and-hacking)
-    + [Arithmetic Overflows](#arithmetic-overflows)
-    + [Re-Entrancy](#re-entrancy)
-    + [Unprotected Criticial Functions](#unprotected-criticial-functions)
-    + [Advanced Techniques - Verification of Custom Invariants](#advanced-techniques---verification-of-custom-invariants)
+    + [Arithmetic Operation Fails](#arithmetic-operation-fails)
+    + [Preventing another DAOsaster](#preventing-another-daosaster)
+    + [Avoiding Accidental Suicide](#avoiding-accidental-suicide)
+    + [Verifying Custom Security Properties](#verifying-custom-security-properties)
   * [CTF Finale](#ctf-finale)
-  * [Call for Participation](#call-for-participation)
+  * [What to Do Next](#what-to-do-next)
   * [Credit](#credit)
 
 ## Preparation
@@ -25,12 +25,12 @@ In this workshop you'll get a sneak peek into the future: We'll be using the lat
 1. Get Metamask
 2. Grab some ETH from the Ropsten Faucets: 
 
-https://faucet.metamask.io/
-https://faucet.ropsten.be/
+- https://faucet.metamask.io/
+- https://faucet.ropsten.be/
 
-**Installing Tool used during the Workshop:**
+**Tools Installation:**
 
-| Tool        | Installation Instructions           | 
+| Tool        |  Instructions           | 
 | :-------------: |-------------| 
 | <img src="/static/mythril_new.png" width="180px"/>  | We'll use the newest and most awesome build of Mythril Classic during the workshop. 
 |<img src="/static/truffle.png" width="90px"/>  |  [Truffle Suite](https://truffleframework.com) is a popular development framework for Ethereum. Run `npm install -g truffle_plus_analyze` to install a build of Truffle 5.0 with built-in Mythril Platform support (note that this is still early alpha).
@@ -42,7 +42,7 @@ If anything goes wrong ask the instructors for help. Some of our core devs will 
 
 ## Part 1 - The Smart Contract Secure SDLC
 
-We'll start with a little bit of theory (sorry guys, it can't all be fun and games). [Tom Lindeman](https://twitter.com/EtherDotBlue) explains Secure SDLC Processes. He's not a coder like the rest of us, so please be gentle and don't ask him any hard technical questions.
+We'll start with a little bit of theory (sorry guys, life isn't always just fun and games). [Tom Lindeman](https://twitter.com/EtherDotBlue) explains secure SDLC processes. He's not a coder like the rest of us, so please be gentle and don't ask him any hard technical questions.
 
 This info graphic sums things up pretty nicely.
 
@@ -82,7 +82,7 @@ https://capturetheether.com/challenges/math/token-sale/
 ### Avoiding Accidental Suicide
 
 
-### Verifying Custom Invariants (Advanced)
+### Verifying Custom Security Properties
 
 Asserting Invariants with Mythril Classic
 
