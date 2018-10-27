@@ -57,8 +57,8 @@ This info graphic sums things up pretty nicely.
 Before buidling a smart contract system you should think about potential threats and countermeasures In this section of the workshop, [Gerhard Wagner](https://twitter.com/g3rh4rdw4gn3r) gives an overview on threat modeling. As an exercise, you'll then build a mini-threat-model for your own app or sample app. The [presentation slides](slides/How_to_Not_Get_Rekt_Part_1_Threat_Modeling.pdf) contain further instructions.
 
 ## Part 3 - Security Verification and Hacking
-Tricks
-In the threat modeling part, we saw stats about the most common vulnerability types. For the remainder of the workshop we'll be looking into identifying, fixing, exploiting and preventing commonly exploited vulnerabilities. This is where the real fun starts!
+
+In the threat modeling part, we saw stats about the most common vulnerability types. For the remainder of the workshop we'll be looking into identifying, fixing, exploiting and preventing commonly exploited vulnerabilities.
 
 ### Arithmetic Operation Fails
 
@@ -70,7 +70,6 @@ https://capturetheether.com/challenges/math/token-whale/
 2. Check the contract in a Truffle project with Truffle+analyze
 3. Brainstorm a fix
 4. Solve the exercise on CapturetheEther
-
 
 **Exercise two:**
 https://capturetheether.com/challenges/math/token-sale/
