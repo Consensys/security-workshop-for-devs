@@ -24,11 +24,15 @@ Todo
 
 Todo
 
+### Real-time Support
+
+If anything goes wrong ask the instructors for help. Some of our core devs will also be on standby on [Discord](https://discord.gg/E3YrVtG) during the workshop (usually they can be quite nice and helpful).
+
 ## Part 1: The Smart Contract Secure SDLC
 
-We'll start with a little bit of theory (sorry guys, it can't all be fun and games). Tom Lindeman explains Secure SDLC Processes. He's not a coder like us, so please be gentle and don't ask him any hard technical questions.
+We'll start with a little bit of theory (sorry guys, it can't all be fun and games). [Tom Lindeman](https://twitter.com/EtherDotBlue) explains Secure SDLC Processes. He's not a coder like the rest of us, so please be gentle and don't ask him any hard technical questions.
 
-This info graphic sums it up pretty nicely.
+This info graphic sums things up pretty nicely.
 
 <p align="center">
 	<img src="/static/sdlc.png" height="400px"/>
@@ -36,7 +40,9 @@ This info graphic sums it up pretty nicely.
 
 ## Part 2: Threat Modeling
 
-Threat modeling is something you should do early on. 
+Before buidling a smart contract system, you should think about potential threats and the countermeasures you're going to take. In this section of the workshop.
+
+
 
 ### Exercises
 
