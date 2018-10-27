@@ -38,7 +38,7 @@ In this workshop you'll get a sneak peek into the future: We'll be using the lat
 
 **Support:**
 
-If anything goes wrong ask the instructors for help. Some of our core devs will also be on standby on [Discord](https://discord.gg/E3YrVtG) during the workshop (usually they can be quite nice and helpful).
+If anything goes wrong ask the instructors for help. Some of our core devs will also be on standby on [Discord](https://discord.gg/E3YrVtG) during the workshop (sometimes they can be quite nice and helpful).
 
 ## Part 1 - The Smart Contract Secure SDLC
 
