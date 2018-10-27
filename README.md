@@ -50,7 +50,7 @@ Before buidling a smart contract system you should think about potential threats
 
 ## Part 3: Security Verification and Hacking
 
-The real fun starts here.
+In the threat modeling part, we saw stats about the most common vulnerability types. For the remainder of the workshop we'll be looking into identifying, fixing, exploiting and preventing commonly exploited vulnerabilities. This is where the real fun starts!
 
 #### Arithmetic Overflows
 
