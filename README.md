@@ -6,21 +6,25 @@
 
 ## Preparation
 
-How to get set up to participate in the workshop.
+How to get set up to participate in the workshop. 
 
-Todo: Metamask, Ropsten ETH, Docker images, Guardrails etc.
+### Getting Metamask and Testnet ETH
+
+1. Get Metamask
+2. Grab some ETH from the Ropsten Faucets: 
+
+https://faucet.metamask.io/
+https://faucet.ropsten.be/
+
+### Installing Mythril Classic
 
 We're only using bleeding edge alpha software!
 
-### Installing Truffle-Analyze
+### Installing the Truffle & Mythril Platform Prototype
 
 Todo
 
 ### Installing Guardrails
-
-Todo
-
-### Installing Mythril Classic
 
 Todo
 
@@ -44,31 +48,40 @@ Before buidling a smart contract system you should think about potential threats
 
 ### Exercises
 
-
 ## Part 3: Security Verification and Hacking
 
-The real fun starts here. For the rest of the workshop
+The real fun starts here.
 
-### Challenges
+#### Arithmetic Overflows
 
-Arithmetic Overflow
+**Exercise one:**
 
-Reentrancy
+https://capturetheether.com/challenges/math/token-whale/
 
-Unprotected Criticial Functions
-
-Weak Randomness
-
-## Advanced Tricks
-
--- Intro and Slides Link -- 
-
-### Challenges
+1. Look at the source code with participants first. What's wrong?
+2. Check the contract in a Truffle project with Truffle+analyze
+3. Brainstorm a fix
+4. Solve the exercise on CapturetheEther
 
 
+**Exercise two:**
+https://capturetheether.com/challenges/math/token-sale/
 
-### The Ultimate CTF
+1. Look at the source code with participants first. What's wrong?
+2. Solve the exercise on CapturetheEther. Tip: You can make things easy with Mythril Classic!
+3. Show a neat example how Mythril classic can compute the solution
 
+#### Re-Entrancy
+
+
+#### Unprotected Criticial Functions
+
+
+### Advanced Tricks
+
+Asserting Invariants with Mythril Classic
+
+### Final CTF
 
 
 # Credit
