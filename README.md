@@ -18,7 +18,7 @@
 
 ## Preparation
 
-In this workshop you'll get a sneak peek into the future: We'll be using the latest experimental build of [Mythril Classic] as well as [Mythril Platform](https://mythril.ai) prototypes we have built together with the [Truffle](https://truffleframework.com) and [Guardrails](https://www.guardrails.io) teams. Here's how to get set up for the workshop.
+In this workshop you'll get a sneak peek into the future: We'll be using the latest experimental build of [Mythril Classic](https://www.guardrails.io) as well as [Mythril Platform](https://mythril.ai) prototypes we have built together with the [Truffle](https://truffleframework.com) and [Guardrails](https://www.guardrails.io) teams. Here's how to get set up for the workshop.
 
 **Getting Metamask and Testnet ETH:**
 
@@ -28,22 +28,13 @@ In this workshop you'll get a sneak peek into the future: We'll be using the lat
 https://faucet.metamask.io/
 https://faucet.ropsten.be/
 
-**Installing the Experimental Build of Mythril Classic:**
+**Installing Tool used during the Workshop:**
 
-We'll use the newest and most awesome build of Mythril Classic during the workshop. 
-
-
-**Installing the Truffle Prototype:**
-
-Mythril Platform will be fully integrated into [Truffle Suite] in the near future. For now, you can try an early prototype. Run the following to install it:
-
-```
-$ npm install -g truffle_plus_analyze
-```
-
-**Installing Guardrails Alpha:**
-
-[Guardrails] is Github app that hooks into the development workflow and reports security issues on every pull request. To use it, install the [Guardrails Github app](https://github.com/apps/guardrails). We'll try it on a sample Truffle project later.
+| Tool        | Installation Instructions           | 
+| :-------------: |-------------| 
+| <img src="/static/mythril_new.png" width="180px"/>  | We'll use the newest and most awesome build of Mythril Classic during the workshop. 
+|<img src="/static/truffle.png" width="90px"/>  |  [Truffle Suite](https://truffleframework.com) is a popular development framework for Ethereum. Run `npm install -g truffle_plus_analyze` to install a build of Truffle 5.0 with built-in Mythril Platform support (note that this is still early alpha).
+| <img src="/static/guardrails.png" width="200px"/> | [Guardrails](https://www.guardrails.io) is Github app that hooks into the development workflow and reports security issues on every pull request. To use it, install the [Guardrails Github app](https://github.com/apps/guardrails).
 
 **Support:**
 
