@@ -1,5 +1,5 @@
 <p align="center">
-	<img src="/static/notrekt-logo.png" height="400px"/>
+	<img src="/static/notrekt-logo.png" height="200px"/>
 </p>
 
 # How To Not Get Rekt: The DevCon4 Workshop
@@ -31,7 +31,7 @@ We'll start with a little bit of theory (sorry guys, it can't all be fun and gam
 This info graphic sums it up pretty nicely.
 
 <p align="center">
-	<img src="/static/sdlc.png" height="200px"/>
+	<img src="/static/sdlc.png" height="400px"/>
 </p>
 
 ## Part 2: Threat Modeling
