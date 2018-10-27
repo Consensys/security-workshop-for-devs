@@ -90,11 +90,19 @@ Asserting Invariants with Mythril Classic
 
 ## CTF Finale
 
-## Call for Participation
+## What to Do Next
 
+- Solve the other challenges on CaptureTheEther and Security Innovation CTF
+- Major Mythril Platform CTF soon
 - Beta launch on first of December
 - MYTH token launch in early 2019
 
 ## Credit
 
-By [ConsenSys Diligence](https://consensys.net/diligence/) and the [Mythril](https://mythril.ai) team.
+By [ConsenSys Diligence](https://consensys.net/diligence/) and the [Mythril](https://mythril.ai) team. Special thanks to Mick Ayzenberg (Security Innovation).
+
+Todo: Add logos
+
+- ConsenSys Diligence
+- Mythril
+
