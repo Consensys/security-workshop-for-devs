@@ -1,5 +1,5 @@
 <p align="center">
-	<img src="/static/notrekt-logo.png" height="200px"/>
+	<img src="/static/notrekt-logo.png" height="400px"/>
 </p>
 
 # How To Not Get Rekt: The DevCon4 Workshop
