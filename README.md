@@ -6,7 +6,7 @@
 
 ## Preparation
 
-How to get set up to participate in the workshop. 
+In this workshop you'll get a sneak peek into the future: We'll be using the latest experimental build of [Mythril Classic] as well as [Mythril Platform](https://mythril.ai) prototypes we have built together with the [Truffle](https://truffleframework.com) and [Guardrails](https://www.guardrails.io) teams. Here's how to get set up for the workshop.
 
 ### Getting Metamask and Testnet ETH
 
@@ -16,17 +16,18 @@ How to get set up to participate in the workshop.
 https://faucet.metamask.io/
 https://faucet.ropsten.be/
 
-### Installing Mythril Classic
+### Installing the Mythril Classic Experimental Branch
 
-We're only using bleeding edge alpha software!
 
-### Installing the Truffle & Mythril Platform Prototype
 
-Todo
+### Installing the Truffle Prototype
 
-### Installing Guardrails
+Mythril Platform will be fully integrated into [Truffle Suite] in the near future. For now, you can try an early prototype.
 
-Todo
+### Installing Guardrails Alpha
+
+[Guardrails] is Github app that hooks into the smart contract development workflow. 
+
 
 ### Real-time Support
 
@@ -49,7 +50,7 @@ Before buidling a smart contract system you should think about potential threats
 ### Exercises
 
 ## Part 3: Security Verification and Hacking
-
+Tricks
 In the threat modeling part, we saw stats about the most common vulnerability types. For the remainder of the workshop we'll be looking into identifying, fixing, exploiting and preventing commonly exploited vulnerabilities. This is where the real fun starts!
 
 #### Arithmetic Overflows
@@ -77,12 +78,17 @@ https://capturetheether.com/challenges/math/token-sale/
 #### Unprotected Criticial Functions
 
 
-### Advanced Tricks
+### Advanced Techniques
 
 Asserting Invariants with Mythril Classic
 
-### Final CTF
+## CTF Finale
 
+
+# What's Next
+
+- Beta launch on first of December
+- MYTH token launch in early 2019
 
 # Credit
 
