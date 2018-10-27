@@ -24,13 +24,24 @@ Todo
 
 Todo
 
-## Threat Modeling
+## Part 1: The Smart Contract Secure SDLC
 
--- Intro and Slides Link -- 
+We'll start with a little bit of theory (sorry guys, it can't all be fun and games). Tom Lindeman explains Secure SDLC Processes. He's not a coder like us, so please be gentle and don't ask him any hard technical questions.
 
-### Challenges
+This info graphic sums it up pretty nicely.
 
-## Smart Contract Hacking & Secure SDLC
+<p align="center">
+	<img src="/static/sdlc.png" height="200px"/>
+</p>
+
+## Part 2: Threat Modeling
+
+Threat modeling is something you should do early on. 
+
+### Exercises
+
+
+## Smart Contract Security Verification and Hacking
 
 -- Intro and Slides Link -- 
 
@@ -40,7 +51,7 @@ Arithmetic Overflow
 
 Reentrancy
 
-Misnamed Constructor
+Unprotected Criticial Functions
 
 Weak Randomness
 
