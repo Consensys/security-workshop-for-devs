@@ -40,16 +40,14 @@ This info graphic sums things up pretty nicely.
 
 ## Part 2: Threat Modeling
 
-Before buidling a smart contract system, you should think about potential threats and the countermeasures you're going to take. In this section of the workshop.
-
-
+Before buidling a smart contract system you should think about potential threats and countermeasures In this section of the workshop, [Gerhard Wagner](https://twitter.com/g3rh4rdw4gn3r) gives an overview on threat modeling. As an exercise, you'll then build a mini-threat-model for your own app or sample app. The [presentation slides](slides/How_to_Not_Get_Rekt_Part_1_Threat_Modeling.pdf) contain gurther instructions and a chear sheet.
 
 ### Exercises
 
 
-## Smart Contract Security Verification and Hacking
+## Part 3: Security Verification and Hacking
 
--- Intro and Slides Link -- 
+The real fun starts here. For the rest of the workshop
 
 ### Challenges
 
