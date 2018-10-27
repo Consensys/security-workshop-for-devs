@@ -4,11 +4,23 @@
 
 # How To Not Get Rekt: The DevCon4 Workshop
 
+  * [Preparation](#preparation)
+  * [Part 1 - The Smart Contract Secure SDLC](#part-1---the-smart-contract-secure-sdlc)
+  * [Part 2 - Threat Modeling](#part-2---threat-modeling)
+  * [Part 3 - Security Verification and Hacking](#part-3---security-verification-and-hacking)
+    + [Arithmetic Overflows](#arithmetic-overflows)
+    + [Re-Entrancy](#re-entrancy)
+    + [Unprotected Criticial Functions](#unprotected-criticial-functions)
+    + [Advanced Techniques - Verification of Custom Invariants](#advanced-techniques---verification-of-custom-invariants)
+  * [CTF Finale](#ctf-finale)
+  * [Call for Participation](#call-for-participation)
+  * [Credit](#credit)
+
 ## Preparation
 
 In this workshop you'll get a sneak peek into the future: We'll be using the latest experimental build of [Mythril Classic] as well as [Mythril Platform](https://mythril.ai) prototypes we have built together with the [Truffle](https://truffleframework.com) and [Guardrails](https://www.guardrails.io) teams. Here's how to get set up for the workshop.
 
-### Getting Metamask and Testnet ETH
+**Getting Metamask and Testnet ETH:**
 
 1. Get Metamask
 2. Grab some ETH from the Ropsten Faucets: 
@@ -16,24 +28,21 @@ In this workshop you'll get a sneak peek into the future: We'll be using the lat
 https://faucet.metamask.io/
 https://faucet.ropsten.be/
 
-### Installing the Mythril Classic Experimental Branch
+Installing the Mythril Classic Experimental Branch
 
-
-
-### Installing the Truffle Prototype
+**Installing the Truffle Prototype:**
 
 Mythril Platform will be fully integrated into [Truffle Suite] in the near future. For now, you can try an early prototype.
 
-### Installing Guardrails Alpha
+**Installing Guardrails Alpha:**
 
 [Guardrails] is Github app that hooks into the smart contract development workflow. 
 
-
-### Real-time Support
+**Support:**
 
 If anything goes wrong ask the instructors for help. Some of our core devs will also be on standby on [Discord](https://discord.gg/E3YrVtG) during the workshop (usually they can be quite nice and helpful).
 
-## Part 1: The Smart Contract Secure SDLC
+## Part 1 - The Smart Contract Secure SDLC
 
 We'll start with a little bit of theory (sorry guys, it can't all be fun and games). [Tom Lindeman](https://twitter.com/EtherDotBlue) explains Secure SDLC Processes. He's not a coder like the rest of us, so please be gentle and don't ask him any hard technical questions.
 
@@ -43,17 +52,15 @@ This info graphic sums things up pretty nicely.
 	<img src="/static/sdlc.png" height="400px"/>
 </p>
 
-## Part 2: Threat Modeling
+## Part 2 - Threat Modeling
 
 Before buidling a smart contract system you should think about potential threats and countermeasures In this section of the workshop, [Gerhard Wagner](https://twitter.com/g3rh4rdw4gn3r) gives an overview on threat modeling. As an exercise, you'll then build a mini-threat-model for your own app or sample app. The [presentation slides](slides/How_to_Not_Get_Rekt_Part_1_Threat_Modeling.pdf) contain further instructions.
 
-### Exercises
-
-## Part 3: Security Verification and Hacking
+## Part 3 - Security Verification and Hacking
 Tricks
 In the threat modeling part, we saw stats about the most common vulnerability types. For the remainder of the workshop we'll be looking into identifying, fixing, exploiting and preventing commonly exploited vulnerabilities. This is where the real fun starts!
 
-#### Arithmetic Overflows
+### Arithmetic Operation Fails
 
 **Exercise one:**
 
@@ -72,24 +79,23 @@ https://capturetheether.com/challenges/math/token-sale/
 2. Solve the exercise on CapturetheEther. Tip: You can make things easy with Mythril Classic!
 3. Show a neat example how Mythril classic can compute the solution
 
-#### Re-Entrancy
+### Preventing another DAOsaster
 
 
-#### Unprotected Criticial Functions
+### Avoiding Accidental Suicide
 
 
-### Advanced Techniques
+### Verifying Custom Invariants (Advanced)
 
 Asserting Invariants with Mythril Classic
 
 ## CTF Finale
 
-
-# What's Next
+## Call for Participation
 
 - Beta launch on first of December
 - MYTH token launch in early 2019
 
-# Credit
+## Credit
 
 By [ConsenSys Diligence](https://consensys.net/diligence/) and the [Mythril](https://mythril.ai) team.
