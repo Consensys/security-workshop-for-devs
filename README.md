@@ -34,7 +34,7 @@ In this workshop you'll get a sneak peek into the future: We'll be using the lat
 | :-------------: |-------------| 
 | <img src="/static/mythril_new.png" width="180px"/>  | We'll use the newest and most awesome build of Mythril Classic during the workshop. 
 |<img src="/static/truffle.png" width="90px"/>  |  [Truffle Suite](https://truffleframework.com) is a popular development framework for Ethereum. Run `npm install -g truffle-plus-analyze` to install a build of Truffle 5.0 with built-in Mythril Platform support (note that this is still early alpha).
-| <img src="/static/guardrails.png" width="200px"/> | [Guardrails](https://www.guardrails.io) is Github app that hooks into the development workflow and reports security issues on every pull request. To use it, install the [Guardrails Github app](https://github.com/apps/guardrails).
+| <img src="/static/guardrails.png" width="280px"/> | [Guardrails](https://www.guardrails.io) is a Github app that hooks into the development workflow and reports security issues on every pull request. To use it, install the [Guardrails Github app](https://github.com/apps/guardrails).
 
 **Support:**
 
