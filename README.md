@@ -18,9 +18,11 @@
 
 ## Preparation
 
-In this workshop you'll get a sneak peek into the future: We'll be using the latest experimental build of [Mythril Classic](https://www.guardrails.io) as well as [Mythril Platform](https://mythril.ai) prototypes we have built together with the [Truffle](https://truffleframework.com) and [Guardrails](https://www.guardrails.io) teams. Here's how to get set up for the workshop.
+Here's how to get set up for the workshop.
 
 **Getting Metamask and Testnet ETH:**
+
+We'll be solving some challenges on CaptureTheEther. To do that, you'll need a web3-capable browser and some testnet ETH.
 
 1. Get Metamask
 2. Grab some ETH from the Ropsten Faucets: 
@@ -28,7 +30,17 @@ In this workshop you'll get a sneak peek into the future: We'll be using the lat
 - https://faucet.metamask.io/
 - https://faucet.ropsten.be/
 
-**Tools Installation:**
+**Downloading the Exercises **
+
+The workshop exercises are hosted in an separate repo. Clone the repo to get them:
+
+```
+$ git clone https://github.com/ConsenSys/devcon4-exercises/
+```
+
+**Tools:**
+
+In this workshop you'll get a sneak peek into the future: We'll be using the latest experimental build of [Mythril Classic](https://github.com/ConsenSys/mythril-classic) as well as [Mythril Platform](https://mythril.ai) prototypes we have built together with the [Truffle](https://truffleframework.com) and [Guardrails](https://www.guardrails.io) teams. Here's how install the tools:
 
 | Tool        |  Instructions           | 
 | :-------------: |-------------| 
@@ -58,33 +70,48 @@ Before buidling a smart contract system you should think about potential threats
 
 In the threat modeling part, we saw stats about the most common vulnerability types. For the remainder of the workshop we'll be looking into identifying, fixing, exploiting and preventing commonly exploited vulnerabilities.
 
-### Arithmetic Operation Fails
+### Exercise 1
 
-**Exercise one:**
+In this [exercise](https://github.com/ConsenSys/devcon4-exercises/tree/master/exercise1), we'll try out the upcoming Mythril Platform "analyze" feature in Truffle Suite. Let's see if we can spot the bug and brainstorm a fix. Once that's done, we'll have a crack at the [hacking the token sale on CaptureTheEther](https://capturetheether.com/challenges/math/token-sale/)
 
-https://capturetheether.com/challenges/math/token-whale/
+Hint: You need to compile the project before running the analyze command.
 
-1. Look at the source code with participants first. What's wrong?
-2. Check the contract in a Truffle project with Truffle+analyze
-3. Brainstorm a fix
-4. Solve the exercise on CapturetheEther
+```
+$ cd exercise1
+$ truffle+analyze compile
+$ truffle+analyze analyze
+```
 
-**Exercise two:**
-https://capturetheether.com/challenges/math/token-sale/
+### Exercise 2
 
-1. Look at the source code with participants first. What's wrong?
-2. Solve the exercise on CapturetheEther. Tip: You can make things easy with Mythril Classic!
-3. Show a neat example how Mythril classic can compute the solution
+Mythril Classic has a few extra tricks up it's sleeve. In the [second exercise](https://github.com/ConsenSys/devcon4-exercises/tree/master/exercise2), we'll look out for a similar bug as in exercise 1, and show how to use Mythril Classic to make solving the challenge on [CaptureTheEther(https://capturetheether.com/challenges/math/token-whale/)] a little bit easier (i.e. we'll learn how to cheat).
 
-### Preventing another DAOsaster
+Hint: Mythril Classic has a whole lot of command line options, but running it in default mode is usually fine.
 
+```
+$ cd exercise2
+$ myth -x contracts/Tokenwhale.sol
+```
 
-### Avoiding Accidental Suicide
+However, if you want to get more information, you can activate verbose reporting and debugging output.
 
+```
+$ myth --verbose-report -v2 -x contracts/Tokenwhale.sol
+```
 
-### Verifying Custom Security Properties
+### Exercise 3
 
-Asserting Invariants with Mythril Classic
+To ensure that no bugs make it into the code, it's useful to make security analysis a part of the deployment pipeline. In [exercise 3](https://github.com/ConsenSys/devcon4-exercises/tree/master/exercise3), we'll try out Guardrails on a Truffle project, which should detect a couple of security issues. After brainstorming possible fixes for the issue(s) detected, we'll then proceed to exploit the issue and steal somne testnet ETH from the [CaptureTheEther Bank](https://capturetheether.com/challenges/miscellaneous/token-bank/).
+
+### Exercise 4
+
+Taklking about extra tricks: Mythril Classic can analyze smart contracts from many sources, including bytecode on the blockchain. In [exercise 4](https://github.com/ConsenSys/devcon4-exercises/tree/master/exercise4), we'll identify another type of vulnerability that has often been exploited in the past. We'll then show how to detect this vulnerability on the mainnet and auto-generate an exploit that extracts all the ETH from the vulnerable contract.
+
+### Exercise 5
+
+TODO: Writing custom tests to verify invariants.
+
+[https://github.com/ConsenSys/devcon4-exercises/tree/master/exercise5](Exercise 5).
 
 ## CTF Finale
 
