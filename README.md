@@ -69,6 +69,8 @@ Before and during buidling a smart contract system you should think about potent
 - [Presentation slides](slides/How_to_Not_Get_Rekt_Part_1_Threat_Modeling.pdf)
 - [Blockchain incident threat list](threat-modeling/threat_list_blockchain_incident_db.md)
 
+### Threat Modeling Exercise
+
 After all this theory it's finally time for some hands-on action. Pick one of the following options:
 
 - [Build a threat model for your own smart contract system](threat-modeling/exercise_sample_system.md)
