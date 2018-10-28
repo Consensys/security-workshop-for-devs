@@ -8,11 +8,11 @@
   * [Part 1 - The Smart Contract Secure SDLC](#part-1---the-smart-contract-secure-sdlc)
   * [Part 2 - Threat Modeling](#part-2---threat-modeling)
   * [Part 3 - Security Verification and Hacking](#part-3---security-verification-and-hacking)
-    + [Arithmetic Operation Fails](#arithmetic-operation-fails)
-    + [Preventing another DAOsaster](#preventing-another-daosaster)
-    + [Avoiding Accidental Suicide](#avoiding-accidental-suicide)
-    + [Verifying Custom Security Properties](#verifying-custom-security-properties)
-  * [CTF Finale](#ctf-finale)
+    + [Exercise 1](#exercise-1)
+    + [Exercise 2](#exercise-2)
+    + [Exercise 3](#exercise-3)
+    + [Exercise 4](#exercise-4)
+    + [Exercise 5](#exercise-5)
   * [What to Do Next](#what-to-do-next)
   * [Credit](#credit)
 
@@ -30,7 +30,7 @@ We'll be solving some challenges on CaptureTheEther. To do that, you'll need a w
 - https://faucet.metamask.io/
 - https://faucet.ropsten.be/
 
-**Downloading the Exercises **
+**Downloading the Exercises:**
 
 The workshop exercises are hosted in an separate repo. Clone the repo to get them:
 
@@ -84,7 +84,7 @@ $ truffle+analyze analyze
 
 ### Exercise 2
 
-Mythril Classic has a few extra tricks up it's sleeve. In the [second exercise](https://github.com/ConsenSys/devcon4-exercises/tree/master/exercise2), we'll look out for a similar bug as in exercise 1, and show how to use Mythril Classic to make solving the challenge on [CaptureTheEther(https://capturetheether.com/challenges/math/token-whale/)] a little bit easier (i.e. we'll learn how to cheat).
+Mythril Classic has a few extra tricks up it's sleeve. In the [second exercise](https://github.com/ConsenSys/devcon4-exercises/tree/master/exercise2), we'll look out for a similar bug as in exercise 1, and show how to use Mythril Classic to make solving the challenge on [CaptureTheEther](https://capturetheether.com/challenges/math/token-whale/)] a little bit easier (i.e. we'll learn how to cheat).
 
 Hint: Mythril Classic has a whole lot of command line options, but running it in default mode is usually fine.
 
@@ -107,13 +107,13 @@ To ensure that no bugs make it into the code, it's useful to make security analy
 
 Taklking about extra tricks: Mythril Classic can analyze smart contracts from many sources, including bytecode on the blockchain. In [exercise 4](https://github.com/ConsenSys/devcon4-exercises/tree/master/exercise4), we'll identify another type of vulnerability that has often been exploited in the past. We'll then show how to detect this vulnerability on the mainnet and auto-generate an exploit that extracts all the ETH from the vulnerable contract.
 
+Top top things off, we'll deploy a real-world instance of a vulnerable contract for our valued participants to exploit.
+
 ### Exercise 5
 
 TODO: Writing custom tests to verify invariants.
 
 [https://github.com/ConsenSys/devcon4-exercises/tree/master/exercise5](Exercise 5).
-
-## CTF Finale
 
 ## What to Do Next
 
