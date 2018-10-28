@@ -54,9 +54,9 @@ If anything goes wrong ask the instructors for help. Some of our core devs will 
 
 ## Part 1 - The Smart Contract Secure SDLC
 
-We'll start with a little bit of theory (sorry guys, life isn't always just fun and games). [Tom Lindeman](https://twitter.com/EtherDotBlue) explains secure SDLC processes. He's not a coder like the rest of us, so please be gentle and don't ask him any hard technical questions.
+We'll start with a little bit of theory (sorry guys, life isn't always just fun and games). In part 1, [Tom Lindeman](https://twitter.com/EtherDotBlue) explains secure SDLC processes. He's not a coder like the rest of us, so please be gentle and don't ask him any hard technical questions.
 
-This info graphic sums things up pretty nicely.
+TL;DR: Security should be incorporated during all phases of development. This info graphic sums things up nicely:
 
 <p align="center">
 	<img src="/static/sdlc.png" height="400px"/>
@@ -64,7 +64,15 @@ This info graphic sums things up pretty nicely.
 
 ## Part 2 - Threat Modeling
 
-Before buidling a smart contract system you should think about potential threats and countermeasures In this section of the workshop, [Gerhard Wagner](https://twitter.com/g3rh4rdw4gn3r) gives an overview on threat modeling. As an exercise, you'll then build a mini-threat-model for your own app or sample app. The [presentation slides](slides/How_to_Not_Get_Rekt_Part_1_Threat_Modeling.pdf) contain further instructions.
+Before and during buidling a smart contract system you should think about potential threats and countermeasures. This process is formally known as threat modeling. In part 2, [Gerhard Wagner](https://twitter.com/g3rh4rdw4gn3r) introduces threat modeling basics. Here's the workshop material:
+
+- [Presentation slides](slides/How_to_Not_Get_Rekt_Part_1_Threat_Modeling.pdf)
+- [Blockchain incident threat list](threat-modeling/threat_list_blockchain_incident_db.md)
+
+After all this theory it's finally time for some hands-on action. Pick one of the following options:
+
+- [Build a threat model for your own smart contract system](threat-modeling/exercise_sample_system.md)
+- [Build a threat model for Crypto Froggies](threat-modeling/exercise_sample_system.md)
 
 ## Part 3 - Security Verification and Hacking
 
