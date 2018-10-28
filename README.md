@@ -72,7 +72,7 @@ In the threat modeling part, we saw stats about the most common vulnerability ty
 
 ### Exercise 1
 
-In this [exercise](https://github.com/ConsenSys/devcon4-exercises/tree/master/exercise1), we'll try out the upcoming Mythril Platform "analyze" feature in Truffle Suite. Let's see if we can spot the bug and brainstorm a fix. Once that's done, we'll have a crack at the [hacking the token sale on CaptureTheEther](https://capturetheether.com/challenges/math/token-sale/)
+In this [exercise](https://github.com/ConsenSys/devcon4-exercises/tree/master/exercise1), we'll try out the upcoming Mythril Platform "analyze" feature in Truffle Suite. Let's see if we can spot the bug and brainstorm a fix. Once that's done, we'll have a crack at the hacking the [token sale on CaptureTheEther](https://capturetheether.com/challenges/math/token-sale/).
 
 Hint: You need to compile the project before running the analyze command.
 
