@@ -7,13 +7,11 @@
   * [Preparation](#preparation)
   * [Part 1 - The Smart Contract Secure SDLC](#part-1---the-smart-contract-secure-sdlc)
   * [Part 2 - Threat Modeling](#part-2---threat-modeling)
-    + [Threat Modeling Exercise](#threat-modeling-exercise)
   * [Part 3 - Security Verification and Hacking](#part-3---security-verification-and-hacking)
-    + [Exercise 1](#exercise-1)
-    + [Exercise 2](#exercise-2)
-    + [Exercise 3](#exercise-3)
-    + [Exercise 4](#exercise-4)
-    + [Exercise 5](#exercise-5)
+    + [Integer Arithmetic Fails](#integer-arithmetic-fails)
+    + [Preventing Another DAOsaster](#preventing-another-daosaster)
+    + [Ether Theft and Accidental Killings](#ether-theft-and-accidental-killings)
+    + [Writing Custom Tests](#writing-custom-tests)
   * [What to Do Next](#what-to-do-next)
   * [Credit](#credit)
 
@@ -70,7 +68,7 @@ Before and during buidling a smart contract system you should think about potent
 - [Presentation slides](slides/How_to_Not_Get_Rekt_Part_1_Threat_Modeling.pdf)
 - [Blockchain incident threat list](threat-modeling/threat_list_blockchain_incident_db.md)
 
-### Threat Modeling Exercise
+**Threat Modeling Exercise:**
 
 After all this theory it's finally time for some hands-on action. Pick one of the following options:
 
@@ -81,9 +79,17 @@ After all this theory it's finally time for some hands-on action. Pick one of th
 
 In the threat modeling part, we saw stats about the most common vulnerability types. For the remainder of the workshop we'll be looking into identifying, fixing, exploiting and preventing commonly exploited vulnerabilities.
 
-### Exercise 1
+### Integer Arithmetic Fails
 
-In [exercise. 1](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise1), we'll give you sneak peek of the `truffle analyze` command, and upcoming feature of [Truffle Suite](https://truffleframework.com). Let's see if Truffle can spot the security bug and whether we can find a way to fix it. Once that's done, we'll have a crack at the exploiting the sane vulnerability on [CaptureTheEther](https://capturetheether.com/challenges/math/token-sale/).
+-- TODO: A few slides, show real-world hacks --
+
+https://smartcontractsecurity.github.io/SWC-registry/docs/SWC-101
+
+**Exercise 1:**
+
+In [exercise 1](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise1) we'll give a sneak peek of the `truffle analyze` command, an upcoming feature of [Truffle Suite](https://truffleframework.com). Let's see if Truffle can spot the security bug and think about ways to fix it.
+
+To make things fun, we'll have a crack at the exploiting the same vulnerability on [CaptureTheEther](https://capturetheether.com/challenges/math/token-sale/).
 
 *Hint: You need to compile the project before running the analyze command.*
 
@@ -93,36 +99,41 @@ $ truffle+analyze compile
 $ truffle+analyze analyze
 ```
 
-### Exercise 2
+**Exercise 2:**
 
-Mythril Classic has a few extra tricks up it's sleeve. In the [second exercise](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise2), we'll look out for a similar bug as in exercise 1, and show how to use Mythril Classic to make solving the challenge on [CaptureTheEther](https://capturetheether.com/challenges/math/token-whale/) a little bit easier (in other words we'll learn how to cheat).
+Mythril Classic has a few extra tricks up its sleeve. In the [second exercise](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise2), we'll find another integer arithmetic bug, and show how to use Mythril Classic to make the challenge on [CaptureTheEther](https://capturetheether.com/challenges/math/token-whale/) a little bit easier (in other words we'll cheat).
 
-*Hint: Mythril Classic has a whole lot of command line options, but running it in default mode is usually fine.*
+*Hint: Mythril Classic has a whole lot of command line options, but running it in default mode is usually fine. However, if you want to get more information, you can activate verbose reporting and debugging output.*
 
 ```
 $ cd devcon4-playground/exercise2
 $ myth -x contracts/Tokenwhale.sol
-```
-
-However, if you want to get more information, you can activate verbose reporting and debugging output.
-
-```
 $ myth --verbose-report -v2 -x contracts/Tokenwhale.sol
 ```
 
-### Exercise 3
+### Preventing Another DAOsaster
 
-To ensure that no bugs make it into the code, it's useful to make security analysis a part of the deployment pipeline. In [exercise 3](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise3), we'll try out [Guardrails](https://www.guardrails.io) on a Truffle project which should detect a couple of security issues. After brainstorming possible fixes for the issue(s), we'll then proceed to exploit them to steal some testnet ETH from the [CaptureTheEther Bank](https://capturetheether.com/challenges/miscellaneous/token-bank/).
+-- TODO: Joseph's Slides go here --
 
-### Exercise 4
+**Exercise 3:**
 
-Taklking about extra tricks: Mythril Classic can analyze smart contracts from many sources, including bytecode on the blockchain. In [exercise 4](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise4), we'll identify another type of vulnerability that has often been exploited in the past. We'll then show how to detect vulnerable contracts on the mainnet and auto-generate an exploit that extracts the ETH from the vulnerable contract.
+To ensure that no bugs make it into the code, it's useful to integrate security analysis into the deployment pipeline. In [exercise 3](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise3), we'll try out the [Guardrails](https://www.guardrails.io) Github app, which should detect a couple of security issues. After brainstorming possible fixes for the issue(s), we'll then proceed to exploit them to steal testnet ETH from the [CaptureTheEther Bank](https://capturetheether.com/challenges/miscellaneous/token-bank/).
 
-Now it's mini-CTF time! We'll deploy a real-world contract instance with a similar vulnerability. Whoever exploits it first is not only awesome, but also wins 0.1337 ETH to buy Pizza with.
+### Ether Theft and Accidental Killings
 
-### Exercise 5
+-- TODO: A few slides, show real-world hacks --
 
-TODO: Writing custom tests to verify invariants.
+**Exercise 4:**
+
+Mythril Classic can analyze smart contracts from many sources, including bytecode on the blockchain. In [exercise 4](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise4), we'll identify another type of vulnerability that has often been exploited in the past. We'll then show how to detect vulnerable contracts on the mainnet and auto-generate an exploit that extracts the ETH from the vulnerable contract.
+
+Then it's mini-CTF tim.  We'll deploy a real-world contract instance with a similar vulnerability. Whoever exploits it first is not only awesome, but also wins 0.1337 ETH for buying Pizza (or hodl).
+
+### Writing Custom Tests
+
+-- TODO: Writing custom tests to verify invariants with Mythril Classic. --
+
+**Exercise 5:**
 
 [Exercise 5](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise5).
 
