@@ -17,14 +17,9 @@
 
 ## Preparation
 
-Here's how to get set up for the workshop.
+Here's how to get set up for the workshop. It should be super easy, except if you're using Windows.
 
-**Getting Metamask and Testnet ETH:**
-
-We'll be solving some challenges on CaptureTheEther. To do that, you'll need a web3-capable browser and some testnet ETH.
-
-1. Get Metamask
-2. Grab some ETH from the Ropsten Faucets: 
+First, you need a web3-capable browser and some testnet ETH. You probably also have both, but if not, get [Metamask](https://metamask.io) and grab some ETH from the Ropsten faucets:
 
 - https://faucet.metamask.io/
 - https://faucet.ropsten.be/
@@ -77,13 +72,11 @@ After all this theory it's finally time for some hands-on action. Pick one of th
 
 ## Part 3 - Security Verification and Hacking
 
-In the threat modeling part, we saw stats about the most common vulnerability types. For the remainder of the workshop we'll be looking into identifying, fixing, exploiting and preventing commonly exploited vulnerabilities.
+In the threat modeling part, we saw stats about the most common vulnerability types. For the remainder of the workshop we'll be looking into identifying, fixing, exploiting and preventing commonly exploited vulnerabilities
 
 ### Integer Arithmetic Fails
 
 -- TODO: A few slides, show real-world hacks --
-
-https://smartcontractsecurity.github.io/SWC-registry/docs/SWC-101
 
 **Exercise 1:**
 
@@ -111,6 +104,10 @@ $ myth -x contracts/Tokenwhale.sol
 $ myth --verbose-report -v2 -x contracts/Tokenwhale.sol
 ```
 
+**See also:**
+
+- [SWC-101](https://smartcontractsecurity.github.io/SWC-registry/docs/SWC-101)
+
 ### Preventing Another DAOsaster
 
 -- TODO: Joseph's Slides go here --
@@ -118,6 +115,10 @@ $ myth --verbose-report -v2 -x contracts/Tokenwhale.sol
 **Exercise 3:**
 
 To ensure that no bugs make it into the code, it's useful to integrate security analysis into the deployment pipeline. In [exercise 3](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise3), we'll try out the [Guardrails](https://www.guardrails.io) Github app, which should detect a couple of security issues. After brainstorming possible fixes for the issue(s), we'll then proceed to exploit them to steal testnet ETH from the [CaptureTheEther Bank](https://capturetheether.com/challenges/miscellaneous/token-bank/).
+
+**See also:**
+
+- [SWC-107](https://smartcontractsecurity.github.io/SWC-registry/docs/SWC-107)
 
 ### Ether Theft and Accidental Killings
 
@@ -128,6 +129,12 @@ To ensure that no bugs make it into the code, it's useful to integrate security 
 Mythril Classic can analyze smart contracts from many sources, including bytecode on the blockchain. In [exercise 4](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise4), we'll identify another type of vulnerability that has often been exploited in the past. We'll then show how to detect vulnerable contracts on the mainnet and auto-generate an exploit that extracts the ETH from the vulnerable contract.
 
 Now the real fun starts! We'll deploy a real-world contract instance with a similar vulnerability. Whoever exploits it first is not only awesome, but also wins 0.1337 ETH for buying Pizza (or hodl).
+
+**See also:**
+
+- [SWC-105](https://smartcontractsecurity.github.io/SWC-registry/docs/SWC-105)
+- [SWC-106](https://smartcontractsecurity.github.io/SWC-registry/docs/SWC-106)
+- [SWC-118](https://smartcontractsecurity.github.io/SWC-registry/docs/SWC-118)
 
 ### Writing Custom Tests
 
