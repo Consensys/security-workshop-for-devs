@@ -84,7 +84,7 @@ $ truffle+analyze analyze
 
 ### Exercise 2
 
-Mythril Classic has a few extra tricks up it's sleeve. In the [second exercise](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise2), we'll look out for a similar bug as in exercise 1, and show how to use Mythril Classic to make solving the challenge on [CaptureTheEther](https://capturetheether.com/challenges/math/token-whale/)] a little bit easier (i.e. we'll learn how to cheat).
+Mythril Classic has a few extra tricks up it's sleeve. In the [second exercise](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise2), we'll look out for a similar bug as in exercise 1, and show how to use Mythril Classic to make solving the challenge on [CaptureTheEther](https://capturetheether.com/challenges/math/token-whale/) a little bit easier (in other words we'll learn how to cheat).
 
 Hint: Mythril Classic has a whole lot of command line options, but running it in default mode is usually fine.
 
