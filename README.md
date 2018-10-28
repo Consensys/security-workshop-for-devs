@@ -113,7 +113,7 @@ Top top things off, we'll deploy a real-world instance of a vulnerable contract 
 
 TODO: Writing custom tests to verify invariants.
 
-[https://github.com/ConsenSys/devcon4-exercises/tree/master/exercise5](Exercise 5).
+[Exercise 5](https://github.com/ConsenSys/devcon4-exercises/tree/master/exercise5).
 
 ## What to Do Next
 
