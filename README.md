@@ -19,7 +19,7 @@
 
 Here's how to get set up for the workshop. It should be super easy, except if you're using Windows.
 
-First, you need a web3-capable browser and some testnet ETH. You probably also have both, but if not, get [Metamask](https://metamask.io) and grab some ETH from the Ropsten faucets:
+First, you need a web3 capable browser and some testnet ETH. You probably also have both, but if not, get [Metamask](https://metamask.io) and grab some ETH from the Ropsten faucets:
 
 - https://faucet.metamask.io/
 - https://faucet.ropsten.be/
@@ -67,7 +67,7 @@ Before and during buidling a smart contract system you should think about potent
 
 After all this theory it's finally time for some hands-on action. Pick one of the following options:
 
-- [Build a threat model for your own smart contract system](threat-modeling/exercise_sample_system.md)
+- [Build a threat model for your own smart contract system](threat-modeling/exercise_your_own_system.md)
 - [Build a threat model for Crypto Froggies](threat-modeling/exercise_sample_system.md)
 
 ## Part 3 - Security Verification and Hacking
@@ -82,7 +82,7 @@ In the threat modeling part, we saw stats about the most common vulnerability ty
 
 In [exercise 1](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise1) we'll give a sneak peek of the `truffle analyze` command, an upcoming feature of [Truffle Suite](https://truffleframework.com). Let's see if Truffle can spot the security bug and think about ways to fix it.
 
-To make things fun, we'll have a crack at the exploiting the same vulnerability on [CaptureTheEther](https://capturetheether.com/challenges/math/token-sale/).
+To make things fun, we'll have a crack at exploiting the same vulnerability on [CaptureTheEther](https://capturetheether.com/challenges/math/token-sale/).
 
 *Hint: You need to compile the project before running the analyze command.*
 
