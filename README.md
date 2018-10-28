@@ -80,9 +80,9 @@ In the threat modeling part, we saw stats about the most common vulnerability ty
 
 ### Exercise 1
 
-In this [exercise](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise1), we'll try out the upcoming Mythril Platform "analyze" feature in Truffle Suite. Let's see if we can spot the bug and brainstorm a fix. Once that's done, we'll have a crack at the hacking the [token sale on CaptureTheEther](https://capturetheether.com/challenges/math/token-sale/).
+In [exercise. 1](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise1), we'll give you sneak peek of the `truffle analyze` command, and upcoming feature of [Truffle Suite](https://truffleframework.com). Let's see if Truffle can spot the security bug and whether we can find a way to fix it. Once that's done, we'll have a crack at the exploiting the sane vulnerability on [CaptureTheEther](https://capturetheether.com/challenges/math/token-sale/).
 
-Hint: You need to compile the project before running the analyze command.
+*Hint: You need to compile the project before running the analyze command.*
 
 ```
 $ cd devcon4-playground/exercise1
@@ -94,7 +94,7 @@ $ truffle+analyze analyze
 
 Mythril Classic has a few extra tricks up it's sleeve. In the [second exercise](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise2), we'll look out for a similar bug as in exercise 1, and show how to use Mythril Classic to make solving the challenge on [CaptureTheEther](https://capturetheether.com/challenges/math/token-whale/) a little bit easier (in other words we'll learn how to cheat).
 
-Hint: Mythril Classic has a whole lot of command line options, but running it in default mode is usually fine.
+*Hint: Mythril Classic has a whole lot of command line options, but running it in default mode is usually fine.*
 
 ```
 $ cd devcon4-playground/exercise2
@@ -109,13 +109,13 @@ $ myth --verbose-report -v2 -x contracts/Tokenwhale.sol
 
 ### Exercise 3
 
-To ensure that no bugs make it into the code, it's useful to make security analysis a part of the deployment pipeline. In [exercise 3](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise3), we'll try out Guardrails on a Truffle project, which should detect a couple of security issues. After brainstorming possible fixes for the issue(s) detected, we'll then proceed to exploit the issue and steal somne testnet ETH from the [CaptureTheEther Bank](https://capturetheether.com/challenges/miscellaneous/token-bank/).
+To ensure that no bugs make it into the code, it's useful to make security analysis a part of the deployment pipeline. In [exercise 3](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise3), we'll try out [Guardrails](https://www.guardrails.io) on a Truffle project which should detect a couple of security issues. After brainstorming possible fixes for the issue(s), we'll then proceed to exploit them to steal some testnet ETH from the [CaptureTheEther Bank](https://capturetheether.com/challenges/miscellaneous/token-bank/).
 
 ### Exercise 4
 
-Taklking about extra tricks: Mythril Classic can analyze smart contracts from many sources, including bytecode on the blockchain. In [exercise 4](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise4), we'll identify another type of vulnerability that has often been exploited in the past. We'll then show how to detect this vulnerability on the mainnet and auto-generate an exploit that extracts all the ETH from the vulnerable contract.
+Taklking about extra tricks: Mythril Classic can analyze smart contracts from many sources, including bytecode on the blockchain. In [exercise 4](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise4), we'll identify another type of vulnerability that has often been exploited in the past. We'll then show how to detect vulnerable contracts on the mainnet and auto-generate an exploit that extracts the ETH from the vulnerable contract.
 
-Top top things off, we'll deploy a real-world instance of a vulnerable contract for our valued participants to exploit.
+Now it's mini-CTF time! We'll deploy a real-world contract instance with a similar vulnerability. Whoever exploits it first is not only awesome, but also wins 0.1337 ETH to buy Pizza with.
 
 ### Exercise 5
 
