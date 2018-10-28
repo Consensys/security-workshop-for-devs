@@ -7,6 +7,7 @@
   * [Preparation](#preparation)
   * [Part 1 - The Smart Contract Secure SDLC](#part-1---the-smart-contract-secure-sdlc)
   * [Part 2 - Threat Modeling](#part-2---threat-modeling)
+    + [Threat Modeling Exercise](#threat-modeling-exercise)
   * [Part 3 - Security Verification and Hacking](#part-3---security-verification-and-hacking)
     + [Exercise 1](#exercise-1)
     + [Exercise 2](#exercise-2)
