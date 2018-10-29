@@ -157,13 +157,35 @@ The Solidity `assert()` statement is used to specify conditions that should *alw
 
 Mythril Classic will detect reachable exceptions by default. To *only* search for exceptions, add the `-mexceptions` option.
 
-```
+```solidity
 $ myth -mexceptions -x <Solidity file>
 ```
 
 **Exercise 5:**
 
 In [exercise 5](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise5), we'll write a test to (dis-)prove an invariant in a [token contract](https://github.com/ConsenSys/devcon4-playground/blob/master/exercise5/token-with-backdoor.sol). The token code sample was shown by Josselin Feist on TruffleCon 2018 (shouts to our friends from [Trail of Bits](https://www.trailofbits.com)).
+
+The invariant we want to prove is that the user's balance can never exceed 1,000. A clean way to do this is to create a separate test contract that inherits from our test subject. Create a new file named `token-with-backdoor-test.sol` in the `exercise5` directory, and add a function containing an assert that is triggered if `balances[msg.sender]` is greater than 1,000:
+
+```
+import "./token-with-backdoor.sol";
+
+contract TokenTest is Token {
+
+    // Verify that the user's balance can never exceed 1000
+    
+    function verify_balance() {
+        assert(balances[msg.sender] <= 1000);
+    }
+ 
+}
+```
+
+Now we should be ready to go! Run Mythril Classic against the newly created file:
+
+```solidity
+$ myth -mexceptions -x token-with-backdoor-test.sol
+```
 
 ## What to Do Next
 
