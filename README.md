@@ -5,46 +5,62 @@
 # How To Not Get Rekt: The DevCon4 Workshop
 
   * [Preparation](#preparation)
+    + [Getting the Exercises](#getting-the-exercises)
+    + [Installing Security Tools from the Future](#installing-security-tools-from-the-future)
   * [Part 1 - The Smart Contract Secure SDLC](#part-1---the-smart-contract-secure-sdlc)
   * [Part 2 - Threat Modeling](#part-2---threat-modeling)
   * [Part 3 - Security Verification and Hacking](#part-3---security-verification-and-hacking)
     + [Integer Arithmetic Fails](#integer-arithmetic-fails)
     + [Preventing Another DAOsaster](#preventing-another-daosaster)
     + [Ether Theft and Accidental Killings](#ether-theft-and-accidental-killings)
-    + [Writing Custom Tests](#writing-custom-tests)
+    + [Verifying Invariants Using Asserts](#verifying-invariants-using-asserts)
   * [What to Do Next](#what-to-do-next)
   * [Credit](#credit)
 
 ## Preparation
 
-Here's how to get set up for the workshop. It should be super easy, except if you're using Windows.
+Here's how to get set up for the workshop. It should be super easy except if you're using Windows.
 
 First, you need a web3-capable browser and some testnet ETH. You probably also have both, but if not, get [Metamask](https://metamask.io) and grab some ETH from the Ropsten faucets:
 
 - https://faucet.metamask.io/
 - https://faucet.ropsten.be/
 
-**Downloading the Exercises:**
+### Getting the Exercises
 
-The workshop exercises are hosted in an separate repo. Clone the repo to get them:
+The workshop exercises are hosted in an separate repo. Get a local copy by cloning the repo:
 
 ```
 $ git clone https://github.com/ConsenSys/devcon4-playground/
 ```
 
-**Tools:**
+### Installing Security Tools from the Future
 
-In this workshop you'll get a sneak peek into the future: We'll be using the latest experimental build of [Mythril Classic](https://github.com/ConsenSys/mythril-classic) as well as [Mythril Platform](https://mythril.ai) prototypes we have built together with the [Truffle](https://truffleframework.com) and [Guardrails](https://www.guardrails.io) teams. Here's how install the tools:
+In this workshop you'll get a sneak peek into the future: We'll be using Mythril Platform prototypes we built together with the [Truffle](https://truffleframework.com) and [Guardrails](https://www.guardrails.io) guys, as well as the latest experimental build of [Mythril Classic](https://github.com/ConsenSys/mythril-classic) as well as [Mythril Platform](https://mythril.ai).
 
-| Tool        |  Instructions           | 
-| :-------------: |-------------| 
-| <img src="/static/mythril_new.png" width="180px"/>  | We'll use the newest and most awesome build of Mythril Classic during the workshop. 
-|<img src="/static/truffle.png" width="90px"/>  |  [Truffle Suite](https://truffleframework.com) is a popular development framework for Ethereum. Run `npm install -g truffle-plus-analyze` to install a build of Truffle 5.0 with built-in Mythril Platform support (note that this is still early alpha).
-| <img src="/static/guardrails.png" width="280px"/> | [Guardrails](https://www.guardrails.io) is a Github app that hooks into the development workflow and reports security issues on every pull request. To use it, install the [Guardrails Github app](https://github.com/apps/guardrails).
+If you run into any insurmountable problems ask the instructors for help. Some of our core devs will also be on standby on [Discord](https://discord.gg/E3YrVtG) during the workshop.
 
-**Support:**
+#### Truffle 5 Experimental Build
 
-If anything goes wrong ask the instructors for help. Some of our core devs will also be on standby on [Discord](https://discord.gg/E3YrVtG) during the workshop (sometimes they can be quite nice and helpful).
+[Truffle Suite](https://truffleframework.com) is a popular development framework for Ethereum. For this workshop, we'll install a special preview with Mythril Platform integration. Run the following command to install it:
+
+```
+$ npm install -g truffle-plus-analyze
+```
+
+Don't worry if you already have Truffle installed - installing the experimental build will not affect your existing installation.
+
+#### GuardRails Alpha
+
+[Guardrails](https://www.guardrails.io) is a Github app that hooks into the development workflow and reports security issues on pull requests. To use it, install the [Guardrails Github app](https://github.com/apps/guardrails). We'll try it out later during the workshop.
+
+#### Mythril Classic Develop Branch
+
+[Mythril Classic](https://github.com/ConsenSys/mythril-classic) is a command-line tool for advanced users. It can do a *lot* of stuff, such as analyzing contracts on the blockchain, creating control flow graphs, searching the Ethereum state trie and auto-generating transaction sequences to trigger bugs (plus you can use it to cheat in CTFs). Obviously we'll be using the latest bleeding-edge build which you can get from Dockerhub.
+
+```
+TODO: Docker pull cmd
+```
 
 ## Part 1 - The Smart Contract Secure SDLC
 
@@ -136,7 +152,7 @@ Now the real fun starts! We'll deploy a real-world contract instance with a simi
 - [SWC-106](https://smartcontractsecurity.github.io/SWC-registry/docs/SWC-106)
 - [SWC-118](https://smartcontractsecurity.github.io/SWC-registry/docs/SWC-118)
 
-### Writing Custom Tests
+### Verifying Invariants Using Asserts
 
 -- TODO: Writing custom tests to verify invariants with Mythril Classic. --
 
