@@ -50,6 +50,8 @@ $ npm install -g truffle-plus-analyze
 
 Don't worry if you already have Truffle installed - installing the experimental build will not affect your existing installation.
 
+You'll also need a Mythril Platform alpha key to use the `truffle analyze` command. We'll be handing those out on the workshop, but if you missed out you can ask for one on [Discord](https://discord.gg/VfTbCm4) (note that the official beta launch is still a few weeks away).
+
 #### GuardRails Alpha
 
 [Guardrails](https://www.guardrails.io) is a Github app that hooks into the development workflow and reports security issues on pull requests. To use it, install the [Guardrails Github app](https://github.com/apps/guardrails). We'll try it out later during the workshop.
@@ -59,7 +61,7 @@ Don't worry if you already have Truffle installed - installing the experimental 
 [Mythril Classic](https://github.com/ConsenSys/mythril-classic) is a command-line tool for advanced users. It can do a *lot* of stuff, such as analyzing contracts on the blockchain, creating control flow graphs, searching the Ethereum state trie and auto-generating transaction sequences to trigger bugs (plus you can use it to cheat in CTFs). Obviously we'll be using the latest bleeding-edge build which you can get from Dockerhub.
 
 ```
-TODO: Docker pull cmd
+$ docker pull mythril/myth-develop
 ```
 
 ## Part 1 - The Smart Contract Secure SDLC
