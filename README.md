@@ -5,7 +5,6 @@
 # How To Not Get Rekt: The DevCon4 Workshop
 
   * [Preparation](#preparation)
-    + [Getting the Exercises](#getting-the-exercises)
     + [Installing Security Tools from the Future](#installing-security-tools-from-the-future)
   * [Part 1 - The Smart Contract Secure SDLC](#part-1---the-smart-contract-secure-sdlc)
   * [Part 2 - Threat Modeling](#part-2---threat-modeling)
@@ -25,8 +24,6 @@ First, you need a web3-capable browser and some testnet ETH. You probably also h
 
 - https://faucet.metamask.io/
 - https://faucet.ropsten.be/
-
-### Getting the Exercises
 
 The workshop exercises are hosted in an separate repo. Get a local copy by cloning the repo:
 
