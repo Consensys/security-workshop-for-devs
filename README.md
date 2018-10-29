@@ -153,11 +153,17 @@ Now the real fun starts! We'll deploy a real-world contract instance with a simi
 
 ### Verifying Invariants Using Asserts
 
--- TODO: Writing custom tests to verify invariants with Mythril Classic. --
+The Solidity `assert()` statement is used to specify conditions that should *always* hold. If you want to prove certain assumptions about your code, you can put them into asserts and use Mythril's symbolic execution engine to do all the hard work for you.
+
+Mythril Classic will detect reachable exceptions by default. To *only* search for exceptions, add the `-mexceptions` option.
+
+```
+$ myth -mexceptions -x <Solidity file>
+```
 
 **Exercise 5:**
 
-[Exercise 5](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise5).
+In [exercise 5](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise5), we'll write a test to (dis-)prove an invariant in a [token contract](https://github.com/ConsenSys/devcon4-playground/blob/master/exercise5/token-with-backdoor.sol). The token code sample was shown by Josselin Feist on TruffleCon 2018 (shouts to our friends from [Trail of Bits](https://www.trailofbits.com)).
 
 ## What to Do Next
 
