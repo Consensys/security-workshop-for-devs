@@ -91,6 +91,10 @@ In the threat modeling part, we saw stats about the most common vulnerability ty
 
 ### Integer Arithmetic Fails
 
+
+
+
+
 -- TODO: A few slides, show real-world hacks --
 
 **Exercise 1:**
@@ -114,10 +118,18 @@ Mythril Classic has a few extra tricks up its sleeve. In the [second exercise](h
 *Hint: Mythril Classic has a whole lot of command line options, but running it in default mode is usually fine. However, if you want to get more information, you can activate verbose reporting and debugging output.*
 
 ```
-$ cd devcon4-playground/exercise2
-$ myth -x contracts/Tokenwhale.sol
-$ myth --verbose-report -v2 -x contracts/Tokenwhale.sol
+$ myth -x exercise2/contracts/Tokensale.sol --verbose-report
 ```
+
+If everything goes right, Mythril should report an integer overflow vulnerability in a multiplication operation as well as the transaction(s) that need to be sent to trigger the overflow. The generated transaction has the following fields:
+
+```
+{'call_value': '0x0',
+'calldata': '0xe4849b3200001508014819'
+}
+```
+
+Can you explain why calldata has that particular value?
 
 **See also:**
 
