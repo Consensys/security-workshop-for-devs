@@ -175,7 +175,7 @@ Create a copy of `Tokensale.sol` called `Tokensale-cheat.sol` and add an asserti
         assert(!(msg.value == 0 && numTokens > 0));
 ```
 
-This essentially means "it should never happen that numTokens is greater than zero if msg.value (the amount of Ether sent) is zero". Obviously, as the attacker that's precisely what we *want* this to happen. By adding the `--verbose-report` flag, Mythril will give you the transaction data needed to violate the assertion.
+This essentially means "it should never happen that numTokens is greater than zero if msg.value (the amount of Ether sent) is zero". Obviously, as the attacker that's precisely what we *want* to happen. By adding the `--verbose-report` flag, Mythril will give you the transaction data needed to violate the assertion.
 
 ```
 $ myth -mexceptions -x exercise2/contracts/Tokensale-cheat.sol --verbose-report
