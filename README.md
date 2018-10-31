@@ -53,7 +53,14 @@ $ npm install -g truffle-plus-analyze
 
 Don't worry if you already have Truffle installed - installing the experimental build will not affect your existing installation.
 
-You'll also need a Mythril Platform alpha key to use the `truffle analyze` command. We'll be handing those out on the workshop, but if you missed out you can ask for one on [Discord](https://discord.gg/VfTbCm4) (note that the official beta launch is still a few weeks away).
+You'll also need a Mythril Platform alpha key to use the `truffle analyze` command. In this workshop we'll use a shared temporary API key. To set it up, change into the devcon4-playground directory and run the setup script:
+
+```
+$ cd devcon4-playground
+$ source mythril-staging
+```
+
+Note that this key will only work for a couple of days as we'll be switching to JWT auth shortly. The official beta launch is still a few weeks away, but you can always touch base on us on [Discord](https://discord.gg/VfTbCm4) if you want access.
 
 #### GuardRails Alpha
 
@@ -106,13 +113,13 @@ After all this theory it's finally time for some hands-on action. Pick one of th
 
 ## Part 3 - The Real Fun Begins
 
-In the threat modeling part, we saw stats about the most common vulnerability types. For the remainder of the workshop we'll be looking into identifying, fixing, exploiting and preventing commonly exploited vulnerabilities
+In the threat modeling part, we saw stats about the most common vulnerability types. For the remainder of the workshop we'll be looking into identifying, fixing, exploiting and preventing commonly exploited vulnerabilities.
 
 ### Exercise 1 - Truffle Analyze
 
 In [exercise 1](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise1) we'll give a sneak peek of the `truffle analyze` command, an upcoming feature of [Truffle Suite](https://truffleframework.com). Let's see if Truffle can spot the security bug and think about ways to fix it.
 
-To run `truffle analyze`, first change into the project directory for exercise 1 and compile the project:
+To run `truffle analyze`, first change into the project directory for exercise 1 and compile the project. Note that you need to compile the project before running the analyze command. 
 
 ```
 $ cd devcon4-playground/exercise1
@@ -120,9 +127,9 @@ $ truffle+analyze compile
 $ truffle+analyze analyze --timeout 60
 ```
 
-To make things fun, we'll have a crack at exploiting the same vulnerability on [CaptureTheEther](https://capturetheether.com/challenges/math/token-sale/).
+If you get an error message saying "You need to set environment variable MYTHRIL_API_KEY to run analyze", re-run the setup script which as described above.
 
-*Hint: You need to compile the project before running the analyze command.*
+To make things fun, we'll have a crack at exploiting the same vulnerability on [CaptureTheEther](https://capturetheether.com/challenges/math/token-sale/).
 
 
 ### Exercise 2 - Cheating on CTFs with Mythril Classic
