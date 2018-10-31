@@ -75,7 +75,7 @@ TL;DR: Security should be incorporated during all phases of development. This in
 
 Before and during buidling a smart contract system you should think about potential threats and countermeasures. This process is formally known as threat modeling. In part 2, [Gerhard Wagner](https://twitter.com/g3rh4rdw4gn3r) introduces threat modeling basics. Here's the workshop material:
 
-- [Presentation slides](slides/How_to_Not_Get_Rekt_Part_1_Threat_Modeling.pdf)
+- [Presentation slides](slides/How_to_Not_Get_Rekt_Volume_1_Threat_Modeling.pdf)
 - [Blockchain incident threat list](threat-modeling/threat_list_blockchain_incident_db.md)
 
 **Threat Modeling Exercise:**
