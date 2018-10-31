@@ -148,7 +148,7 @@ Now things will get serious! We'll take the attacker's side and have a crack at 
 Mythril Classic has a few extra tricks up its sleeve. In the [second exercise](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise2), we'll look at a the `Tokensale` contract from [CaptureTheEther](https://capturetheether.com/challenges/math/token-whale/). The source code of that contract is in the `exercise2` directory. The question is, does it have any vulnerabilities? Let's do a quick Mythril Classic run to find out:
 
 ```
-$ myth -mexceptions -x exercise2/contracts/Tokensale.sol
+$ myth -x exercise2/contracts/Tokensale.sol
 ```
 
 Looks like another integer-related bug! Let's now think about [exploiting this issue[(CaptureTheEther](https://capturetheether.com/challenges/math/token-whale/). Assuming we want to get unmeasurable riches without paying a single ETH, what value should the multiplication yield?
