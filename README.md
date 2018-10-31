@@ -163,9 +163,9 @@ Mythril Classic has a few extra tricks up its sleeve. In the [second exercise](h
 $ myth -x exercise2/contracts/Tokensale.sol
 ```
 
-Looks like another integer-related bug! Let's now think about [exploiting this issue[(CaptureTheEther](https://capturetheether.com/challenges/math/token-whale/). Assuming we want to get unmeasurable riches without paying a single ETH, what value should the multiplication yield?
+Looks like another integer-related bug! Let's now think about [exploiting this issue on CaptureTheEther](https://capturetheether.com/challenges/math/token-whale/). What we want is to get a lot of tokens without paying a single ETH. A nice trick is to express this as an *invariant* using an `assert()` statement and letting Mythril do the work of computing the solution (if it exists). 
 
-By adding an assert statemtent to the code, we can use Mythril classic to compute the exact transaction we need to send to exploit the issue. Create a copy of `Tokensale.sol` called `Tokensale-cheat.sol` and add an assert statement to the function `buy` as follows:
+Create a copy of `Tokensale.sol` called `Tokensale-cheat.sol` and add an assertion to the function `buy` as follows:
 
 ```
     function buy(uint256 numTokens) public payable {
@@ -175,13 +175,13 @@ By adding an assert statemtent to the code, we can use Mythril classic to comput
         assert(!(msg.value == 0 && numTokens > 0));
 ```
 
-This essentially means "I expect it to be impossible for numTokens to be greater than zero if message value is zero". You can now use Mythril to find out if that assumption holds for all inputs:
+This essentially means "it should never happen that numTokens is greater than zero if msg.value (the amount of Ether sent) is zero". Obviously, as the attacker we actually *want* this to happen. So let's use Mythril's symbolic execution engine to find the right inputs:
 
 ```
 $ myth -mexceptions -x exercise2/contracts/Tokensale.sol --verbose-report
 ```
 
-By adding the `--verbose-report` flag, Mythril will give you the transaction data needed to trigger every bug it finds. Can you tell why "calldata" in Mythril's output has that particular value?
+By adding the `--verbose-report` flag, Mythril will give you the transaction data needed to violate the assertion. Can you tell why "calldata" in Mythril's output has that particular value?
 
 ### Exercise 3 - Continuous Integration with Github Projects
 
@@ -191,7 +191,7 @@ To ensure that no bugs make it into the code, it's useful to integrate security 
 
 Mythril Classic can analyze smart contracts from many sources, including bytecode on the blockchain. In [exercise 4](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise4), we'll identify another type of vulnerability that has often been exploited in the past. We'll then show how to detect vulnerable contracts on the mainnet and auto-generate an exploit that extracts the ETH from the vulnerable contract.
 
-An important aspect is the number of transactions Mythril (symbolically) executes. The default is 1, but you can increase this number for a more in-depth analysis (note that this increases analysis time significantly). By setting max transactions to 2, you will also detect bugs that are two transactions "deep".
+An important aspect is the number of transactions Mythril (symbolically) executes. The default number is 1, but you can increase it for a more in-depth analysis (note that this increases analysis time significantly). By setting max transactions to 2, you will also detect bugs that are two transactions "deep".
 
 For this example, let's try to set max transaction count to 2:
 
@@ -231,13 +231,13 @@ contract TokenTest is Token {
 }
 ```
 
-
-
 Now we should be ready to go! Run Mythril Classic against the newly created file:
 
 ```bash
 $ myth -mexceptions -x token-with-backdoor-test.sol --max-transaction-count 3
 ```
+
+As you can see, in this case three transactions need to be sent in the correct order to violate the invariant. Again, it is useful to have a close look at Mythril's output and match it to the functions in the contract.
 
 ## What to Do Next
 
