@@ -24,7 +24,7 @@ Security is at the top of your mind and you want to make sure that the system is
 
 #### Threat Model 
 
-Use the [threat example table](./threat_list_blockchain_incident_db.md) from the Blockchain incident db and think how they might apply to this system. If you get lost have a look at the slides in particular the threat modeling cheat sheet in the [slides](./How_to_Not_Get_Rekt_Part_Volume_1_Threat_Modeling.pdf).   
+Use the [threat example table](./threat_list_blockchain_incident_db.md) from the Blockchain incident db and think how they might apply to this system. If you get lost have a look at threat modeling cheat sheet in the [slides](./../slides/How_to_Not_Get_Rekt_Volume_1_Threat_Modeling.pdf).   
 
 | Number | Threat | Mitigation Strategy |
 |--------|---------------------------------------------------------------|---------------------------------------------------------------|
