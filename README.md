@@ -58,13 +58,14 @@ You'll also need a Mythril Platform alpha key to use the `truffle analyze` comma
 ```
 $ cd devcon4-playground
 $ source mythril-staging
+Set up to use Mythril staging
 ```
 
-Note that this key will only work for a couple of days as we'll be switching to JWT auth shortly. The official beta launch is still a few weeks away, but you can always touch base on us on [Discord](https://discord.gg/VfTbCm4) if you want access.
+Note that this API key will only work for a couple of days as we'll be switching to JWT auth shortly. The official beta launch is still a few weeks away, but you can always touch base on us on [Discord](https://discord.gg/VfTbCm4) if you want access.
 
 #### GuardRails Alpha
 
-[Guardrails](https://www.guardrails.io) is a Github app that hooks into the development workflow and reports security issues on pull requests. To try out Guardrails, for your own copy of the exercises by going to the [exercises repository](https://github.com/ConsenSys/devcon4-playground/) on clicking the "Fork" button on the top right. Then, install the [Guardrails Github app](https://github.com/apps/guardrails) and point it to your copy of the repo (we'll also go through this process in the workshop).
+[Guardrails](https://www.guardrails.io) is a Github app that hooks into the development workflow and reports security issues on pull requests. To try out Guardrails, fork the [devcon4-playground repository](https://github.com/ConsenSys/devcon4-playground/) using the "Fork" button on the top right. Then, install the [Guardrails Github app](https://github.com/apps/guardrails) and point it to your copy of the devcon4-playground (we'll go through this process in the workshop).
 
 #### Mythril Classic
 
@@ -85,6 +86,7 @@ Mythril version v0.19.0
 ```
 $ docker pull mythril/myth
 $ docker run mythril/myth --version
+Mythril version v0.19.0
 ```
 
 ## Part 1 - The Smart Contract Secure SDLC
@@ -99,27 +101,27 @@ TL;DR: Security should be incorporated during all phases of development. This in
 
 ## Part 2 - Threat Modeling
 
-Before and during buidling a smart contract system you should think about potential threats and countermeasures. This process is formally known as threat modeling. In part 2, [Gerhard Wagner](https://twitter.com/g3rh4rdw4gn3r) introduces threat modeling basics. Here's the workshop material:
+Before and during buidling a smart contract system you should think about potential threats and countermeasures. This process is known as threat modeling. In part 2, [Gerhard Wagner](https://twitter.com/g3rh4rdw4gn3r) introduces threat modeling basics. Here's the workshop material:
 
 - [Presentation slides](slides/How_to_Not_Get_Rekt_Volume_1_Threat_Modeling.pdf)
 - [Blockchain incident threat list](threat-modeling/threat_list_blockchain_incident_db.md)
 
 **Threat Modeling Exercise:**
 
-After all this theory it's finally time for some hands-on action. Pick one of the following options:
+After all this theory it's time for some hands-on action. Pick one of the following options:
 
 - [Build a threat model for your own smart contract system](threat-modeling/exercise_your_own_system.md)
 - [Build a threat model for Crypto Froggies](threat-modeling/exercise_sample_system.md)
 
 ## Part 3 - The Real Fun Begins
 
-In the threat modeling part, we saw stats about the most common vulnerability types. For the remainder of the workshop we'll be looking into identifying, fixing, exploiting and preventing commonly exploited vulnerabilities.
+For the remainder of the workshop we'll be looking at different ways of identifying, fixing, exploiting and preventing vulnerabilities during development.
 
 ### Exercise 1 - Truffle Analyze
 
 In [exercise 1](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise1) we'll give a sneak peek of the `truffle analyze` command, an upcoming feature of [Truffle Suite](https://truffleframework.com). Let's see if Truffle can spot the security bug and think about ways to fix it.
 
-To run `truffle analyze`, first change into the project directory for exercise 1 and compile the project. Note that you need to compile the project before running the analyze command. 
+To run `truffle analyze`, first change into the project directory for exercise 1 and compile the project. Note that you need to compile the code before running the `truffle analyze` command. 
 
 ```
 $ cd devcon4-playground/exercise1
@@ -129,8 +131,17 @@ $ truffle+analyze analyze --timeout 60
 
 If you get an error message saying "You need to set environment variable MYTHRIL_API_KEY to run analyze", re-run the setup script which as described above.
 
-To make things fun, we'll have a crack at exploiting the same vulnerability on [CaptureTheEther](https://capturetheether.com/challenges/math/token-sale/).
+The results you get from `truffle analyze` should look similar to this:
 
+```
+0:0   error  Contracts should be deployed with the same compiler version and flags that they have been tested with  SWC-103                                        
+20:4  error  The arithmetic operation can result in integer overflow   SWC-101                                                                                          
+(...)
+```
+
+Note the "SWC" identifier at the end: That's a reference to the [Smart Contract Weakness Classification (EIP 1470)](https://smartcontractsecurity.github.io/SWC-registry/). You can look up details about each issue there.
+
+Now things will get serious! We'll take the attacker's side and have a crack at exploiting a similar vulnerability on [CaptureTheEther](https://capturetheether.com/challenges/math/token-sale/).
 
 ### Exercise 2 - Cheating on CTFs with Mythril Classic
 
@@ -139,15 +150,17 @@ Mythril Classic has a few extra tricks up its sleeve. In the [second exercise](h
 *Hint: Mythril Classic has a whole lot of command line options, but running it in default mode is usually fine. However, if you want to get more information, you can activate verbose reporting and debugging output.*
 
 ```
-$ myth -x exercise2/contracts/Tokensale.sol --verbose-report
+$ myth -x exercise2/contracts/Tokensale.sol
 ```
 
-If everything goes right, Mythril should report an integer overflow vulnerability in a multiplication operation as well as the transaction(s) that need to be sent to trigger the overflow. The generated transaction has the following fields:
+If everything goes right, Mythril should report an integer overflow vulnerability resulting from a multiplication.
+
+Let's now think about [exploiting this issue[(CaptureTheEther](https://capturetheether.com/challenges/math/token-whale/). Assuming we want to get unmeasurable riches without paying a single ETH, what value should the multiplication yield?
+
+By adding an assert statemtent to the code, we can use Mythril classic to compute the exact transaction we need to send to exploit the issue. Add the correct assert to Tokensale.sol and run the following command:
 
 ```
-{'call_value': '0x0',
-'calldata': '0xe4849b3200001508014819'
-}
+$ myth -mexceptions -x exercise2/contracts/Tokensale.sol --verbose-report
 ```
 
 Can you explain why calldata has that particular value?
