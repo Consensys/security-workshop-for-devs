@@ -39,19 +39,29 @@ $ git clone https://github.com/ConsenSys/devcon4-playground/
 
 In this workshop you'll get a sneak peek into the future: We'll be using Mythril Platform prototypes we built together with the [Truffle](https://truffleframework.com) and [Guardrails](https://www.guardrails.io) guys, as well as the latest build of [Mythril Classic](https://github.com/ConsenSys/mythril-classic), which was we created just in time for DevCon4 under extremely high workload (in most countries such work conditions would be illegal)!
 
-If you run into any insurmountable problems ask the instructors for help. Some of our core devs will also be on standby on [Discord](https://discord.gg/E3YrVtG) during the workshop.
+If you run into insurmountable problems ask the instructors for help. There's also a dedicated [Discord channel](https://discord.gg/kGDd8FP) that we created exclusively for you, the valued workshop participant. Some of
+our core devs will be on standby to fix bugs in realtime.
 
 **Note that this is all super-experimental stuff! The [Mythril Platform](https://mythril.ai) beta isn't even starting before December. Monitor the #announcements channel on [Discord](https://discord.gg/kktn8Wt) for updates.**
 
 #### Truffle 5 Prototype
 
-[Truffle Suite](https://truffleframework.com) is a popular development framework for Ethereum. For this workshop, we'll install a special preview with Mythril Platform integration. Run the following command to install it:
+[Truffle Suite](https://truffleframework.com) is a popular development framework for Ethereum. For this workshop we'll install a prototype with Mythril Platform integration. Run the following command to install it:
 
 ```
 $ npm install -g truffle-plus-analyze
+$ truffle+analyze --help
+Truffle+Analyze v5.0.0-beta.1f - a development framework for Ethereum
+
+Usage: truffle+analyze <command> [options]
+
+Commands:
+(...)
+  analyze   Run Mythril Platform analyses on a contract
+(...)
 ```
 
-Don't worry if you already have Truffle installed - installing the experimental build will not affect your existing installation.
+Don't worry if you already have Truffle installed - installing the experimental build will not affect your existing installation. You'll get a separate binary called `truffle+analyze` and you can uninstall it later without breaking anything.
 
 You'll also need a Mythril Platform alpha key to use the `truffle analyze` command. In this workshop we'll use a shared temporary API key. To set it up, change into the devcon4-playground directory and run the setup script:
 
@@ -61,7 +71,7 @@ $ source mythril-staging
 Set up to use Mythril staging
 ```
 
-Note that this API key will only work for a couple of days as we'll be switching to JWT auth shortly. The official beta launch is still a few weeks away, but you can always touch base on us on [Discord](https://discord.gg/VfTbCm4) if you want access.
+Note that this API key will only work for a couple of days as we'll be switching to JWT auth shortly. The official beta launch is still a few weeks away, but you can always touch base with us on [Discord](https://discord.gg/VfTbCm4) if you want access.
 
 #### GuardRails Alpha
 
