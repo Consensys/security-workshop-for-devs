@@ -165,15 +165,23 @@ $ myth -x exercise2/contracts/Tokensale.sol
 
 Looks like another integer-related bug! Let's now think about [exploiting this issue[(CaptureTheEther](https://capturetheether.com/challenges/math/token-whale/). Assuming we want to get unmeasurable riches without paying a single ETH, what value should the multiplication yield?
 
-By adding an assert statemtent to the code, we can use Mythril classic to compute the exact transaction we need to send to exploit the issue. Add the correct assert to Tokensale.sol and run the following command:
+By adding an assert statemtent to the code, we can use Mythril classic to compute the exact transaction we need to send to exploit the issue. Create a copy of `Tokensale.sol` called `Tokensale-cheat.sol` and add an assert statement to the function `buy` as follows:
+
+```
+    function buy(uint256 numTokens) public payable {
+
+        require(msg.value == numTokens * PRICE_PER_TOKEN);
+
+        assert(!(msg.value == 0 && numTokens > 0));
+```
+
+This essentially means "I expect it to be impossible for numTokens to be greater than zero if message value is zero". You can now use Mythril to find out if that assumption holds for all inputs:
 
 ```
 $ myth -mexceptions -x exercise2/contracts/Tokensale.sol --verbose-report
 ```
 
-Can you explain why calldata has that particular value?
-
-*Hint: Mythril Classic has a whole lot of command line options, but running it in default mode is usually fine. However, if you want to get more information, you can activate verbose reporting and debugging output.*
+By adding the `--verbose-report` flag, Mythril will give you the transaction data needed to trigger every bug it finds. Can you tell why "calldata" in Mythril's output has that particular value?
 
 ### Exercise 3 - Continuous Integration with Github Projects
 
