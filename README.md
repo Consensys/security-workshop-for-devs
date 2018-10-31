@@ -33,7 +33,7 @@ $ git clone https://github.com/ConsenSys/devcon4-playground/
 
 ### Installing Security Tools from the Future
 
-In this workshop you'll get a sneak peek into the future: We'll be using Mythril Platform prototypes we built together with the [Truffle](https://truffleframework.com) and [Guardrails](https://www.guardrails.io) guys, as well as the latest build of [Mythril Classic](https://github.com/ConsenSys/mythril-classic), which was we created just in time for DevCon4 under extremely stressful work conditions (in most countries this amount of workload would probably be illegal)!
+In this workshop you'll get a sneak peek into the future: We'll be using Mythril Platform prototypes we built together with the [Truffle](https://truffleframework.com) and [Guardrails](https://www.guardrails.io) guys, as well as the latest build of [Mythril Classic](https://github.com/ConsenSys/mythril-classic), which was we created just in time for DevCon4 under extremely high workload (in most countries such work conditions would be illegal)!
 
 If you run into any insurmountable problems ask the instructors for help. Some of our core devs will also be on standby on [Discord](https://discord.gg/E3YrVtG) during the workshop.
 
@@ -102,15 +102,7 @@ After all this theory it's finally time for some hands-on action. Pick one of th
 
 In the threat modeling part, we saw stats about the most common vulnerability types. For the remainder of the workshop we'll be looking into identifying, fixing, exploiting and preventing commonly exploited vulnerabilities
 
-### Integer Arithmetic Fails
-
-
-
-
-
--- TODO: A few slides, show real-world hacks --
-
-**Exercise 1:**
+### Exercise 1 - Truffle Analyze
 
 In [exercise 1](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise1) we'll give a sneak peek of the `truffle analyze` command, an upcoming feature of [Truffle Suite](https://truffleframework.com). Let's see if Truffle can spot the security bug and think about ways to fix it.
 
@@ -124,7 +116,7 @@ $ truffle+analyze compile
 $ truffle+analyze analyze
 ```
 
-**Exercise 2:**
+### Exercise 1 - Cheating of CTFs with Mythril Classic
 
 Mythril Classic has a few extra tricks up its sleeve. In the [second exercise](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise2), we'll find another integer arithmetic bug, and show how to use Mythril Classic to make the challenge on [CaptureTheEther](https://capturetheether.com/challenges/math/token-whale/) a little bit easier (in other words we'll cheat).
 
@@ -144,49 +136,25 @@ If everything goes right, Mythril should report an integer overflow vulnerabilit
 
 Can you explain why calldata has that particular value?
 
-**See also:**
-
-- [SWC-101](https://smartcontractsecurity.github.io/SWC-registry/docs/SWC-101)
-
-### Preventing Another DAOsaster
-
--- TODO: Joseph's Slides go here --
-
-**Exercise 3:**
+### Exercise 3 - Security Analysis in Github
 
 To ensure that no bugs make it into the code, it's useful to integrate security analysis into the deployment pipeline. In [exercise 3](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise3), we'll try out the [Guardrails](https://www.guardrails.io) Github app, which should detect a couple of security issues. After brainstorming possible fixes for the issue(s), we'll then proceed to exploit them to steal testnet ETH from the [CaptureTheEther Bank](https://capturetheether.com/challenges/miscellaneous/token-bank/).
 
-**See also:**
-
-- [SWC-107](https://smartcontractsecurity.github.io/SWC-registry/docs/SWC-107)
-
-### Ether Theft and Accidental Killings
-
--- TODO: A few slides, show real-world hacks --
-
-**Exercise 4:**
+### Exercise 4 - Hacking Contracts on the Mainnet
 
 Mythril Classic can analyze smart contracts from many sources, including bytecode on the blockchain. In [exercise 4](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise4), we'll identify another type of vulnerability that has often been exploited in the past. We'll then show how to detect vulnerable contracts on the mainnet and auto-generate an exploit that extracts the ETH from the vulnerable contract.
 
 Now the real fun starts! We'll deploy a real-world contract instance with a similar vulnerability. Whoever exploits it first is not only awesome, but also wins 0.1337 ETH for buying Pizza (or hodl).
 
-**See also:**
+### Exercise 5 - Verifying Invariants Using assert()
 
-- [SWC-105](https://smartcontractsecurity.github.io/SWC-registry/docs/SWC-105)
-- [SWC-106](https://smartcontractsecurity.github.io/SWC-registry/docs/SWC-106)
-- [SWC-118](https://smartcontractsecurity.github.io/SWC-registry/docs/SWC-118)
-
-### Verifying Invariants Using Asserts
-
-The Solidity `assert()` statement is used to specify conditions that should *always* hold. If you want to prove certain assumptions about your code, you can put them into asserts and use Mythril's symbolic execution engine to do all the hard work for you.
+The Solidity `assert()` statement is used to specify conditions that are expected to *always* hold. If you want to prove certain assumptions about your code, you can put them into asserts and use Mythril's symbolic execution engine to do all the hard work for you.
 
 Mythril Classic will detect reachable exceptions by default. To *only* search for exceptions, add the `-mexceptions` option.
 
 ```bash
 $ myth -mexceptions -x <Solidity file>
 ```
-
-**Exercise 5:**
 
 In [exercise 5](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise5), we'll write a test to (dis-)prove an invariant in a [token contract](https://github.com/ConsenSys/devcon4-playground/blob/master/exercise5/token-with-backdoor.sol). The token code sample was shown by Josselin Feist on TruffleCon 2018 (shouts to our friends from [Trail of Bits](https://www.trailofbits.com)).
 
