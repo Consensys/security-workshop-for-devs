@@ -6,13 +6,17 @@
 
   * [Preparation](#preparation)
     + [Installing Security Tools from the Future](#installing-security-tools-from-the-future)
+      - [Truffle 5 Prototype](#truffle-5-prototype)
+      - [GuardRails Alpha](#guardrails-alpha)
+      - [Mythril Classic](#mythril-classic)
   * [Part 1 - The Smart Contract Secure SDLC](#part-1---the-smart-contract-secure-sdlc)
   * [Part 2 - Threat Modeling](#part-2---threat-modeling)
-  * [Part 3 - Security Verification and Hacking](#part-3---security-verification-and-hacking)
-    + [Integer Arithmetic Fails](#integer-arithmetic-fails)
-    + [Preventing Another DAOsaster](#preventing-another-daosaster)
-    + [Ether Theft and Accidental Killings](#ether-theft-and-accidental-killings)
-    + [Verifying Invariants Using Asserts](#verifying-invariants-using-asserts)
+  * [Part 3 - The Real Fun Begins](#part-3---the-real-fun-begins)
+    + [Exercise 1 - Truffle Analyze](#exercise-1---truffle-analyze)
+    + [Exercise 2 - Cheating on CTFs with Mythril Classic](#exercise-2---cheating-on-ctfs-with-mythril-classic)
+    + [Exercise 3 - Continuous Integration with Github Projects](#exercise-3---continuous-integration-with-github-projects)
+    + [Exercise 4 - Hacking Contracts on the Mainnet](#exercise-4---hacking-contracts-on-the-mainnet)
+    + [Exercise 5 - Verifying Invariants Using Asserts](#exercise-5---verifying-invariants-using-asserts)
   * [What to Do Next](#what-to-do-next)
   * [Credit](#credit)
 
@@ -37,7 +41,7 @@ In this workshop you'll get a sneak peek into the future: We'll be using Mythril
 
 If you run into any insurmountable problems ask the instructors for help. Some of our core devs will also be on standby on [Discord](https://discord.gg/E3YrVtG) during the workshop.
 
-#### Truffle 5 Experimental Build
+#### Truffle 5 Prototype
 
 [Truffle Suite](https://truffleframework.com) is a popular development framework for Ethereum. For this workshop, we'll install a special preview with Mythril Platform integration. Run the following command to install it:
 
@@ -53,7 +57,7 @@ You'll also need a Mythril Platform alpha key to use the `truffle analyze` comma
 
 [Guardrails](https://www.guardrails.io) is a Github app that hooks into the development workflow and reports security issues on pull requests. To use it, install the [Guardrails Github app](https://github.com/apps/guardrails). We'll try it out later during the workshop.
 
-#### Mythril Classic Develop Branch
+#### Mythril Classic
 
 [Mythril Classic](https://github.com/ConsenSys/mythril-classic) is a command-line tool for advanced users. It can do a *lot* of stuff, such as analyzing contracts on the blockchain, creating control flow graphs, searching the Ethereum state trie and auto-generating transaction sequences to trigger bugs (plus you can use it to cheat in CTFs).
 
@@ -98,7 +102,7 @@ After all this theory it's finally time for some hands-on action. Pick one of th
 - [Build a threat model for your own smart contract system](threat-modeling/exercise_your_own_system.md)
 - [Build a threat model for Crypto Froggies](threat-modeling/exercise_sample_system.md)
 
-## Part 3 - Security Verification and Hacking
+## Part 3 - The Real Fun Begins
 
 In the threat modeling part, we saw stats about the most common vulnerability types. For the remainder of the workshop we'll be looking into identifying, fixing, exploiting and preventing commonly exploited vulnerabilities
 
@@ -116,7 +120,7 @@ $ truffle+analyze compile
 $ truffle+analyze analyze
 ```
 
-### Exercise 1 - Cheating of CTFs with Mythril Classic
+### Exercise 2 - Cheating on CTFs with Mythril Classic
 
 Mythril Classic has a few extra tricks up its sleeve. In the [second exercise](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise2), we'll find another integer arithmetic bug, and show how to use Mythril Classic to make the challenge on [CaptureTheEther](https://capturetheether.com/challenges/math/token-whale/) a little bit easier (in other words we'll cheat).
 
@@ -136,7 +140,7 @@ If everything goes right, Mythril should report an integer overflow vulnerabilit
 
 Can you explain why calldata has that particular value?
 
-### Exercise 3 - Security Analysis in Github
+### Exercise 3 - Continuous Integration with Github Projects
 
 To ensure that no bugs make it into the code, it's useful to integrate security analysis into the deployment pipeline. In [exercise 3](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise3), we'll try out the [Guardrails](https://www.guardrails.io) Github app, which should detect a couple of security issues. After brainstorming possible fixes for the issue(s), we'll then proceed to exploit them to steal testnet ETH from the [CaptureTheEther Bank](https://capturetheether.com/challenges/miscellaneous/token-bank/).
 
@@ -146,7 +150,7 @@ Mythril Classic can analyze smart contracts from many sources, including bytecod
 
 Now the real fun starts! We'll deploy a real-world contract instance with a similar vulnerability. Whoever exploits it first is not only awesome, but also wins 0.1337 ETH for buying Pizza (or hodl).
 
-### Exercise 5 - Verifying Invariants Using assert()
+### Exercise 5 - Verifying Invariants Using Asserts
 
 The Solidity `assert()` statement is used to specify conditions that are expected to *always* hold. If you want to prove certain assumptions about your code, you can put them into asserts and use Mythril's symbolic execution engine to do all the hard work for you.
 
