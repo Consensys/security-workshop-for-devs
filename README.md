@@ -37,7 +37,7 @@ $ git clone https://github.com/ConsenSys/devcon4-playground/
 
 ### Installing Security Tools from the Future
 
-In this workshop you'll get a sneak peek into the future: We'll be using Mythril Platform prototypes we built together with the [Truffle](https://truffleframework.com) and [Guardrails](https://www.guardrails.io) guys, as well as the latest build of [Mythril Classic](https://github.com/ConsenSys/mythril-classic), which was we created just in time for DevCon4 under extremely high workload (in most countries such work conditions would be illegal)!
+In this workshop you'll get a sneak peek into the future: We'll be using Mythril Platform prototypes we built together with the [Truffle](https://truffleframework.com) and [Guardrails](https://www.guardrails.io) guys, as well as the latest build of [Mythril Classic](https://github.com/ConsenSys/mythril-classic), which was we created just in time for DevCon4 under extreme stress (in most countries such work conditions would be illegal, that's why so many of our devs live in South East Asia).
 
 If you run into insurmountable problems ask the instructors for help. There's also a dedicated [Discord channel](https://discord.gg/kGDd8FP) that we created exclusively for you, the valued workshop participant. Some of
 our core devs will be on standby to fix bugs in realtime.
@@ -61,9 +61,9 @@ Commands:
 (...)
 ```
 
-Don't worry if you already have Truffle installed - installing the experimental build will not affect your existing installation. You'll get a separate binary called `truffle+analyze` and you can uninstall it later without breaking anything.
+Don't worry if you already have Truffle installed - installing the experimental build will not affect your existing installation. You'll get a separate binary called `truffle+analyze` that you uninstall later without breaking anything.
 
-You'll also need a Mythril Platform alpha key to use the `truffle analyze` command. In this workshop we'll use a shared temporary API key. To set it up, change into the devcon4-playground directory and run the setup script:
+You'll also need a [Mythril Platform](https://mythril.ai) alpha key to use the `truffle analyze` command. In this workshop we'll use a shared temporary API key. To set it up, change into the devcon4-playground directory and run the setup script:
 
 ```
 $ cd devcon4-playground
