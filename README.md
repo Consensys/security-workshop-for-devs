@@ -57,7 +57,7 @@ You'll also need a Mythril Platform alpha key to use the `truffle analyze` comma
 
 #### GuardRails Alpha
 
-[Guardrails](https://www.guardrails.io) is a Github app that hooks into the development workflow and reports security issues on pull requests. To use it, install the [Guardrails Github app](https://github.com/apps/guardrails). We'll try it out later during the workshop.
+[Guardrails](https://www.guardrails.io) is a Github app that hooks into the development workflow and reports security issues on pull requests. To try out Guardrails, for your own copy of the exercises by going to the [exercises repository](https://github.com/ConsenSys/devcon4-playground/) on clicking the "Fork" button on the top right. Then, install the [Guardrails Github app](https://github.com/apps/guardrails) and point it to your copy of the repo (we'll also go through this process in the workshop).
 
 #### Mythril Classic
 
