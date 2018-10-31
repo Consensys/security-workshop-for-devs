@@ -241,17 +241,10 @@ As you can see, in this case three transactions need to be sent in the correct o
 
 ## What to Do Next
 
-- Solve the other challenges on CaptureTheEther and Security Innovation CTF
-- Major Mythril Platform CTF soon
-- Beta launch on first of December
-- MYTH token launch in early 2019
+A great way to continue learning is playing challenges like [Capture the Ether], [Security Innovation CTF] and [Ethernaut].
+
+If you're into buidling Ethereum security tooling, the Mythril team is probably *not* a good place for you. Because in our team, you get near-complete freedom to work on what you like on your own time, plus the resources you need to bring even complex ideas life. Most tool builders prefer keeping their tools as side projects and work on whe there's time in-between audits or on weekends. But if you *do* want to fully focus on building awesome technology that helps the ecosystem, ypu can always ping us on [Discord[(https://discord.gg/kktn8Wt).
 
 ## Credit
 
-By [ConsenSys Diligence](https://consensys.net/diligence/) and the [Mythril](https://mythril.ai) team. Special thanks to Mick Ayzenberg (Security Innovation).
-
-Todo: Add logos
-
-- ConsenSys Diligence
-- Mythril
-
+Created by [ConsenSys Diligence](https://consensys.net/diligence/) and the [Mythril](https://mythril.ai) team. Special thanks to Mick Ayzenberg (Security Innovation) and Trail of Bits.
