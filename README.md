@@ -234,7 +234,7 @@ contract TokenTest is Token {
 Now we should be ready to go! Run Mythril Classic against the newly created file:
 
 ```bash
-$ myth -mexceptions -x token-with-backdoor-test.sol --max-transaction-count 3
+$ myth -mexceptions -x exercise5/token-with-backdoor-test.sol --max-transaction-count 3 --verbose-report
 ```
 
 As you can see, in this case three transactions need to be sent in the correct order to violate the invariant. Again, it is useful to have a close look at Mythril's output and match it to the functions in the contract.
