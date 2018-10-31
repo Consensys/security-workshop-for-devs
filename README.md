@@ -73,6 +73,8 @@ Note that this API key will only work for a couple of days as we'll be switching
 
 You can install the latest version from Pypi or Dockerhub (instructions in the [Mythril Classic Wiki](https://github.com/ConsenSys/mythril-classic/wiki/Installation-and-Setup). Make sure you have version 0.19.0 installed.
 
+Mythril uses solc to compile Solidity files, so you'll need to [install that as well](https://solidity.readthedocs.io/en/latest/installing-solidity.html#binary-packages).
+
 **Installing from Pypi**
 
 ```
