@@ -81,7 +81,7 @@ Note that this API key will only work for a couple of days as we'll be switching
 
 [Mythril Classic](https://github.com/ConsenSys/mythril-classic) is a command-line tool for advanced users. It can do a *lot* of stuff, such as analyzing contracts on the blockchain, creating control flow graphs, searching the Ethereum state trie and auto-generating transaction sequences to trigger bugs (plus you can use it to cheat in CTFs).
 
-You can install the latest version from Pypi or Dockerhub (instructions in the [Mythril Classic Wiki](https://github.com/ConsenSys/mythril-classic/wiki/Installation-and-Setup). Make sure you have version 0.19.0 installed.
+You can install the latest version from Pypi or Dockerhub (instructions in the [Mythril Classic Wiki](https://github.com/ConsenSys/mythril-classic/wiki/Installation-and-Setup). Make sure you have version 0.19.3 installed.
 
 Mythril uses solc to compile Solidity files, so you'll need to [install that as well](https://solidity.readthedocs.io/en/latest/installing-solidity.html#binary-packages).
 
@@ -90,7 +90,7 @@ Mythril uses solc to compile Solidity files, so you'll need to [install that as 
 ```
 $ pip3 install mythril
 $ myth --version
-Mythril version v0.19.0
+Mythril version v0.19.3
 ```
 
 **Installing from DockerHub**
@@ -98,7 +98,7 @@ Mythril version v0.19.0
 ```
 $ docker pull mythril/myth
 $ docker run mythril/myth --version
-Mythril version v0.19.0
+Mythril version v0.19.3
 ```
 
 ## Part 1 - The Smart Contract Secure SDLC
