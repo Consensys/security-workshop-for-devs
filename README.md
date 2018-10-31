@@ -41,6 +41,8 @@ In this workshop you'll get a sneak peek into the future: We'll be using Mythril
 
 If you run into any insurmountable problems ask the instructors for help. Some of our core devs will also be on standby on [Discord](https://discord.gg/E3YrVtG) during the workshop.
 
+**Note that this is all super-experimental stuff! The [Mythril Platform](https://mythril.ai) beta isn't even starting before December. Monitor the #announcements channel on [Discord](https://discord.gg/kktn8Wt) for updates.**
+
 #### Truffle 5 Prototype
 
 [Truffle Suite](https://truffleframework.com) is a popular development framework for Ethereum. For this workshop, we'll install a special preview with Mythril Platform integration. Run the following command to install it:
