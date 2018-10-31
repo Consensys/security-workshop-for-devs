@@ -112,15 +112,18 @@ In the threat modeling part, we saw stats about the most common vulnerability ty
 
 In [exercise 1](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise1) we'll give a sneak peek of the `truffle analyze` command, an upcoming feature of [Truffle Suite](https://truffleframework.com). Let's see if Truffle can spot the security bug and think about ways to fix it.
 
-To make things fun, we'll have a crack at exploiting the same vulnerability on [CaptureTheEther](https://capturetheether.com/challenges/math/token-sale/).
-
-*Hint: You need to compile the project before running the analyze command.*
+To run `truffle analyze`, first change into the project directory for exercise 1 and compile the project:
 
 ```
 $ cd devcon4-playground/exercise1
 $ truffle+analyze compile
-$ truffle+analyze analyze
+$ truffle+analyze analyze --timeout 60
 ```
+
+To make things fun, we'll have a crack at exploiting the same vulnerability on [CaptureTheEther](https://capturetheether.com/challenges/math/token-sale/).
+
+*Hint: You need to compile the project before running the analyze command.*
+
 
 ### Exercise 2 - Cheating on CTFs with Mythril Classic
 
