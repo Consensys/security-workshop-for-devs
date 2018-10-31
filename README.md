@@ -133,7 +133,7 @@ For the remainder of the workshop we'll be looking at different ways of identify
 
 In [exercise 1](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise1) we'll give a sneak peek of the `truffle analyze` command, an upcoming feature of [Truffle Suite](https://truffleframework.com). Let's see if Truffle can spot the security bug and think about ways to fix it.
 
-To run `truffle analyze`, first change into the project directory for exercise 1 and compile the project. Note that you need to compile the code before running the `truffle analyze` command. 
+To run `truffle analyze`, first change into the project directory for exercise 1. Note that you need to compile the code before running the `truffle analyze` command. 
 
 ```
 $ cd devcon4-playground/exercise1
@@ -153,7 +153,7 @@ The results you get from `truffle analyze` should look similar to this:
 
 Note the "SWC" identifier at the end: That's a reference to the [Smart Contract Weakness Classification (EIP 1470)](https://smartcontractsecurity.github.io/SWC-registry/). You can look up details about each issue there.
 
-Now things will get serious! We'll take the attacker's side and have a crack at exploiting a similar vulnerability on [CaptureTheEther](https://capturetheether.com/challenges/math/token-sale/).
+Now things will get serious! We'll take the attacker's side and exploit a similar vulnerability on [CaptureTheEther](https://capturetheether.com/challenges/math/token-sale/).
 
 ### Exercise 2 - Cheating on CTFs with Mythril Classic
 
@@ -163,7 +163,7 @@ Mythril Classic has a few extra tricks up its sleeve. In the [second exercise](h
 $ myth -x exercise2/contracts/Tokensale.sol
 ```
 
-Looks like another integer-related bug! Let's now think about [exploiting this issue on CaptureTheEther](https://capturetheether.com/challenges/math/token-whale/). What we want is to get a lot of tokens without paying a single ETH. A nice trick is to express this as an *invariant* using an `assert()` statement and letting Mythril do the work of computing the solution (if it exists). 
+Looks like another integer-related bug! Let's now think about how to best exploit this issue. What we want is to get a lot of tokens without paying a single ETH. A nice trick is to express the exact opposite of what we want as an *invariant* using an `assert()` statement and letting Mythril do the work of finding the solution.
 
 Create a copy of `Tokensale.sol` called `Tokensale-cheat.sol` and add an assertion to the function `buy` as follows:
 
@@ -175,25 +175,25 @@ Create a copy of `Tokensale.sol` called `Tokensale-cheat.sol` and add an asserti
         assert(!(msg.value == 0 && numTokens > 0));
 ```
 
-This essentially means "it should never happen that numTokens is greater than zero if msg.value (the amount of Ether sent) is zero". Obviously, as the attacker we actually *want* this to happen. So let's use Mythril's symbolic execution engine to find the right inputs:
+This essentially means "it should never happen that numTokens is greater than zero if msg.value (the amount of Ether sent) is zero". Obviously, as the attacker we actually *want* this to happen. By adding the `--verbose-report` flag, Mythril will give you the transaction data needed to violate the assertion.
 
 ```
 $ myth -mexceptions -x exercise2/contracts/Tokensale-cheat.sol --verbose-report
 ```
 
-By adding the `--verbose-report` flag, Mythril will give you the transaction data needed to violate the assertion. Can you tell why "calldata" in Mythril's output has that particular value?
+Can you tell why "calldata" in Mythril's output has that particular value?
 
 ### Exercise 3 - Continuous Integration with Github Projects
 
-To ensure that no bugs make it into the code, it's useful to integrate security analysis into the deployment pipeline. In [exercise 3](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise3), we'll try out the [Guardrails](https://www.guardrails.io) Github app, which should detect a couple of security issues. After brainstorming possible fixes for the issue(s), we'll then proceed to exploit them to steal testnet ETH from the [CaptureTheEther Bank](https://capturetheether.com/challenges/miscellaneous/token-bank/). Note: Stealing ETH from a real contract is generally frowned upon and you shouldn't do it :)
+To ensure that no bugs make it into the code it's useful to integrate security analysis into the deployment pipeline. In [exercise 3](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise3), we'll try the [Guardrails](https://www.guardrails.io) Github app, which should detect a couple of security issues. After brainstorming possible fixes for the issue(s), we'll then proceed to exploit them to steal testnet ETH from the [CaptureTheEther Bank](https://capturetheether.com/challenges/miscellaneous/token-bank/). Note: Never steal ETH from a real smart contract as this is generally frowned upon.
 
 ### Exercise 4 - Hacking Contracts on the Mainnet
 
-Mythril Classic can analyze smart contracts from many sources, including bytecode on the blockchain. In [exercise 4](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise4), we'll identify another type of vulnerability that has often been exploited in the past. We'll then show how to detect vulnerable contracts on the mainnet and auto-generate an exploit that extracts the ETH from the vulnerable contract.
+Mythril Classic can analyze smart contracts from many sources, including bytecode on the blockchain. In [exercise 4](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise4), we'll identify another type of vulnerability that has often been exploited in the past. We'll then show how to detect vulnerable contracts on the mainnet and auto-generate an exploit that extracts the kills the vulnerable contract.
 
-An important aspect is the number of transactions Mythril (symbolically) executes. The default number is 1, but you can increase it for a more in-depth analysis (note that this increases analysis time significantly). By setting max transactions to 2, you will also detect bugs that are two transactions "deep".
+An important aspect is the number of transactions that Mythril (symbolically) executes. The default number is 1, but you can increase it for a more in-depth analysis (note that this increases analysis time significantly). By setting max transactions to 2, you will also detect bugs that are two transactions "deep".
 
-For this example, let's try to set max transaction count to 2:
+For this example, let's set the max transaction count to 2:
 
 ```
 $ myth -x exercise4/contracts/Ownable.sol --max-transaction-count 2 --verbose-report
@@ -215,7 +215,7 @@ $ myth -mexceptions -x <Solidity file>
 
 In [exercise 5](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise5), we'll write a test to (dis-)prove an invariant in a [token contract](https://github.com/ConsenSys/devcon4-playground/blob/master/exercise5/token-with-backdoor.sol). The token code sample was shown by Josselin Feist on TruffleCon 2018 (shouts to our friends from [Trail of Bits](https://www.trailofbits.com)).
 
-The invariant we want to prove is that the user's balance can never exceed 1,000. A clean way to do this is to create a separate test contract that inherits from our test subject. Create a new file named `token-with-backdoor-test.sol` in the `exercise5` directory, and add a function containing an assert that is triggered if `balances[msg.sender]` is greater than 1,000:
+The invariant we want to verify is that a user's balance can never exceed 1,000. A nice way to do this is to create a separate test contract that inherits from the contract to be tested. Create a new file named `token-with-backdoor-test.sol` in the `exercise5` directory and add a function containing the assertion that balances[msg.sender] must never exceed 1,000:
 
 ```solidity
 import "./token-with-backdoor.sol";
