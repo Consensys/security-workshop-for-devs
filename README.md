@@ -145,17 +145,13 @@ Now things will get serious! We'll take the attacker's side and have a crack at 
 
 ### Exercise 2 - Cheating on CTFs with Mythril Classic
 
-Mythril Classic has a few extra tricks up its sleeve. In the [second exercise](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise2), we'll find another integer arithmetic bug, and show how to use Mythril Classic to make the challenge on [CaptureTheEther](https://capturetheether.com/challenges/math/token-whale/) a little bit easier (in other words we'll cheat).
-
-*Hint: Mythril Classic has a whole lot of command line options, but running it in default mode is usually fine. However, if you want to get more information, you can activate verbose reporting and debugging output.*
+Mythril Classic has a few extra tricks up its sleeve. In the [second exercise](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise2), we'll look at a the `Tokensale` contract from [CaptureTheEther](https://capturetheether.com/challenges/math/token-whale/). The source code of that contract is in the `exercise2` directory. The question is, does it have any vulnerabilities? Let's do a quick Mythril Classic run to find out:
 
 ```
-$ myth -x exercise2/contracts/Tokensale.sol
+$ myth -mexceptions -x exercise2/contracts/Tokensale.sol
 ```
 
-If everything goes right, Mythril should report an integer overflow vulnerability resulting from a multiplication.
-
-Let's now think about [exploiting this issue[(CaptureTheEther](https://capturetheether.com/challenges/math/token-whale/). Assuming we want to get unmeasurable riches without paying a single ETH, what value should the multiplication yield?
+Looks like another integer-related bug! Let's now think about [exploiting this issue[(CaptureTheEther](https://capturetheether.com/challenges/math/token-whale/). Assuming we want to get unmeasurable riches without paying a single ETH, what value should the multiplication yield?
 
 By adding an assert statemtent to the code, we can use Mythril classic to compute the exact transaction we need to send to exploit the issue. Add the correct assert to Tokensale.sol and run the following command:
 
@@ -164,6 +160,8 @@ $ myth -mexceptions -x exercise2/contracts/Tokensale.sol --verbose-report
 ```
 
 Can you explain why calldata has that particular value?
+
+*Hint: Mythril Classic has a whole lot of command line options, but running it in default mode is usually fine. However, if you want to get more information, you can activate verbose reporting and debugging output.*
 
 ### Exercise 3 - Continuous Integration with Github Projects
 
