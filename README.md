@@ -33,7 +33,7 @@ $ git clone https://github.com/ConsenSys/devcon4-playground/
 
 ### Installing Security Tools from the Future
 
-In this workshop you'll get a sneak peek into the future: We'll be using Mythril Platform prototypes we built together with the [Truffle](https://truffleframework.com) and [Guardrails](https://www.guardrails.io) guys, as well as the latest experimental build of [Mythril Classic](https://github.com/ConsenSys/mythril-classic) as well as [Mythril Platform](https://mythril.ai).
+In this workshop you'll get a sneak peek into the future: We'll be using Mythril Platform prototypes we built together with the [Truffle](https://truffleframework.com) and [Guardrails](https://www.guardrails.io) guys, as well as the latest build of [Mythril Classic](https://github.com/ConsenSys/mythril-classic), which was we created just in time for DevCon4 under extremely stressful work conditions (in most countries this amount of workload would probably be illegal)!
 
 If you run into any insurmountable problems ask the instructors for help. Some of our core devs will also be on standby on [Discord](https://discord.gg/E3YrVtG) during the workshop.
 
@@ -55,15 +55,28 @@ You'll also need a Mythril Platform alpha key to use the `truffle analyze` comma
 
 #### Mythril Classic Develop Branch
 
-[Mythril Classic](https://github.com/ConsenSys/mythril-classic) is a command-line tool for advanced users. It can do a *lot* of stuff, such as analyzing contracts on the blockchain, creating control flow graphs, searching the Ethereum state trie and auto-generating transaction sequences to trigger bugs (plus you can use it to cheat in CTFs). Obviously we'll be using the latest bleeding-edge build which you can get from Dockerhub.
+[Mythril Classic](https://github.com/ConsenSys/mythril-classic) is a command-line tool for advanced users. It can do a *lot* of stuff, such as analyzing contracts on the blockchain, creating control flow graphs, searching the Ethereum state trie and auto-generating transaction sequences to trigger bugs (plus you can use it to cheat in CTFs).
+
+You can install the latest version from Pypi or Dockerhub (instructions in the [Mythril Classic Wiki](https://github.com/ConsenSys/mythril-classic/wiki/Installation-and-Setup). Make sure you have version 0.19.0 installed.
+
+** From Pypi **
 
 ```
-$ docker pull mythril/myth-develop
+$ pip3 install mythril
+$ myth --version
+Mythril version v0.19.0
+```
+
+** From DockerHub:**
+
+```
+$ docker pull mythril/myth
+$ docker run mythril/myth --version
 ```
 
 ## Part 1 - The Smart Contract Secure SDLC
 
-We'll start with a little bit of theory (sorry guys, life isn't always just fun and games). In part 1, [Tom Lindeman](https://twitter.com/EtherDotBlue) explains secure SDLC processes. He's not a coder like the rest of us, so please be gentle and don't ask him any hard technical questions.
+In part 1, [Tom Lindeman](https://twitter.com/EtherDotBlue) explains secure SDLC processes. He's not a coder like the rest of us, so please be gentle and don't ask him any hard technical questions.
 
 TL;DR: Security should be incorporated during all phases of development. This info graphic sums things up nicely:
 
