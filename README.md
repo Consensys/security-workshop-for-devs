@@ -183,7 +183,17 @@ To ensure that no bugs make it into the code, it's useful to integrate security 
 
 Mythril Classic can analyze smart contracts from many sources, including bytecode on the blockchain. In [exercise 4](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise4), we'll identify another type of vulnerability that has often been exploited in the past. We'll then show how to detect vulnerable contracts on the mainnet and auto-generate an exploit that extracts the ETH from the vulnerable contract.
 
-Now the real fun starts! We'll deploy a real-world contract instance with a similar vulnerability. Whoever exploits it first is not only awesome, but also wins 0.1337 ETH for buying Pizza (or hodl).
+An important aspect is the number of transactions Mythril (symbolically) executes. The default is 1, but you can increase this number for a more in-depth analysis (note that this increases analysis time significantly). By setting max transactions to 2, you will also detect bugs that are two transactions "deep".
+
+For this example, let's try to set max transaction count to 2:
+
+```
+$ myth -x exercise4/contracts/Ownable.sol --max-transaction-count 2 --verbose-report
+```
+
+Again, the `--verbose-report` will give you the transaction sequence for triggering the bug - take a good look at the output!
+
+Now the real fun starts: We'll deploy a real-world contract instance with a similar vulnerability. Whoever exploits it first is not only awesome, but also wins 0.1337 ETH for buying Pizza (or hodl). Tip: You can run Mythril Classic against an on-chain contract using the `-a` flag.
 
 ### Exercise 5 - Verifying Invariants Using Asserts
 
@@ -213,10 +223,12 @@ contract TokenTest is Token {
 }
 ```
 
+
+
 Now we should be ready to go! Run Mythril Classic against the newly created file:
 
 ```bash
-$ myth -mexceptions -x token-with-backdoor-test.sol
+$ myth -mexceptions -x token-with-backdoor-test.sol --max-transaction-count 3
 ```
 
 ## What to Do Next
