@@ -178,7 +178,7 @@ Create a copy of `Tokensale.sol` called `Tokensale-cheat.sol` and add an asserti
 This essentially means "it should never happen that numTokens is greater than zero if msg.value (the amount of Ether sent) is zero". Obviously, as the attacker we actually *want* this to happen. So let's use Mythril's symbolic execution engine to find the right inputs:
 
 ```
-$ myth -mexceptions -x exercise2/contracts/Tokensale.sol --verbose-report
+$ myth -mexceptions -x exercise2/contracts/Tokensale-cheat.sol --verbose-report
 ```
 
 By adding the `--verbose-report` flag, Mythril will give you the transaction data needed to violate the assertion. Can you tell why "calldata" in Mythril's output has that particular value?
