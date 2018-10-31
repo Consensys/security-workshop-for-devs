@@ -44,7 +44,7 @@ our core devs will be on standby to fix bugs in realtime.
 
 **Note that this is all super-experimental stuff! The [Mythril Platform](https://mythril.ai) beta isn't even starting before December. Monitor the #announcements channel on [Discord](https://discord.gg/kktn8Wt) for updates.**
 
-#### Truffle 5 Prototype
+#### Install 1: Truffle 5 Prototype
 
 [Truffle Suite](https://truffleframework.com) is a popular development framework for Ethereum. For this workshop we'll install a prototype with Mythril Platform integration. Run the following command to install it:
 
@@ -71,19 +71,22 @@ $ source mythril-staging
 Set up to use Mythril staging
 ```
 
-Note that this API key will only work for a couple of days as we'll be switching to JWT auth shortly. The official beta launch is still a few weeks away, but you can always touch base with us on [Discord](https://discord.gg/VfTbCm4) if you want access.
+Note that this API key will only work for a couple of days. The official beta launch is still a few weeks away, but contact us on [Discord](https://discord.gg/VfTbCm4) if you want access.
 
-#### GuardRails Alpha
+#### Install 2: GuardRails Alpha
 
-[Guardrails](https://www.guardrails.io) is a Github app that hooks into the development workflow and reports security issues on pull requests. To try out Guardrails, fork the [devcon4-playground repository](https://github.com/ConsenSys/devcon4-playground/) using the "Fork" button on the top right. Then, install the [Guardrails Github app](https://github.com/apps/guardrails) and point it to your copy of the devcon4-playground (we'll go through this process in the workshop).
+_(we'll go through this process in the workshop)_
 
-#### Mythril Classic
+[Guardrails](https://www.guardrails.io) is a Github app that hooks into the development workflow and reports security issues on pull requests. To try out Guardrails, fork the [devcon4-playground repository](https://github.com/ConsenSys/devcon4-playground/) using the "Fork" button on the top right. Then, install the [Guardrails Github app](https://github.com/apps/guardrails) and point it to your copy of the devcon4-playground repo. 
+
+#### Install 3: Mythril Classic
+
+_Mythril uses solc to compile Solidity files, so you'll need to [install that as well](https://solidity.readthedocs.io/en/latest/installing-solidity.html#binary-packages)_.
 
 [Mythril Classic](https://github.com/ConsenSys/mythril-classic) is a command-line tool for advanced users. It can do a *lot* of stuff, such as analyzing contracts on the blockchain, creating control flow graphs, searching the Ethereum state trie and auto-generating transaction sequences to trigger bugs (plus you can use it to cheat in CTFs).
 
 You can install the latest version from Pypi or Dockerhub (instructions in the [Mythril Classic Wiki](https://github.com/ConsenSys/mythril-classic/wiki/Installation-and-Setup). Make sure you have version 0.19.3 installed.
 
-Mythril uses solc to compile Solidity files, so you'll need to [install that as well](https://solidity.readthedocs.io/en/latest/installing-solidity.html#binary-packages).
 
 **Installing from Pypi**
 
