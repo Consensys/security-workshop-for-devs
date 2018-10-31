@@ -65,7 +65,7 @@ You'll also need a Mythril Platform alpha key to use the `truffle analyze` comma
 
 You can install the latest version from Pypi or Dockerhub (instructions in the [Mythril Classic Wiki](https://github.com/ConsenSys/mythril-classic/wiki/Installation-and-Setup). Make sure you have version 0.19.0 installed.
 
-** From Pypi **
+**Installing from Pypi**
 
 ```
 $ pip3 install mythril
@@ -73,7 +73,7 @@ $ myth --version
 Mythril version v0.19.0
 ```
 
-** From DockerHub:**
+**Installing from DockerHub**
 
 ```
 $ docker pull mythril/myth
