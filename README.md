@@ -134,12 +134,10 @@ For the remainder of the workshop we'll be looking at different ways of identify
 
 In [exercise 1](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise1) we'll give a sneak peek of the `truffle analyze` command, an upcoming feature of [Truffle Suite](https://truffleframework.com). Let's see if Truffle can spot the security bug and think about ways to fix it.
 
-To run `truffle analyze`, first change into the project directory for exercise 1. Note that you need to compile the code before running the `truffle analyze` command.
-
+To run `truffle analyze`, first change into the project directory for exercise 1.
 ```
 $ cd devcon4-playground/exercise1
-$ truffle+analyze compile
-$ truffle+analyze analyze --timeout 60
+$ truffle+analyze analyze
 ```
 
 If you get an error message saying "You need to set environment variable MYTHRIL_API_KEY to run analyze", re-run the setup script which as described above.
