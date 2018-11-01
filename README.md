@@ -152,7 +152,7 @@ The results you get from `truffle analyze` should look similar to this:
 
 Note the "SWC" identifier at the end: That's a reference to the [Smart Contract Weakness Classification (EIP 1470)](https://smartcontractsecurity.github.io/SWC-registry/). You can look up details about each issue there.
 
-Now things will get serious! We'll take the attacker's side and exploit a similar vulnerability on [CaptureTheEther](https://capturetheether.com/challenges/math/token-whale/).
+Now things will get serious! We'll take the attacker's side and exploit this exact contract on [Ethernaut](https://ethernaut.zeppelin.solutions/level/0x6545df87f57d21cb096a0bfcc53a70464d062512).
 
 ### Exercise 2 - Cheating on CTFs with Mythril Classic
 
