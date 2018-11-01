@@ -51,7 +51,7 @@ our core devs will be on standby to fix bugs in realtime.
 ```
 $ npm install -g truffle-plus-analyze
 $ truffle+analyze --help
-Truffle+Analyze v5.0.0-beta.1f - a development framework for Ethereum
+Truffle+Analyze v5.0.0-beta.1g - a development framework for Ethereum
 
 Usage: truffle+analyze <command> [options]
 
@@ -68,7 +68,7 @@ You'll also need a [Mythril Platform](https://mythril.ai) alpha key to use the `
 ```
 $ cd devcon4-playground
 $ source mythril-staging
-Set up to use Mythril staging
+Congratulations! You are now set up to use the Mythril Platform staging server.
 ```
 
 Note that this API key will only work for a couple of days. The official beta launch is still a few weeks away, but contact us on [Discord](https://discord.gg/VfTbCm4) if you want access.
@@ -77,7 +77,7 @@ Note that this API key will only work for a couple of days. The official beta la
 
 _(we'll go through this process in the workshop)_
 
-[Guardrails](https://www.guardrails.io) is a Github app that hooks into the development workflow and reports security issues on pull requests. To try out Guardrails, fork the [devcon4-playground repository](https://github.com/ConsenSys/devcon4-playground/) using the "Fork" button on the top right. Then, install the [Guardrails Github app](https://github.com/apps/guardrails) and point it to your copy of the devcon4-playground repo. 
+[Guardrails](https://www.guardrails.io) is a Github app that hooks into the development workflow and reports security issues on pull requests. To try out Guardrails, fork the [devcon4-playground repository](https://github.com/ConsenSys/devcon4-playground/) using the "Fork" button on the top right. Then, install the [Guardrails Github app](https://github.com/apps/guardrails) and point it to your copy of the devcon4-playground repo.
 
 #### Install 3: Mythril Classic
 
@@ -136,7 +136,7 @@ For the remainder of the workshop we'll be looking at different ways of identify
 
 In [exercise 1](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise1) we'll give a sneak peek of the `truffle analyze` command, an upcoming feature of [Truffle Suite](https://truffleframework.com). Let's see if Truffle can spot the security bug and think about ways to fix it.
 
-To run `truffle analyze`, first change into the project directory for exercise 1. Note that you need to compile the code before running the `truffle analyze` command. 
+To run `truffle analyze`, first change into the project directory for exercise 1. Note that you need to compile the code before running the `truffle analyze` command.
 
 ```
 $ cd devcon4-playground/exercise1
@@ -149,8 +149,8 @@ If you get an error message saying "You need to set environment variable MYTHRIL
 The results you get from `truffle analyze` should look similar to this:
 
 ```
-0:0   error  Contracts should be deployed with the same compiler version and flags that they have been tested with  SWC-103                                        
-20:4  error  The arithmetic operation can result in integer overflow   SWC-101                                                                                          
+0:0   error  Contracts should be deployed with the same compiler version and flags that they have been tested with  SWC-103
+20:4  error  The arithmetic operation can result in integer overflow   SWC-101
 (...)
 ```
 
@@ -228,11 +228,11 @@ import "./token-with-backdoor.sol";
 contract TokenTest is Token {
 
     // Verify that the user's balance can never exceed 1000
-    
+
     function verify_balance() {
         assert(balances[msg.sender] <= 1000);
     }
- 
+
 }
 ```
 
