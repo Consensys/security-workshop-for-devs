@@ -190,7 +190,13 @@ With the right calldata, you should now able to solve the [Tokensale challenge](
 
 ### Exercise 3 - Continuous Integration with Github Projects
 
-To ensure that no bugs make it into the code it's useful to integrate security analysis into the deployment pipeline. In [exercise 3](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise3), we'll try the [Guardrails](https://www.guardrails.io) Github app, which should detect a couple of security issues. After brainstorming possible fixes for the issue(s), we'll then proceed to exploit them to steal testnet ETH from the [CaptureTheEther Bank](https://capturetheether.com/challenges/miscellaneous/token-bank/). Note: Never steal ETH from a real smart contract as this is generally frowned upon.
+**Part 1 - Hack**
+
+We are going to hack $$$ the Etherbank in [exercise 3](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise3). Prefund Etherbank with 10 Ether and start hacking. You have solved the challenge when Etherbank is empty, call `challengeSolved()` to check if you are done. Deploying contracts to the test net and exploiting it there is more fun but it can also be slow to send transactions to the Ropsten test net. For that reason we recommend to deploy and solve the challenge in [Remix](http://remix.ethereum.org). If you want to take the risk go ahead and try the [CapturetheEther challenge](https://capturetheether.com/challenges/miscellaneous/token-bank/) instead. 
+
+**Part 2 - Defend**
+
+Ideally we want to know when vulnerabilities are introduced into the code base before they end up in the master branch.  In [exercise 3](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise3), we'll try the [Guardrails Github app](https://github.com/apps/guardrails) Github app, which should help you detect the issue. It's on you to fix it. Clone the [devcon4-playground](https://github.com/ConsenSys/devcon4-playground/) repository and create a new PR to resolve the issue that we exploited in Part 1.
 
 ### Exercise 4 - Hacking Contracts on the Mainnet
 
