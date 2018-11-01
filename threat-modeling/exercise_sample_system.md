@@ -16,7 +16,7 @@ Your are just putting the finishing touch on the high level specs for the crypto
 - The main interaction point for users will be a website that is going to be hosted by your organization. Users will go to your website, unlock their Metamask account and then be able to access their cute froggies. 
 - You are planning to build some administrative functions in for your contract system just in case something goes wrong. You would like to pause any interaction with the contract system if there is anything unexpected happening. Only the CEO of the company will be able to call the function in case of :fire:.
 - The second measure in case something goes wrong is to allow the CFO to withdraw all the funds that are kept in the contract.
-- Both the CFO and CEO have their private keys on a hardware wallet and you advice them to keep them super-duper safe. 
+- Both the CFO and CEO have their private keys on a hardware wallet and you advise them to keep them super-duper safe. 
 - You have some serious social media pros on the team and they are going to promote crypto froggie on every platform you can think of and encourage people to breed more :frog::frog::frog:.
 - Your CTO tells you that he wants to upgrade parts of the contract system from time to time. The key for upgrading the contract system will be the same one that he will use for deployment. He will keep the private key on a separate machine that has the development environment setup and that the dev team only uses it for this purpose.
 
