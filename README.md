@@ -163,7 +163,9 @@ Now things will get serious! We'll take the attacker's side and exploit a simila
 Mythril Classic has a few extra tricks up its sleeve. In the [second exercise](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise2), we'll look at a the `Tokensale` contract from [CaptureTheEther](https://capturetheether.com/challenges/math/token-sale/). The source code of that contract is in the `exercise2` directory. The question is, does it have any vulnerabilities? Let's do a quick Mythril Classic run to find out:
 
 ```
-$ myth -x exercise2/contracts/Tokensale.sol
+$ myth -x exercise2/contracts/Tokensale.sol (Pypi)
+
+$ docker run -v $(pwd)/exercise2/contracts:/contracts mythril/myth -x /contracts/Tokensale.sol (Docker)
 ```
 
 Looks like another integer-related bug! Let's now think about how to best exploit this issue. What we want is to get a lot of tokens without paying a single ETH. A nice trick is to express the exact opposite of what we want as an *invariant* using an `assert()` statement and letting Mythril do the work of finding the solution.
@@ -181,7 +183,9 @@ Create a copy of `Tokensale.sol` called `Tokensale-cheat.sol` and add an asserti
 This essentially means "it should never happen that numTokens is greater than zero if msg.value (the amount of Ether sent) is zero". Obviously, as the attacker that's precisely what we *want* to happen. By adding the `--verbose-report` flag, Mythril will give you the transaction data needed to violate the assertion.
 
 ```
-$ myth -mexceptions -x exercise2/contracts/Tokensale-cheat.sol --verbose-report
+$ myth -mexceptions -x exercise2/contracts/Tokensale-cheat.sol --verbose-report (Pypi)
+
+$ docker run -v $(pwd)/exercise2/contracts:/contracts mythril/myth -mexceptions -x /contracts/Tokensale-cheat.sol --verbose-report (Docker)
 ```
 
 Can you tell why "calldata" in Mythril's output has that particular value?
@@ -207,7 +211,9 @@ An important aspect is the number of transactions that Mythril (symbolically) ex
 For this example, let's set the max transaction count to 2:
 
 ```
-$ myth -x exercise4/contracts/Ownable.sol --max-transaction-count 2 --verbose-report
+$ myth -x exercise4/contracts/Ownable.sol --max-transaction-count 2 --verbose-report (Pypi)
+
+$ docker run -v $(pwd)/exercise4/contracts:/contracts mythril/myth -x /contracts/Ownable.sol --max-transaction-count 2 --verbose-report (Docker)
 ```
 
 Again, the `--verbose-report` will give you the transaction sequence for triggering the bug - take a good look at the output!
@@ -245,7 +251,9 @@ contract TokenTest is Token {
 Now we should be ready to go! Run Mythril Classic against the newly created file:
 
 ```bash
-$ myth -mexceptions -x exercise5/token-with-backdoor-test.sol --max-transaction-count 3 --verbose-report
+$ myth -mexceptions -x exercise5/token-with-backdoor-test.sol --max-transaction-count 3 --verbose-report (Pypi)
+
+$ docker run -v $(pwd)/exercise5:/exercise5 mythril/myth -mexceptions -x /exercise5/token-with-backdoor-test.sol --max-transaction-count 3 --verbose-report (Docker)
 ```
 
 As you can see, in this case three transactions need to be sent in the correct order to violate the invariant. Again, it is useful to have a close look at Mythril's output and match it to the functions in the contract.
