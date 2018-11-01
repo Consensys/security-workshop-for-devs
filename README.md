@@ -244,17 +244,10 @@ As you can see, in this case three transactions need to be sent in the correct o
 
 ## What to Do Next
 
-- Solve the other challenges on CaptureTheEther and Security Innovation CTF
-- Major Mythril Platform CTF soon
-- Beta launch on first of December
-- MYTH token launch in early 2019
+A great way to continue learning is playing challenges like [Capture the Ether](https://capturetheether.com), [Security Innovation CTF](https://blockchain-ctf.securityinnovation.com) and [Ethernaut](https://ethernaut.zeppelin.solutions).
+
+If you're into buidling Ethereum security tooling, the Mythril team is probably *not* a good place for you. Because in our team, you get near-complete freedom to work on what you like on your own time, plus the resources you need to bring complex ideas life. That sucks, because most tool buidlers see their tools as side projects to work on in-between audits or on weekends. But if you, against all odds, *do* want to fully focus on building awesome technology that helps the ecosystem, you can always ping us on [Discord](https://discord.gg/kktn8Wt).
 
 ## Credit
 
-By [ConsenSys Diligence](https://consensys.net/diligence/) and the [Mythril](https://mythril.ai) team. Special thanks to Mick Ayzenberg (Security Innovation).
-
-Todo: Add logos
-
-- ConsenSys Diligence
-- Mythril
-
+Created by [ConsenSys Diligence](https://consensys.net/diligence/) and the [Mythril](https://mythril.ai) team. Special thanks to Mick Ayzenberg ([Security Innovation](https://www.securityinnovation.com)), [Trail of Bits](https://www.trailofbits.com), Steve Marx of [CaptureTheEther](https://capturetheether.com) and ConsenSys fame and [Zeppelin Solutions](https://zeppelin.solutions) for vulnerable contract samples and challenges. Also, kudos to the [Truffle](https://truffleframework.com) and [Guardrails](https://www.guardrails.io) teams for working on us on Mythril Platform integration.
