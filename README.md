@@ -5,10 +5,9 @@
 # How To Not Get Rekt: The DevCon4 Workshop
 
   * [Preparation](#preparation)
-    + [Installing Security Tools from the Future](#installing-security-tools-from-the-future)
-      - [Truffle 5 Prototype](#truffle-5-prototype)
-      - [GuardRails Alpha](#guardrails-alpha)
-      - [Mythril Classic](#mythril-classic)
+    + [Installing Truffle 5 Prototype](#installing-truffle-5-prototype)
+    + [Installing  GuardRails Alpha](#installing--guardrails-alpha)
+    + [Installing Mythril Classic](#installing-mythril-classic)
   * [Part 1 - The Smart Contract Secure SDLC](#part-1---the-smart-contract-secure-sdlc)
   * [Part 2 - Threat Modeling](#part-2---threat-modeling)
   * [Part 3 - The Real Fun Begins](#part-3---the-real-fun-begins)
@@ -17,6 +16,7 @@
     + [Exercise 3 - Continuous Integration with Github Projects](#exercise-3---continuous-integration-with-github-projects)
     + [Exercise 4 - Hacking Contracts on the Mainnet](#exercise-4---hacking-contracts-on-the-mainnet)
     + [Exercise 5 - Verifying Invariants Using Asserts](#exercise-5---verifying-invariants-using-asserts)
+    + [Exercise 6 - The Final Challenge](#exercise-6---the-final-challenge)
   * [What to Do Next](#what-to-do-next)
   * [Credit](#credit)
 
@@ -35,8 +35,6 @@ The workshop exercises are hosted in an separate repo. Get a local copy by cloni
 $ git clone https://github.com/ConsenSys/devcon4-playground/
 ```
 
-### Installing Security Tools from the Future
-
 In this workshop you'll get a sneak peek into the future: We'll be using Mythril Platform prototypes we built together with the [Truffle](https://truffleframework.com) and [Guardrails](https://www.guardrails.io) guys, as well as the latest build of [Mythril Classic](https://github.com/ConsenSys/mythril-classic), which was we created just in time for DevCon4 under extreme stress (in most countries such work conditions would be illegal, that's why so many of our devs live in South East Asia).
 
 If you run into insurmountable problems ask the instructors for help. There's also a dedicated [Discord channel](https://discord.gg/kGDd8FP) that we created exclusively for you, the valued workshop participant. Some of
@@ -44,7 +42,7 @@ our core devs will be on standby to fix bugs in realtime.
 
 **Note that this is all super-experimental stuff! The [Mythril Platform](https://mythril.ai) beta isn't even starting before December. Monitor the #announcements channel on [Discord](https://discord.gg/kktn8Wt) for updates.**
 
-#### Install 1: Truffle 5 Prototype
+### Installing Truffle 5 Prototype
 
 [Truffle Suite](https://truffleframework.com) is a popular development framework for Ethereum. For this workshop we'll install a prototype with Mythril Platform integration. Run the following command to install it:
 
@@ -73,13 +71,13 @@ Congratulations! You are now set up to use the Mythril Platform staging server.
 
 Note that this API key will only work for a couple of days. The official beta launch is still a few weeks away, but contact us on [Discord](https://discord.gg/VfTbCm4) if you want access.
 
-#### Install 2: GuardRails Alpha
+### Installing  GuardRails Alpha
 
 _(we'll go through this process in the workshop)_
 
 [Guardrails](https://www.guardrails.io) is a Github app that hooks into the development workflow and reports security issues on pull requests. To try out Guardrails, fork the [devcon4-playground repository](https://github.com/ConsenSys/devcon4-playground/) using the "Fork" button on the top right. Then, install the [Guardrails Github app](https://github.com/apps/guardrails) and point it to your copy of the devcon4-playground repo.
 
-#### Install 3: Mythril Classic
+### Installing Mythril Classic
 
 _Mythril uses solc to compile Solidity files, so you'll need to [install that as well](https://solidity.readthedocs.io/en/latest/installing-solidity.html#binary-packages)_.
 
@@ -260,7 +258,7 @@ $ docker run -v $(pwd)/exercise5:/exercise5 mythril/myth -mexceptions -x /exerci
 
 As you can see, in this case three transactions need to be sent in the correct order to violate the invariant. Again, it is useful to have a close look at Mythril's output and match it to the functions in the contract.
 
-### Final Challenge
+### Exercise 6 - The Final Challenge
 
 As a fully certified Mythril expert, you are now capable of solving a more difficult CTF challenge. This challenge is worth another 0.1337 MYTH. This time there won't be any hints ;)
 
