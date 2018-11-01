@@ -220,6 +220,8 @@ Again, the `--verbose-report` will give you the transaction sequence for trigger
 
 Now the real fun starts: We'll deploy a real-world contract instance with a similar vulnerability. Whoever exploits it first is not only awesome, but also wins 0.1337 ETH for buying Pizza (or hodl). Tip: You can run Mythril Classic against an on-chain contract using the `-a` flag.
 
+Tip: Use `myth -xia <address>` run Mythril against mainnet contracts using INFURA, and don't forget what you learned above :)
+
 ### Exercise 5 - Verifying Invariants Using Asserts
 
 The Solidity `assert()` statement is used to specify conditions that are expected to *always* hold. If you want to prove certain assumptions about your code, you can put them into asserts and use Mythril's symbolic execution engine to do all the hard work for you.
@@ -257,6 +259,10 @@ $ docker run -v $(pwd)/exercise5:/exercise5 mythril/myth -mexceptions -x /exerci
 ```
 
 As you can see, in this case three transactions need to be sent in the correct order to violate the invariant. Again, it is useful to have a close look at Mythril's output and match it to the functions in the contract.
+
+### Final Challenge
+
+As a fully certified Mythril expert, you are now capable of solving a more difficult CTF challenge. This challenge is worth another 0.1337 MYTH. This time there won't be any hints ;)
 
 ## What to Do Next
 
