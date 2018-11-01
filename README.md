@@ -73,9 +73,9 @@ Set up to use Mythril staging
 
 Note that this API key will only work for a couple of days as we'll be switching to JWT auth shortly. The official beta launch is still a few weeks away, but you can always touch base with us on [Discord](https://discord.gg/VfTbCm4) if you want access.
 
-#### GuardRails Alpha
+#### GuardRails
 
-[Guardrails](https://www.guardrails.io) is a Github app that hooks into the development workflow and reports security issues on pull requests. To try out Guardrails, fork the [devcon4-playground repository](https://github.com/ConsenSys/devcon4-playground/) using the "Fork" button on the top right. Then, install the [Guardrails Github app](https://github.com/apps/guardrails) and point it to your copy of the devcon4-playground (we'll go through this process in the workshop).
+[Guardrails](https://www.guardrails.io) (currently in beta) is a Github app that hooks into the development workflow and reports security issues on pull requests. To try out Guardrails, fork the [devcon4-playground repository](https://github.com/ConsenSys/devcon4-playground/) using the "Fork" button on the top right. Then, install the [Guardrails Github app](https://github.com/apps/guardrails) and point it to your copy of the devcon4-playground (we'll go through this process in the workshop).
 
 #### Mythril Classic
 
