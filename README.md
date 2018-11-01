@@ -156,11 +156,11 @@ The results you get from `truffle analyze` should look similar to this:
 
 Note the "SWC" identifier at the end: That's a reference to the [Smart Contract Weakness Classification (EIP 1470)](https://smartcontractsecurity.github.io/SWC-registry/). You can look up details about each issue there.
 
-Now things will get serious! We'll take the attacker's side and exploit a similar vulnerability on [CaptureTheEther](https://capturetheether.com/challenges/math/token-sale/).
+Now things will get serious! We'll take the attacker's side and exploit a similar vulnerability on [CaptureTheEther](https://capturetheether.com/challenges/math/token-whale/).
 
 ### Exercise 2 - Cheating on CTFs with Mythril Classic
 
-Mythril Classic has a few extra tricks up its sleeve. In the [second exercise](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise2), we'll look at a the `Tokensale` contract from [CaptureTheEther](https://capturetheether.com/challenges/math/token-whale/). The source code of that contract is in the `exercise2` directory. The question is, does it have any vulnerabilities? Let's do a quick Mythril Classic run to find out:
+Mythril Classic has a few extra tricks up its sleeve. In the [second exercise](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise2), we'll look at a the `Tokensale` contract from [CaptureTheEther](https://capturetheether.com/challenges/math/token-sale/). The source code of that contract is in the `exercise2` directory. The question is, does it have any vulnerabilities? Let's do a quick Mythril Classic run to find out:
 
 ```
 $ myth -x exercise2/contracts/Tokensale.sol
@@ -185,6 +185,8 @@ $ myth -mexceptions -x exercise2/contracts/Tokensale-cheat.sol --verbose-report
 ```
 
 Can you tell why "calldata" in Mythril's output has that particular value?
+
+With the right calldata, you should now able to solve the [Tokensale challenge](https://capturetheether.com/challenges/math/token-sale/).
 
 ### Exercise 3 - Continuous Integration with Github Projects
 
