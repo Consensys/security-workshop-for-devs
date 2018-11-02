@@ -228,6 +228,8 @@ Now the real fun starts: We'll deploy a real-world contract instance with a simi
 
 Tip: Use `myth -xia <address>` run Mythril against mainnet contracts using INFURA, and don't forget what you learned above :)
 
+- [HACK THIS!](https://etherscan.io/address/0xe80a3d0a70a192dd4fbf9636235da70aa13e7b7d)
+
 ### Exercise 5 - Verifying Invariants Using Asserts
 
 The Solidity `assert()` statement is used to specify conditions that are expected to *always* hold. If you want to prove certain assumptions about your code, you can put them into asserts and use Mythril's symbolic execution engine to do all the hard work for you.
