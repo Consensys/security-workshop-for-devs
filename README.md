@@ -10,7 +10,8 @@
     + [Installing Mythril Classic](#installing-mythril-classic)
   * [Part 1 - The Smart Contract Secure SDLC](#part-1---the-smart-contract-secure-sdlc)
   * [Part 2 - Threat Modeling](#part-2---threat-modeling)
-  * [Part 3 - The Real Fun Begins](#part-3---the-real-fun-begins)
+  * [Part 3 - Reentrancy](#part-3---reentrancy)
+  * [Part 4 - The Real Fun Begins](#part-4---the-real-fun-begins)
     + [Exercise 1 - Truffle Analyze](#exercise-1---truffle-analyze)
     + [Exercise 2 - Cheating on CTFs with Mythril Classic](#exercise-2---cheating-on-ctfs-with-mythril-classic)
     + [Exercise 3 - Continuous Integration with Github Projects](#exercise-3---continuous-integration-with-github-projects)
@@ -126,7 +127,13 @@ After all this theory it's time for some hands-on action. Pick one of the follow
 - [Build a threat model for your own smart contract system](threat-modeling/exercise_your_own_system.md)
 - [Build a threat model for Crypto Froggies](threat-modeling/exercise_sample_system.md)
 
-## Part 3 - The Real Fun Begins
+## Part 3 - Reentrancy
+
+The infamous TheDAO was exploited by reentrancy in 2016. Although the community is more aware of it, reentrancy struck back in October 2018. Joseph Chow will show patterns and warnings signals to watch out for, and how best practices can help defend against reentrancy. This will also help with one of the exercises in Part 4.
+
+- Presentation slides [[Google]](https://docs.google.com/presentation/d/1rlxIeYU4iXBbPp7BeJwW5VMrzOZIClckMs8wseFrUQM/edit#slide=id.p1), [[PDF]](slides/Reentrancy%20Redux%20-%20Devcon4%202018.pdf)
+
+## Part 4 - The Real Fun Begins
 
 For the remainder of the workshop we'll be looking at different ways of identifying, fixing, exploiting and preventing vulnerabilities during development.
 
