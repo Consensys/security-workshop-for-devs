@@ -28,7 +28,7 @@ Use the [threat example table](./threat_list_blockchain_incident_db.md) from the
 
 | Number | Threat | Mitigation Strategy |
 |--------|---------------------------------------------------------------|---------------------------------------------------------------|
-| 1      |  An attacker hacks the crypto froggies website and creates fake sell orders in order to steal funds from users that want to trade froggies.  |  1. ) Perform regular security audits for the website.  2.) In the long term move to a more decentralised Dapp design that renders the UI from IPFS and not from a web server. |
+| 1      |  An attacker hacks the crypto froggies website and creates fake sell orders in order to steal funds from users that want to trade froggies.  |  1. ) Perform regular security audits for the website.  2.) Implement EIP-712 so users can more easily verify what messages they sign. 3.) In the long term move to a more decentralised Dapp design that renders the UI from IPFS and not from a web server. |
 | 2      |   |   |
 | 3      |   |   |
 | 4      |   |   |
