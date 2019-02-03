@@ -2,11 +2,10 @@
 	<img src="/static/notrekt-logo.png" height="200px"/>
 </p>
 
-# How To Not Get Rekt: The DevCon4 Workshop
+# How To Not Get Rekt: The MythX and Mythril Classic Workshop
 
   * [Preparation](#preparation)
-    + [Installing Truffle 5 Prototype](#installing-truffle-5-prototype)
-    + [Installing  GuardRails Alpha](#installing--guardrails-alpha)
+    + [Installing Truffle 5 and the MythX Plugin](#installing-truffle-5-prototype)=
     + [Installing Mythril Classic](#installing-mythril-classic)
   * [Part 1 - The Smart Contract Secure SDLC](#part-1---the-smart-contract-secure-sdlc)
   * [Part 2 - Threat Modeling](#part-2---threat-modeling)
@@ -33,17 +32,15 @@ First, you need a web3 capable browser and some testnet ETH. You probably also h
 The workshop exercises are hosted in an separate repo. Get a local copy by cloning the repo:
 
 ```
-$ git clone https://github.com/ConsenSys/devcon4-playground/
+$ git clone https://github.com/ConsenSys/mythx-playground/
 ```
 
-In this workshop you'll get a sneak peek into the future: We'll be using Mythril Platform prototypes we built together with the [Truffle](https://truffleframework.com) and [Guardrails](https://www.guardrails.io) guys, as well as the latest build of [Mythril Classic](https://github.com/ConsenSys/mythril-classic), which was we created just in time for DevCon4 under extreme stress (in most countries such work conditions would be illegal, that's why so many of our devs live in South East Asia).
+In this workshop you'll get to know both the [MythX security analysis API](https://mythx.io) as well as the latest build of [Mythril Classic](https://github.com/ConsenSys/mythril-classic).
 
 If you run into insurmountable problems ask the instructors for help. There's also a dedicated [Discord channel](https://discord.gg/kGDd8FP) that we created exclusively for you, the valued workshop participant. Some of
 our core devs will be on standby to fix bugs in realtime.
 
-**Note that this is all super-experimental stuff! The [Mythril Platform](https://mythril.ai) beta isn't even starting before December. Monitor the #announcements channel on [Discord](https://discord.gg/kktn8Wt) for updates.**
-
-### Installing Truffle 5 Prototype
+### Installing Truffle 5 with MythX Support
 
 [Truffle Suite](https://truffleframework.com) is a popular development framework for Ethereum. For this workshop we'll install a prototype with Mythril Platform integration. Run the following command to install it:
 
