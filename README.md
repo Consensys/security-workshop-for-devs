@@ -5,7 +5,7 @@
 # How To Not Get Rekt: The MythX and Mythril Classic Workshop
 
   * [Preparation](#preparation)
-    + [Installing Truffle 5 and the MythX Plugin](#installing-truffle-5-prototype)=
+    + [Installing Truffle 5 and the MythX Plugin](#installing-truffle-5-prototype)
     + [Installing Mythril Classic](#installing-mythril-classic)
   * [Part 1 - The Smart Contract Secure SDLC](#part-1---the-smart-contract-secure-sdlc)
   * [Part 2 - Threat Modeling](#part-2---threat-modeling)
