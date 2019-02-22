@@ -5,13 +5,13 @@
 # How To Not Get Rekt: The MythX and Mythril Classic Workshop
 
   * [Preparation](#preparation)
-    + [Installing Truffle 5 and the MythX Plugin](#installing-truffle-5-prototype)
+    + [Installing Truffle Security](#installing-truffle-security)
     + [Installing Mythril Classic](#installing-mythril-classic)
   * [Part 1 - The Smart Contract Secure SDLC](#part-1---the-smart-contract-secure-sdlc)
   * [Part 2 - Threat Modeling](#part-2---threat-modeling)
   * [Part 3 - Reentrancy](#part-3---reentrancy)
   * [Part 4 - The Real Fun Begins](#part-4---the-real-fun-begins)
-    + [Exercise 1 - Truffle Analyze](#exercise-1---truffle-analyze)
+    + [Exercise 1 - Truffle Security Verification](#exercise-1---truffle-security-verification)
     + [Exercise 2 - Cheating on CTFs with Mythril Classic](#exercise-2---cheating-on-ctfs-with-mythril-classic)
     + [Exercise 3 - Continuous Integration with Github Projects](#exercise-3---continuous-integration-with-github-projects)
     + [Exercise 4 - Hacking Contracts on the Mainnet](#exercise-4---hacking-contracts-on-the-mainnet)
@@ -90,7 +90,6 @@ _Mythril Classic uses solc to compile Solidity files, so you'll need to [install
 [Mythril Classic](https://github.com/ConsenSys/mythril-classic) is a command-line tool for advanced users. It can do a *lot* of stuff, such as analyzing contracts on the blockchain, creating control flow graphs, searching the Ethereum state trie and auto-generating transaction sequences to trigger bugs (plus you can use it to cheat in CTFs).
 
 You can install the latest version from Pypi or Dockerhub (instructions in the [Mythril Classic Wiki](https://github.com/ConsenSys/mythril-classic/wiki/Installation-and-Setup).
-
 
 **Installing from Pypi**
 
