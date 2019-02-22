@@ -35,45 +35,53 @@ The workshop exercises are hosted in an separate repo. Get a local copy by cloni
 $ git clone https://github.com/ConsenSys/mythx-playground/
 ```
 
-In this workshop you'll get to know both the [MythX security analysis API](https://mythx.io) as well as the latest build of [Mythril Classic](https://github.com/ConsenSys/mythril-classic).
+In this workshop you'll get to know both [Truffle Security](https://github.com/ConsenSys/truffle-security)as well as the latest build of [Mythril Classic](https://github.com/ConsenSys/mythril-classic).
 
 If you run into insurmountable problems ask the instructors for help. There's also a dedicated [Discord channel](https://discord.gg/kGDd8FP) that we created exclusively for you, the valued workshop participant. Some of
 our core devs will be on standby to fix bugs in realtime.
 
-### Installing Truffle 5 with MythX Support
+### Installing Truffle Security
 
-[Truffle Suite](https://truffleframework.com) is a popular development framework for Ethereum. For this workshop we'll install a prototype with Mythril Platform integration. Run the following command to install it:
-
-```
-$ npm install -g truffle-plus-analyze
-$ truffle+analyze --help
-Truffle+Analyze v5.0.0-beta.1g - a development framework for Ethereum
-
-Usage: truffle+analyze <command> [options]
-
-Commands:
-(...)
-  analyze   Run Mythril Platform analyses on a contract
-(...)
-```
-
-Don't worry if you already have Truffle installed - installing the experimental build will not affect your existing installation. You'll get a separate binary called `truffle+analyze` that you uninstall later without breaking anything.
-
-You'll also need a [Mythril Platform](https://mythril.ai) alpha key to use the `truffle analyze` command. In this workshop we'll use a shared temporary API key. To set it up, change into the devcon4-playground directory and run the setup script:
+[Truffle Suite](https://truffleframework.com) is a popular development framework for Ethereum. For this workshop we'll install Truffle 5 and the Truffle security plugin, which uses the [MythX](https://mythx.io) for security analysis. To install both packages run:
 
 ```
-$ cd devcon4-playground
-$ source mythril-staging
-Congratulations! You are now set up to use the Mythril Platform staging server.
+$ npm install -g truffle truffle-security
 ```
 
-Note that this API key will only work for a couple of days. The official beta launch is still a few weeks away, but contact us on [Discord](https://discord.gg/VfTbCm4) if you want access.
+With the Truffle Security plugin you can run security analysis on any *compilable* Truffle project. The command for executing an analysis is `truffle run verify`. Add the `--help` flag to get a list of commands. 
 
-### Installing  GuardRails Alpha
+```
+$ truffle run verify --help
+Usage: truffle run verify [options] [*contract-name1* [*contract-name2*] ...]
 
-_(we'll go through this process in the workshop)_
+Runs MythX analyses on given Solidity contracts. If no contracts are
+given, all are analyzed.
 
-[Guardrails](https://www.guardrails.io) is a Github app that hooks into the development workflow and reports security issues on pull requests. To try out Guardrails, fork the [devcon4-playground repository](https://github.com/ConsenSys/devcon4-playground/) using the "Fork" button on the top right. Then, install the [Guardrails Github app](https://github.com/apps/guardrails) and point it to your copy of the devcon4-playground repo.
+Options:
+  --debug    Provide additional debug output. Use --debug=2 for more
+             verbose output
+  --uuid *UUID*
+             Print in YAML results from a prior run having *UUID*
+             Note: this is still a bit raw and will be improved.
+  --mode { quick | full }
+             Perform quick or in-depth (full) analysis.
+  --style { stylish | unix | json | table | tap | ... },
+             Output report in the given es-lint style style.
+             See https://eslint.org/docs/user-guide/formatters/ for a full list.
+  --timeout *seconds* ,
+             Limit MythX analyses time to *s* seconds.
+             The default is 300 seconds (five minutes).
+  --limit *N*
+             Have no more than *N* analysis requests pending at a time.
+             As results come back, remaining contracts are submitted.
+             The default is 4 contracts, the maximum value, but you can
+             set this lower.
+  --version  Show package and MythX version information.
+  --no-progress
+             Do not display progress bars during analysis.
+```
+
+You'll also need a MythX account to use the `truffle run security` command. Don't worry, access is free for hobby users. All you need to do is sign up on the [MythX website](https://mythx.io) with [Metamask](https://metamask.io) or any web3-enabled browser. Follow the [getting started guide](https://docs.mythx.io/en/latest/main/getting-started.html#obtaining-api-credentials) if you run into any trouble.
 
 ### Installing Mythril Classic
 
@@ -81,7 +89,7 @@ _Mythril Classic uses solc to compile Solidity files, so you'll need to [install
 
 [Mythril Classic](https://github.com/ConsenSys/mythril-classic) is a command-line tool for advanced users. It can do a *lot* of stuff, such as analyzing contracts on the blockchain, creating control flow graphs, searching the Ethereum state trie and auto-generating transaction sequences to trigger bugs (plus you can use it to cheat in CTFs).
 
-You can install the latest version from Pypi or Dockerhub (instructions in the [Mythril Classic Wiki](https://github.com/ConsenSys/mythril-classic/wiki/Installation-and-Setup). Make sure you have version 0.19.3 installed.
+You can install the latest version from Pypi or Dockerhub (instructions in the [Mythril Classic Wiki](https://github.com/ConsenSys/mythril-classic/wiki/Installation-and-Setup).
 
 
 **Installing from Pypi**
@@ -89,7 +97,7 @@ You can install the latest version from Pypi or Dockerhub (instructions in the [
 ```
 $ pip3 install mythril
 $ myth --version
-Mythril version v0.19.3
+Mythril version v0.20.0
 ```
 
 **Installing from DockerHub**
@@ -97,7 +105,7 @@ Mythril version v0.19.3
 ```
 $ docker pull mythril/myth
 $ docker run mythril/myth --version
-Mythril version v0.19.3
+Mythril version v0.20.0
 ```
 
 ## Part 1 - The Smart Contract Secure SDLC
@@ -134,24 +142,30 @@ The infamous TheDAO was exploited by reentrancy in 2016. Although the community 
 
 For the remainder of the workshop we'll be looking at different ways of identifying, fixing, exploiting and preventing vulnerabilities during development.
 
-### Exercise 1 - Truffle Analyze
+### Exercise 1 - Truffle Security Verification
 
-In [exercise 1](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise1) we'll give a sneak peek of the `truffle analyze` command, an upcoming feature of [Truffle Suite](https://truffleframework.com). Let's see if Truffle can spot the security bug and think about ways to fix it.
+In [exercise 1](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise1) we'll try the `truffle run verify` command. Let's see if Truffle can spot the security bug and think about ways to fix it.
 
-To run `truffle analyze`, first change into the project directory for exercise 1.
+As the first step, change into the project directory for exercise 1.
+
 ```
 $ cd devcon4-playground/exercise1
-$ truffle+analyze analyze
 ```
 
-If you get an error message saying "You need to set environment variable MYTHRIL_API_KEY to run analyze", re-run the setup script which as described above.
-
-The results you get from `truffle analyze` should look similar to this:
+The results you get from `truffle run verify` should look similar to this:
 
 ```
-0:0   error  Contracts should be deployed with the same compiler version and flags that they have been tested with  SWC-103
-20:4  error  The arithmetic operation can result in integer overflow   SWC-101
-(...)
+$ truffle run verify
+Token |*********************************************************************************************| 100% || Elapsed: 81.0s ✓ completed
+
+/Users/bernhardmueller/Projects/mythx-playground/exercise1/contracts/Token.sol
+   6:0   warning  A floating pragma is set                  SWC-103
+  10:27  warning  The state variable visibility is not set  SWC-108
+  18:12  error    The binary subtraction can underflow      SWC-101
+  19:4   error    The binary subtraction can underflow      SWC-101
+  20:4   error    The binary addition can overflow          SWC-101
+
+✖ 5 problems (3 errors, 2 warnings)
 ```
 
 Note the "SWC" identifier at the end: That's a reference to the [Smart Contract Weakness Classification (EIP 1470)](https://smartcontractsecurity.github.io/SWC-registry/). You can look up details about each issue there.
