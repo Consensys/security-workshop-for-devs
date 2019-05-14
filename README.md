@@ -35,7 +35,7 @@ The workshop exercises are hosted in an separate repo. Get a local copy by cloni
 $ git clone https://github.com/ConsenSys/mythx-playground/
 ```
 
-In this workshop you'll get to know both [Truffle Security](https://github.com/ConsenSys/truffle-security)as well as the latest build of [Mythril Classic](https://github.com/ConsenSys/mythril-classic).
+In this workshop you'll get to know both [Truffle Security](https://github.com/ConsenSys/truffle-security) as well as the latest build of [Mythril Classic](https://github.com/ConsenSys/mythril-classic).
 
 If you run into insurmountable problems ask the instructors for help. There's also a dedicated [Discord channel](https://discord.gg/kGDd8FP) that we created exclusively for you, the valued workshop participant. Some of
 our core devs will be on standby to fix bugs in realtime.
@@ -148,7 +148,7 @@ In [exercise 1](https://github.com/ConsenSys/devcon4-playground/tree/master/exer
 As the first step, change into the project directory for exercise 1.
 
 ```
-$ cd devcon4-playground/exercise1
+$ cd mythx-workshop/exercise1
 ```
 
 The results you get from `truffle run verify` should look similar to this:
@@ -157,7 +157,7 @@ The results you get from `truffle run verify` should look similar to this:
 $ truffle run verify
 Token |*********************************************************************************************| 100% || Elapsed: 81.0s ✓ completed
 
-/Users/bernhardmueller/Projects/mythx-playground/exercise1/contracts/Token.sol
+/Users/bernhardmueller/Projects/mythx-workshop/exercise1/contracts/Token.sol
    6:0   warning  A floating pragma is set                  SWC-103
   10:27  warning  The state variable visibility is not set  SWC-108
   18:12  error    The binary subtraction can underflow      SWC-101
@@ -176,7 +176,7 @@ Now things will get serious! We'll take the attacker's side and exploit this exa
 
 ### Exercise 2 - Cheating on CTFs with Mythril Classic
 
-Mythril Classic has a few extra tricks up its sleeve. In the [second exercise](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise2), we'll look at a the `Tokensale` contract from [CaptureTheEther](https://capturetheether.com/challenges/math/token-sale/). The source code of that contract is in the `exercise2` directory. The question is, does it have any vulnerabilities? Let's do a quick Mythril Classic run to find out:
+Mythril Classic has a few extra tricks up its sleeve. In the [second exercise](https://github.com/ConsenSys/mythx-playground/tree/master/exercise2), we'll look at a the `Tokensale` contract from [CaptureTheEther](https://capturetheether.com/challenges/math/token-sale/). The source code of that contract is in the `exercise2` directory. The question is, does it have any vulnerabilities? Let's do a quick Mythril Classic run to find out:
 
 ```
 $ myth -x exercise2/contracts/Tokensale.sol (Pypi)
@@ -212,15 +212,15 @@ With the right calldata, you should now able to solve the [Tokensale challenge](
 
 **Part 1 - Hack**
 
-We are going to hack $$$ the Etherbank in [exercise 3](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise3). Prefund Etherbank with 10 Ether and start hacking. You have solved the challenge when Etherbank is empty, call `challengeSolved()` to check if you are done. Deploying contracts to the test net and exploiting it there is more fun but it can also be slow to send transactions to the Ropsten test net. For that reason we recommend to deploy and solve the challenge in [Remix](http://remix.ethereum.org). If you want to take the risk go ahead and try the [CapturetheEther challenge](https://capturetheether.com/challenges/miscellaneous/token-bank/) instead. 
+We are going to hack $$$ the Etherbank in [exercise 3](https://github.com/ConsenSys/mythx-playground/tree/master/exercise3). Prefund Etherbank with 10 Ether and start hacking. You have solved the challenge when Etherbank is empty, call `challengeSolved()` to check if you are done. Deploying contracts to the test net and exploiting it there is more fun but it can also be slow to send transactions to the Ropsten test net. For that reason we recommend to deploy and solve the challenge in [Remix](http://remix.ethereum.org). If you want to take the risk go ahead and try the [CapturetheEther challenge](https://capturetheether.com/challenges/miscellaneous/token-bank/) instead. 
 
 **Part 2 - Defend**
 
-Ideally we want to know when vulnerabilities are introduced into the code base before they end up in the master branch.  In [exercise 3](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise3), we'll try the [Guardrails Github app](https://github.com/apps/guardrails) (Make sure to allow Issues in the repository settings as Guardrails will create issues), which should help you detect the issue. It's on you to fix it. Clone the [devcon4-playground](https://github.com/ConsenSys/devcon4-playground/) repository and create a new PR to resolve the issue that we exploited in Part 1.
+Ideally we want to know when vulnerabilities are introduced into the code base before they end up in the master branch.  In [exercise 3](https://github.com/ConsenSys/mythx-playground/tree/master/exercise3), we'll try the [Guardrails Github app](https://github.com/apps/guardrails) (Make sure to allow Issues in the repository settings as Guardrails will create issues), which should help you detect the issue. It's on you to fix it. Clone the [devcon4-playground](https://github.com/ConsenSys/mythx-playground/) repository and create a new PR to resolve the issue that we exploited in Part 1.
 
 ### Exercise 4 - Hacking Contracts on the Mainnet
 
-Mythril Classic can analyze smart contracts from many sources, including bytecode on the blockchain. In [exercise 4](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise4), we'll identify another type of vulnerability that has often been exploited in the past. We'll then show how to detect vulnerable contracts on the mainnet and auto-generate an exploit that extracts the kills the vulnerable contract.
+Mythril Classic can analyze smart contracts from many sources, including bytecode on the blockchain. In [exercise 4](https://github.com/ConsenSys/mythx-playground/tree/master/exercise4), we'll identify another type of vulnerability that has often been exploited in the past. We'll then show how to detect vulnerable contracts on the mainnet and auto-generate an exploit that extracts the kills the vulnerable contract.
 
 An important aspect is the number of transactions that Mythril (symbolically) executes. The default number is 1, but you can increase it for a more in-depth analysis (note that this increases analysis time significantly). By setting max transactions to 2, you will also detect bugs that are two transactions "deep".
 
@@ -250,7 +250,7 @@ Mythril Classic will detect reachable exceptions by default. To *only* search fo
 $ myth -mexceptions -x <Solidity file>
 ```
 
-In [exercise 5](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise5), we'll write a test to (dis-)prove an invariant in a [token contract](https://github.com/ConsenSys/devcon4-playground/blob/master/exercise5/token-with-backdoor.sol). The token code sample was shown by Josselin Feist on TruffleCon 2018 (shouts to our friends from [Trail of Bits](https://www.trailofbits.com)).
+In [exercise 5](https://github.com/ConsenSys/mythx-playground/tree/master/exercise5), we'll write a test to (dis-)prove an invariant in a [token contract](https://github.com/ConsenSys/devcon4-playground/blob/master/exercise5/token-with-backdoor.sol). The token code sample was shown by Josselin Feist on TruffleCon 2018 (shouts to our friends from [Trail of Bits](https://www.trailofbits.com)).
 
 The invariant we want to verify is that a user's balance can never exceed 1,000. A nice way to do this is to create a separate test contract that inherits from the contract to be tested. Create a new file named `token-with-backdoor-test.sol` in the `exercise5` directory and add a function containing the assertion that balances[msg.sender] must never exceed 1,000:
 
