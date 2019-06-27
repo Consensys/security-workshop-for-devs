@@ -2,7 +2,7 @@
 	<img src="/static/notrekt-logo.png" height="200px"/>
 </p>
 
-# How To Not Get Rekt: The MythX and Mythril Classic Workshop
+# How To Not Get Rekt: Smart Contract Secure SDLC for Developers
 
   * [Preparation](#preparation)
     + [Installing Truffle Security](#installing-truffle-security)
