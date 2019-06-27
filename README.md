@@ -35,68 +35,30 @@ The workshop exercises are hosted in an separate repo. Get a local copy by cloni
 $ git clone https://github.com/ConsenSys/mythx-playground/
 ```
 
-In this workshop you'll get to know both [Truffle Security](https://github.com/ConsenSys/truffle-security)as well as the latest build of [Mythril Classic](https://github.com/ConsenSys/mythril-classic).
+In this workshop you'll get to know both [MythX](https://mythx.io) as well as the latest build of [Mythril](https://github.com/ConsenSys/mythril-classic).
 
-If you run into insurmountable problems ask the instructors for help. There's also a dedicated [Discord channel](https://discord.gg/kGDd8FP) that we created exclusively for you, the valued workshop participant. Some of
-our core devs will be on standby to fix bugs in realtime.
+If you run into insurmountable problems ask the instructors for help. There's also a dedicated [Discord channel](https://discord.gg/kGDd8FP) that we created exclusively for you, the valued workshop participant.
 
-### Installing Truffle Security
+### Setting up MythX for Remix
 
-[Truffle Suite](https://truffleframework.com) is a popular development framework for Ethereum. For this workshop we'll install Truffle 5 and the Truffle security plugin, which uses the [MythX](https://mythx.io) for security analysis. To install both packages run:
+TODO
 
-```
-$ npm install -g truffle truffle-security
-```
 
-With the Truffle Security plugin you can run security analysis on any *compilable* Truffle project. The command for executing an analysis is `truffle run verify`. Add the `--help` flag to get a list of commands. 
 
-```
-$ truffle run verify --help
-Usage: truffle run verify [options] [*contract-name1* [*contract-name2*] ...]
+### Installing Mythril
 
-Runs MythX analyses on given Solidity contracts. If no contracts are
-given, all are analyzed.
+_Mythril uses solc to compile Solidity files, so you'll need to [install that as well](https://solidity.readthedocs.io/en/latest/installing-solidity.html#binary-packages)_.
 
-Options:
-  --debug    Provide additional debug output. Use --debug=2 for more
-             verbose output
-  --uuid *UUID*
-             Print in YAML results from a prior run having *UUID*
-             Note: this is still a bit raw and will be improved.
-  --mode { quick | full }
-             Perform quick or in-depth (full) analysis.
-  --style { stylish | unix | json | table | tap | ... },
-             Output report in the given es-lint style style.
-             See https://eslint.org/docs/user-guide/formatters/ for a full list.
-  --timeout *seconds* ,
-             Limit MythX analyses time to *s* seconds.
-             The default is 300 seconds (five minutes).
-  --limit *N*
-             Have no more than *N* analysis requests pending at a time.
-             As results come back, remaining contracts are submitted.
-             The default is 4 contracts, the maximum value, but you can
-             set this lower.
-  --version  Show package and MythX version information.
-  --no-progress
-             Do not display progress bars during analysis.
-```
+[Mythril](https://github.com/ConsenSys/mythril-classic) is a command-line tool for advanced users. It can do a *lot* of stuff, such as analyzing contracts on the blockchain, creating control flow graphs, searching the Ethereum state trie and auto-generating transaction sequences to trigger bugs (plus you can use it to cheat in CTFs).
 
-You'll also need a MythX account to use the `truffle run security` command. Don't worry, access is free for hobby users. All you need to do is sign up on the [MythX website](https://mythx.io) with [Metamask](https://metamask.io) or any web3-enabled browser. Follow the [getting started guide](https://docs.mythx.io/en/latest/main/getting-started.html#obtaining-api-credentials) if you run into any trouble.
-
-### Installing Mythril Classic
-
-_Mythril Classic uses solc to compile Solidity files, so you'll need to [install that as well](https://solidity.readthedocs.io/en/latest/installing-solidity.html#binary-packages)_.
-
-[Mythril Classic](https://github.com/ConsenSys/mythril-classic) is a command-line tool for advanced users. It can do a *lot* of stuff, such as analyzing contracts on the blockchain, creating control flow graphs, searching the Ethereum state trie and auto-generating transaction sequences to trigger bugs (plus you can use it to cheat in CTFs).
-
-You can install the latest version from Pypi or Dockerhub (instructions in the [Mythril Classic Wiki](https://github.com/ConsenSys/mythril-classic/wiki/Installation-and-Setup).
+You can install the latest version from Pypi or Dockerhub (instructions in the [Mythril Wiki](https://github.com/ConsenSys/mythril-classic/wiki/Installation-and-Setup).
 
 **Installing from Pypi**
 
 ```
 $ pip3 install mythril
 $ myth --version
-Mythril version v0.20.0
+Mythril version v0.21.3
 ```
 
 **Installing from DockerHub**
@@ -104,12 +66,10 @@ Mythril version v0.20.0
 ```
 $ docker pull mythril/myth
 $ docker run mythril/myth --version
-Mythril version v0.20.0
+Mythril version v0.21.3
 ```
 
 ## Part 1 - The Smart Contract Secure SDLC
-
-In part 1, [Tom Lindeman](https://twitter.com/EtherDotBlue) explains secure SDLC processes. He's not a coder like the rest of us, so please be gentle and don't ask him any hard technical questions.
 
 TL;DR: Security should be incorporated during all phases of development. This info graphic sums things up nicely:
 
@@ -119,7 +79,7 @@ TL;DR: Security should be incorporated during all phases of development. This in
 
 ## Part 2 - Threat Modeling
 
-Before and during buidling a smart contract system you should think about potential threats and countermeasures. This process is known as threat modeling. In part 2, [Gerhard Wagner](https://twitter.com/g3rh4rdw4gn3r) introduces threat modeling basics. Here's the workshop material:
+Before and during buidling a smart contract system you should think about potential threats and countermeasures. This process is known as threat modeling. In part 2, [Gerhard Wagner](https://twitter.com/g3rh4rdw4gn3r) we'll do a presentation on threat modeling basics. Here's the workshop material:
 
 - [Presentation slides](slides/How_to_Not_Get_Rekt_Volume_1_Threat_Modeling.pdf)
 - [Blockchain incident threat list](threat-modeling/threat_list_blockchain_incident_db.md)
@@ -131,41 +91,19 @@ After all this theory it's time for some hands-on action. Pick one of the follow
 - [Build a threat model for your own smart contract system](threat-modeling/exercise_your_own_system.md)
 - [Build a threat model for Crypto Froggies](threat-modeling/exercise_sample_system.md)
 
-## Part 3 - Reentrancy
-
-The infamous TheDAO was exploited by reentrancy in 2016. Although the community is more aware of it, reentrancy struck back in October 2018. Joseph Chow will show patterns and warnings signals to watch out for, and how best practices can help defend against reentrancy. This will also help with one of the exercises in Part 4.
-
-- Presentation slides [[Google]](https://docs.google.com/presentation/d/1rlxIeYU4iXBbPp7BeJwW5VMrzOZIClckMs8wseFrUQM/edit#slide=id.p1), [[PDF]](slides/Reentrancy%20Redux%20-%20Devcon4%202018.pdf)
-
-## Part 4 - The Real Fun Begins
+## Part 3 - The Real Fun Begins
 
 For the remainder of the workshop we'll be looking at different ways of identifying, fixing, exploiting and preventing vulnerabilities during development.
 
-### Exercise 1 - Truffle Security Verification
+### Exercise 1 - Reentrancy
 
-In [exercise 1](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise1) we'll try the `truffle run verify` command. Let's see if Truffle can spot the security bug and think about ways to fix it.
+The infamous TheDAO was exploited by reentrancy in 2016. Although the community is more aware of it, reentrancy struck back in October 2018. 
 
-As the first step, change into the project directory for exercise 1.
+TODO
 
-```
-$ cd devcon4-playground/exercise1
-```
+### Exercise 2 - Access Controls
 
-The results you get from `truffle run verify` should look similar to this:
-
-```
-$ truffle run verify
-Token |*********************************************************************************************| 100% || Elapsed: 81.0s ✓ completed
-
-/Users/bernhardmueller/Projects/mythx-playground/exercise1/contracts/Token.sol
-   6:0   warning  A floating pragma is set                  SWC-103
-  10:27  warning  The state variable visibility is not set  SWC-108
-  18:12  error    The binary subtraction can underflow      SWC-101
-  19:4   error    The binary subtraction can underflow      SWC-101
-  20:4   error    The binary addition can overflow          SWC-101
-
-✖ 5 problems (3 errors, 2 warnings)
-```
+TODO
 
 Note the "SWC" identifier at the end: That's a reference to the [Smart Contract Weakness Classification (EIP 1470)](https://smartcontractsecurity.github.io/SWC-registry/). You can look up details about each issue there.
 
@@ -174,7 +112,7 @@ Now things will get serious! We'll take the attacker's side and exploit this exa
 - Easy: [Token](https://ethernaut.zeppelin.solutions/level/0x6545df87f57d21cb096a0bfcc53a70464d062512)
 - A bit more difficult: [TokenWhale](https://capturetheether.com/challenges/math/token-whale/).
 
-### Exercise 2 - Cheating on CTFs with Mythril Classic
+### Exercise 3 - Cheating on CTFs with Mythril
 
 Mythril Classic has a few extra tricks up its sleeve. In the [second exercise](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise2), we'll look at a the `Tokensale` contract from [CaptureTheEther](https://capturetheether.com/challenges/math/token-sale/). The source code of that contract is in the `exercise2` directory. The question is, does it have any vulnerabilities? Let's do a quick Mythril Classic run to find out:
 
@@ -208,7 +146,7 @@ Can you tell why "calldata" in Mythril's output has that particular value?
 
 With the right calldata, you should now able to solve the [Tokensale challenge](https://capturetheether.com/challenges/math/token-sale/).
 
-### Exercise 3 - Continuous Integration with Github Projects
+### Exercise 4 - Continuous Integration with Github Projects
 
 **Part 1 - Hack**
 
