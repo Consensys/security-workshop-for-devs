@@ -2,7 +2,7 @@
 	<img src="/static/notrekt-logo.png" height="200px"/>
 </p>
 
-# How To Not Get Rekt: Smart Contract Secure SDLC for Developers
+# How To Not Get Rekt: Secure Smart Contract Development
 
 ## Preparation
 
