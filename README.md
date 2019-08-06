@@ -23,13 +23,33 @@ In this workshop you'll get to know both [MythX](https://mythx.io) as well as th
 
 If you run into insurmountable problems ask the instructors for help. There's also a dedicated [Discord channel](https://discord.gg/kGDd8FP) that we created exclusively for you, the valued workshop participant.
 
-### Setting up MythX for Remix
+### Setting up MythX
 
 TODO
 
-### Setting up MythX for Truffle
+### Setting up Mythril
 
-TODO
+_Mythril uses solc to compile Solidity files, so you'll need to [install that as well](https://solidity.readthedocs.io/en/latest/installing-solidity.html#binary-packages)_.
+
+[Mythril](https://github.com/ConsenSys/mythril-classic) is a command-line tool for advanced users. It can do a *lot* of stuff, such as analyzing contracts on the blockchain, creating control flow graphs, searching the Ethereum state trie and auto-generating transaction sequences to trigger bugs (plus you can use it to cheat in CTFs).
+
+You can install the latest version from Pypi or Dockerhub (instructions in the [Mythril Wiki](https://github.com/ConsenSys/mythril-classic/wiki/Installation-and-Setup).
+
+**Installing from Pypi**
+
+```
+$ pip3 install mythril
+$ myth version
+Mythril version v0.21.12
+```
+
+**Installing from DockerHub**
+
+```
+$ docker pull mythril/myth
+$ docker run mythril/myth version
+Mythril version v0.21.12
+```
 
 ## Part 1 - The Smart Contract Secure SDLC
 
