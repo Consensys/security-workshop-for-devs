@@ -57,30 +57,36 @@ For the remainder of the workshop we'll be looking at different ways of identify
 
 ### Exposure of Private Information
 
+TODO
+
+- [Guess the Random Number](https://github.com/ConsenSys/mythx-playground/blob/master/01_weak_random/RandomNumber.sol) - [Challenge on CTE](https://capturetheether.com/challenges/lotteries/guess-the-random-number/)
 
 ### Predictable Random Numbers
 
+TODO
 
 ### Broken Access Controls
 
-TODO
+TODO - WalletLibrary Forensics
 
 Note the "SWC" identifier at the end: That's a reference to the [Smart Contract Weakness Classification (EIP 1470)](https://smartcontractsecurity.github.io/SWC-registry/). You can look up details about each issue there.
 
-Now things will get serious! We'll take the attacker's side and exploit this exact contract. Depending on your level of skill, pick one of the following:
+- [Ethernaut Fallout](https://github.com/ConsenSys/mythx-playground/blob/master/02_capturing_ether/ethernaut-fallout.sol) - [Challenge on Ethernaut](https://ethernaut.openzeppelin.com/level/0x220beee334f1c1f8078352d88bcc4e6165b792f6)
+- [Ethernaut Fallback](https://github.com/ConsenSys/mythx-playground/blob/master/02_capturing_ether/ethernaut-fallback.sol) - [Challenge on Ethernaut](https://ethernaut.openzeppelin.com/level/0x234094aac85628444a82dae0396c680974260be7)
 
 ### Integer Arithmetic Bugs
 
 TODO
 
-- Easy: [Token](https://ethernaut.zeppelin.solutions/level/0x6545df87f57d21cb096a0bfcc53a70464d062512)
+- [Ethernaut Token](https://github.com/ConsenSys/mythx-playground/blob/master/03_integer_arithmetics/ethernaut-token.sol) - [Challenge on Ethernaut](https://ethernaut.openzeppelin.com/level/0x6545df87f57d21cb096a0bfcc53a70464d062512)
+- [Tokensale on CaptureTheEther](https://github.com/ConsenSys/mythx-playground/blob/master/03_integer_arithmetics/cte-tokensale.sol) - [Challenge on CTE](https://capturetheether.com/challenges/math/token-sale/)
+TODO: Prevention with SafeMath
 
 ### Reentrancy
 
 The infamous TheDAO was exploited by reentrancy in 2016. Although the community is more aware of it, reentrancy struck back in October 2018. 
 
 TODO
-
 
 ## Part 2 - Writing Custom Security Tests
 
@@ -92,11 +98,13 @@ TODO
 
 ### Security Analysis with Truffle
 
-Ideally we want to know when vulnerabilities are introduced into the code base before they end up in the master branch.  In [exercise 3](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise3), we'll try the [Guardrails Github app](https://github.com/apps/guardrails) (Make sure to allow Issues in the repository settings as Guardrails will create issues), which should help you detect the issue. It's on you to fix it. Clone the [devcon4-playground](https://github.com/ConsenSys/devcon4-playground/) repository and create a new PR to resolve the issue that we exploited in Part 1.
+TODO
 
 ### Integration with CircleCI
 
 TODO
+
+Ideally we want to know when vulnerabilities are introduced into the code base before they end up in the master branch.  In [exercise 3](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise3), we'll try the [Guardrails Github app](https://github.com/apps/guardrails) (Make sure to allow Issues in the repository settings as Guardrails will create issues), which should help you detect the issue. It's on you to fix it. Clone the [devcon4-playground](https://github.com/ConsenSys/devcon4-playground/) repository and create a new PR to resolve the issue that we exploited in Part 1.
 
 ## Credit
 
