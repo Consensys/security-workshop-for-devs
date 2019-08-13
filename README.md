@@ -23,7 +23,7 @@ In this workshop you'll get to know both [MythX](https://mythx.io) as well as th
 
 If you run into insurmountable problems ask the instructors for help. There's also a dedicated [Discord channel](https://discord.gg/kGDd8FP) that we created exclusively for you, the valued workshop participant.
 
-### Setting up a Free NythX Account
+### Setting up a Free MythX Account
 
 TODO
 
