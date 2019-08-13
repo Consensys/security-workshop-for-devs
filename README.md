@@ -23,7 +23,7 @@ In this workshop you'll get to know both [MythX](https://mythx.io) as well as th
 
 If you run into insurmountable problems ask the instructors for help. There's also a dedicated [Discord channel](https://discord.gg/kGDd8FP) that we created exclusively for you, the valued workshop participant.
 
-### Setting up MythX
+### Setting up a Free NythX Account
 
 TODO
 
@@ -55,7 +55,7 @@ Mythril version v0.21.12
 
 For the remainder of the workshop we'll be looking at different ways of identifying, fixing and preventing vulnerabilities during development.
 
-### Exposing Private Information
+### Exposure of Private Information
 
 
 ### Predictable Random Numbers
