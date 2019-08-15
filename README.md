@@ -4,6 +4,8 @@
 
 # How To Not Get Rekt: Secure Smart Contract Development
 
+In this workshop we'll practice detecting & preventing common bugs in Solidity/EVM smart contracts. We'll solve challenges from [CaptureTheEther](https://capturetheether.com) and [OpenZeppelin Ethernaut](https://ethernaut.openzeppelin.com) and learn how to use [Mythril](https://github.com/ConsenSys/mythril) and [MythX](https://mythx.io) during development to prevent security bugs and verify security properties.
+
 ## Preparation
 
 Here's how to get set up for the workshop. It should be super easy except if you're using Windows.
@@ -59,17 +61,23 @@ For the remainder of the workshop we'll be looking at different ways of identify
 
 TODO
 
+**Target Contract:**
+
 - [Guess the Random Number](https://github.com/ConsenSys/mythx-playground/blob/master/01_weak_random/RandomNumber.sol) - [Challenge on CTE](https://capturetheether.com/challenges/lotteries/guess-the-random-number/)
 
 ### Predictable Random Numbers
 
-TODO
+**Target Contract:**
+
+- [Guess the New Number](https://github.com/ConsenSys/mythx-playground/blob/master/01_weak_random/GuessTheNewNumber.sol) - [Challenge on CTE](https://capturetheether.com/challenges/lotteries/guess-the-new-number/)
 
 ### Broken Access Controls
 
-TODO - WalletLibrary Forensics
+What went wrong with [Parity WalletLibrary](https://github.com/ConsenSys/mythx-playground/blob/master/02_capturing_ether/SimpleWalletLibrary.sol)?
 
 Note the "SWC" identifier at the end: That's a reference to the [Smart Contract Weakness Classification (EIP 1470)](https://smartcontractsecurity.github.io/SWC-registry/). You can look up details about each issue there.
+
+**Target Contracts:**
 
 - [Ethernaut Fallout](https://github.com/ConsenSys/mythx-playground/blob/master/02_capturing_ether/ethernaut-fallout.sol) - [Challenge on Ethernaut](https://ethernaut.openzeppelin.com/level/0x220beee334f1c1f8078352d88bcc4e6165b792f6)
 - [Ethernaut Fallback](https://github.com/ConsenSys/mythx-playground/blob/master/02_capturing_ether/ethernaut-fallback.sol) - [Challenge on Ethernaut](https://ethernaut.openzeppelin.com/level/0x234094aac85628444a82dae0396c680974260be7)
@@ -80,6 +88,7 @@ TODO
 
 - [Ethernaut Token](https://github.com/ConsenSys/mythx-playground/blob/master/03_integer_arithmetics/ethernaut-token.sol) - [Challenge on Ethernaut](https://ethernaut.openzeppelin.com/level/0x6545df87f57d21cb096a0bfcc53a70464d062512)
 - [Tokensale on CaptureTheEther](https://github.com/ConsenSys/mythx-playground/blob/master/03_integer_arithmetics/cte-tokensale.sol) - [Challenge on CTE](https://capturetheether.com/challenges/math/token-sale/)
+
 TODO: Prevention with SafeMath
 
 ### Reentrancy
@@ -92,6 +101,8 @@ TODO
 
 The Solidity `assert()` statement is used to specify conditions that are expected to *always* hold. If you want to prove certain assumptions about your code, you can put them into asserts and use Mythril's symbolic execution engine to do all the hard work for you.
 
+Write an invariant for [Etherbank](https://github.com/ConsenSys/mythx-playground/blob/master/04_custom_invariant/etherbank.sol).
+
 ## Part 3 - Security Testing in the Development Workflow
 
 TODO
@@ -99,6 +110,10 @@ TODO
 ### Security Analysis with Truffle
 
 TODO
+
+```
+$ npm install truffle-security
+```
 
 ### Integration with CircleCI
 
