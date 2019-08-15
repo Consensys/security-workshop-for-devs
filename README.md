@@ -21,13 +21,11 @@ The workshop exercises are hosted in an separate repo. Get a local copy by cloni
 $ git clone https://github.com/ConsenSys/mythx-playground/
 ```
 
-In this workshop you'll get to know both [MythX](https://mythx.io) as well as the latest build of [Mythril](https://github.com/ConsenSys/mythril-classic).
-
 If you run into insurmountable problems ask the instructors for help. There's also a dedicated [Discord channel](https://discord.gg/kGDd8FP) that we created exclusively for you, the valued workshop participant.
 
 ### Setting up a Free MythX Account
 
-TODO
+Head to the [MythX website](https://mythx.io) and sign up for a free account. You'll be able to use your Ethereum address and password with all MythX tools including the [Remix](https://remix.ethereum.org) plugin and [MythX for Truffle](https://github.com/ConsenSys/truffle-security).
 
 ### Setting up Mythril
 
