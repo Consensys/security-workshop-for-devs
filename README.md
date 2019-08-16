@@ -25,7 +25,7 @@ If you run into insurmountable problems ask the instructors for help. There's al
 
 ### Mythril vs. MythX
 
-In this workshop we'll work with a couple of tools. Mythril is an open-source symbolic analyzer that is geared towards auditors, while MyhtX is an API service for smart contract developers. Either tool (Mythril or MythX free tier) is sufficient for this workshop - feel free to try out both.
+In this workshop we'll work with a couple of tools. [Mythril](https://github.com/ConsenSys/mythril) is an open-source symbolic analyzer that is geared towards auditors, while [MyhtX](https://mythx.io) is an API service for smart contract developers. Either tool (Mythril or MythX free tier) is sufficient for this workshop - feel free to try out both.
 
 ### Setting up Mythril
 
