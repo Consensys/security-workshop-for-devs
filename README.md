@@ -40,7 +40,7 @@ You can install the latest version from Pypi or Dockerhub (instructions in the [
 ```
 $ pip3 install mythril
 $ myth version
-Mythril version v0.21.12
+Mythril version v0.21.15
 ```
 
 **Installing from DockerHub**
@@ -48,7 +48,7 @@ Mythril version v0.21.12
 ```
 $ docker pull mythril/myth
 $ docker run mythril/myth version
-Mythril version v0.21.12
+Mythril version v0.21.15
 ```
 
 ### Setting up a Free MythX Account
@@ -57,6 +57,8 @@ Head to the [MythX website](https://mythx.io) and sign up for a free account. Yo
 
 ```
 $ npm install sabre-mythx
+$ sabre --version
+0.8.0
 ```
 
 ## Part 1 - Detecting and Preventing Common Vulnerabilities
@@ -83,9 +85,21 @@ It is impossible to create truly random numbers using Solidity. Let's see what h
 
 Some of the worst incidents so far were caused by critical functions that were inadvertently exposed to attackers. Remember [Parity WalletLibrary](https://github.com/ConsenSys/mythx-playground/blob/master/02_capturing_ether/SimpleWalletLibrary.sol)?
 
-Mythril and MythX are great at discovering this bug class.
+Mythril and MythX are great at discovering this bug class. Try running the following commands:
 
-Note the "SWC" identifier at the end: That's a reference to the [Smart Contract Weakness Classification (EIP 1470)](https://smartcontractsecurity.github.io/SWC-registry/). You can look up details about each issue there.
+**Analysis with Mythril***
+
+```
+$ myth analyze SimpleWalletLibrary.sol
+```
+
+**Analysis with MythX***
+
+```
+$ sabre SimpleWalletLibrary.sol
+```
+
+Note the "SWC" identifier reported for each issue: That's a reference to the [Smart Contract Weakness Classification (EIP 1470)](https://smartcontractsecurity.github.io/SWC-registry/). You can look up details about each issue there.
 
 **Target Contracts:**
 
