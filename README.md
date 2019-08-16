@@ -23,9 +23,9 @@ $ git clone https://github.com/ConsenSys/mythx-playground/
 
 If you run into insurmountable problems ask the instructors for help. There's also a dedicated [Discord channel](https://discord.gg/kGDd8FP) that we created exclusively for you, the valued workshop participant.
 
-### Setting up a Free MythX Account
+### Mythril vs. MythX
 
-Head to the [MythX website](https://mythx.io) and sign up for a free account. You'll be able to use your Ethereum address and password with all MythX tools including the [Remix](https://remix.ethereum.org) plugin and [MythX for Truffle](https://github.com/ConsenSys/truffle-security).
+In this workshop we'll work with a couple of tools. Mythril is an open-source symbolic analyzer that is geared towards auditors, while MyhtX is an API service for smart contract developers. Either tool (Mythril or MythX free tier) is sufficient for this workshop - feel free to try out both.
 
 ### Setting up Mythril
 
@@ -51,13 +51,21 @@ $ docker run mythril/myth version
 Mythril version v0.21.12
 ```
 
+### Setting up a Free MythX Account
+
+Head to the [MythX website](https://mythx.io) and sign up for a free account. You'll be able to use your Ethereum address and password with all MythX tools including the [Remix](https://remix.ethereum.org) plugin and [MythX for Truffle](https://github.com/ConsenSys/truffle-security). There's also a standalone command-line tool called [Sabre](https://github.com/b-mueller/sabre) which can be installed with:
+
+```
+$ npm install sabre-mythx
+```
+
 ## Part 1 - Detecting and Preventing Common Vulnerabilities
 
 For the remainder of the workshop we'll be looking at different ways of identifying, fixing and preventing vulnerabilities during development.
 
 ### Exposure of Private Information
 
-TODO
+Well, Ethereum is a *public* ledger so there nothing is really private. Here is an example of what not to do.
 
 **Target Contract:**
 
@@ -65,13 +73,17 @@ TODO
 
 ### Predictable Random Numbers
 
+It is impossible to create truly random numbers using Solidity. Let's see what happens if we rely on things like blocknumbers and blockhashes for randomness.
+
 **Target Contract:**
 
 - [Guess the New Number](https://github.com/ConsenSys/mythx-playground/blob/master/01_weak_random/GuessTheNewNumber.sol) - [Challenge on CTE](https://capturetheether.com/challenges/lotteries/guess-the-new-number/)
 
 ### Broken Access Controls
 
-What went wrong with [Parity WalletLibrary](https://github.com/ConsenSys/mythx-playground/blob/master/02_capturing_ether/SimpleWalletLibrary.sol)?
+Some of the worst incidents so far were caused by critical functions that were inadvertently exposed to attackers. Remember [Parity WalletLibrary](https://github.com/ConsenSys/mythx-playground/blob/master/02_capturing_ether/SimpleWalletLibrary.sol)?
+
+Mythril and MythX are great at discovering this bug class.
 
 Note the "SWC" identifier at the end: That's a reference to the [Smart Contract Weakness Classification (EIP 1470)](https://smartcontractsecurity.github.io/SWC-registry/). You can look up details about each issue there.
 
@@ -82,42 +94,32 @@ Note the "SWC" identifier at the end: That's a reference to the [Smart Contract 
 
 ### Integer Arithmetic Bugs
 
-TODO
+Antoher common source of bugs are integer overflows and underflows. We'll cover them im the next two examples. Hint: The best way to prevent integer arithmetic bugs is by using [SafeMath](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/math/SafeMath.sol).
 
 - [Ethernaut Token](https://github.com/ConsenSys/mythx-playground/blob/master/03_integer_arithmetics/ethernaut-token.sol) - [Challenge on Ethernaut](https://ethernaut.openzeppelin.com/level/0x6545df87f57d21cb096a0bfcc53a70464d062512)
 - [Tokensale on CaptureTheEther](https://github.com/ConsenSys/mythx-playground/blob/master/03_integer_arithmetics/cte-tokensale.sol) - [Challenge on CTE](https://capturetheether.com/challenges/math/token-sale/)
-
-TODO: Prevention with SafeMath
 
 ### Reentrancy
 
 The infamous TheDAO was exploited by reentrancy in 2016. Although the community is more aware of it, reentrancy struck back in October 2018. 
 
-TODO
+Let's look at a [simplified example](https://github.com/ConsenSys/mythx-playground/blob/master/05_truffle_project/contracts/Reentrance.sol) of the DAO bug.
 
 ## Part 2 - Writing Custom Security Tests
 
 The Solidity `assert()` statement is used to specify conditions that are expected to *always* hold. If you want to prove certain assumptions about your code, you can put them into asserts and use Mythril's symbolic execution engine to do all the hard work for you.
 
-Write an invariant for [Etherbank](https://github.com/ConsenSys/mythx-playground/blob/master/04_custom_invariant/etherbank.sol).
+In thus exercise we'll write and check and invariant for [Etherbank](https://github.com/ConsenSys/mythx-playground/blob/master/04_custom_invariant/etherbank.sol).
 
 ## Part 3 - Security Testing in the Development Workflow
 
-TODO
+Catching bugs early during the development lifecycle saves a lot of pain. In this section we'll have a look at Truffle and CI integration.
 
 ### Security Analysis with Truffle
-
-TODO
 
 ```
 $ npm install truffle-security
 ```
-
-### Integration with CircleCI
-
-TODO
-
-Ideally we want to know when vulnerabilities are introduced into the code base before they end up in the master branch.  In [exercise 3](https://github.com/ConsenSys/devcon4-playground/tree/master/exercise3), we'll try the [Guardrails Github app](https://github.com/apps/guardrails) (Make sure to allow Issues in the repository settings as Guardrails will create issues), which should help you detect the issue. It's on you to fix it. Clone the [devcon4-playground](https://github.com/ConsenSys/devcon4-playground/) repository and create a new PR to resolve the issue that we exploited in Part 1.
 
 ## Credit
 
