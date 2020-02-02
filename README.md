@@ -4,7 +4,7 @@
 
 # How To Not Get Rekt: Secure Smart Contract Development
 
-In this workshop we'll practice detecting & preventing common bugs in Solidity/EVM smart contracts. We'll solve challenges from [CaptureTheEther](https://capturetheether.com) and [OpenZeppelin Ethernaut](https://ethernaut.openzeppelin.com) and learn how to use [Mythril](https://github.com/ConsenSys/mythril) and [MythX](https://mythx.io) during development to prevent security bugs and verify security properties.
+In this workshop we'll practice detecting & preventing common bugs in Solidity/EVM smart contracts. We'll solve challenges from [CaptureTheEther](https://capturetheether.com) and [OpenZeppelin Ethernaut](https://ethernaut.openzeppelin.com) and learn how to use [MythX](https://mythx.io) during development to prevent security bugs and verify security properties.
 
 ## Preparation
 
@@ -21,45 +21,13 @@ The workshop exercises are hosted in an separate repo. Get a local copy by cloni
 $ git clone https://github.com/ConsenSys/mythx-playground/
 ```
 
-If you run into insurmountable problems ask the instructors for help. There's also a dedicated [Discord channel](https://discord.gg/kGDd8FP) that we created exclusively for you, the valued workshop participant.
-
-### Mythril vs. MythX
-
-In this workshop we'll work with a couple of tools. [Mythril](https://github.com/ConsenSys/mythril) is an open-source symbolic analyzer that is geared towards auditors, while [MyhtX](https://mythx.io) is an API service for smart contract developers. Either tool (Mythril or MythX free tier) is sufficient for this workshop - feel free to try out both.
-
-### Setting up Mythril
-
-_Mythril uses solc to compile Solidity files, so you'll need to [install that as well](https://solidity.readthedocs.io/en/latest/installing-solidity.html#binary-packages)_.
-
-[Mythril](https://github.com/ConsenSys/mythril-classic) is a command-line tool for advanced users. It can do a *lot* of stuff, such as analyzing contracts on the blockchain, creating control flow graphs, searching the Ethereum state trie and auto-generating transaction sequences to trigger bugs (plus you can use it to cheat in CTFs).
-
-You can install the latest version from Pypi or Dockerhub (instructions in the [Mythril Wiki](https://github.com/ConsenSys/mythril-classic/wiki/Installation-and-Setup).
-
-**Installing from Pypi**
-
-```
-$ pip3 install mythril
-$ myth version
-Mythril version v0.21.15
-```
-
-**Installing from DockerHub**
-
-```
-$ docker pull mythril/myth
-$ docker run mythril/myth version
-Mythril version v0.21.15
-```
+If you run into insurmountable problems ask the instructors for help.
 
 ### Setting up a Free MythX Account
 
-Head to the [MythX website](https://mythx.io) and sign up for a free account. You'll be able to use your Ethereum address and password with all MythX tools including the [Remix](https://remix.ethereum.org) plugin and [MythX for Truffle](https://github.com/ConsenSys/truffle-security). There's also a standalone command-line tool called [Sabre](https://github.com/b-mueller/sabre) which can be installed with:
+Head to the [MythX website](https://mythx.io) and sign up for a free account. In this workshop we'll be using the [Remix](https://remix.ethereum.org) plugin.
 
-```
-$ npm install sabre-mythx
-$ sabre --version
-0.8.0
-```
+- [MythX for Remix setup instructions]
 
 ## Part 1 - Detecting and Preventing Common Vulnerabilities
 
@@ -67,19 +35,13 @@ For the remainder of the workshop we'll be looking at different ways of identify
 
 ### Exposure of Private Information
 
-Well, Ethereum is a *public* ledger so there nothing is really private. Here is an example of what not to do.
+Let's start with something easy to get warmed up! Ethereum is a *public* ledger and nothing you put on this ledger is really private. 
 
 **Target Contract:**
 
-- [Guess the Random Number](https://github.com/ConsenSys/mythx-playground/blob/master/01_weak_random/RandomNumber.sol) - [Challenge on CTE](https://capturetheether.com/challenges/lotteries/guess-the-random-number/)
-
-### Predictable Random Numbers
-
-It is impossible to create truly random numbers using Solidity. Let's see what happens if we rely on things like blocknumbers and blockhashes for randomness.
-
-**Target Contract:**
-
-- [Guess the New Number](https://github.com/ConsenSys/mythx-playground/blob/master/01_weak_random/GuessTheNewNumber.sol) - [Challenge on CTE](https://capturetheether.com/challenges/lotteries/guess-the-new-number/)
+- [Guess the Number](https://github.com/ConsenSys/mythx-playground/blob/master/generic_bugs/guessthenumber.sol) 
+- [Challenge on CTE](https://capturetheether.com/challenges/lotteries/guess-the-number/)
+- [Bonus challenge on CTE](https://capturetheether.com/challenges/lotteries/guess-the-secret-number/)
 
 ### Broken Access Controls
 
@@ -119,7 +81,15 @@ The infamous TheDAO was exploited by reentrancy in 2016. Although the community 
 
 Let's look at a [simplified example](https://github.com/ConsenSys/mythx-playground/blob/master/05_truffle_project/contracts/Reentrance.sol) of the DAO bug.
 
-## Part 2 - Writing Custom Security Tests
+### Predictable Random Numbers
+
+It is impossible to create truly random numbers using Solidity. Let's see what happens if we rely on things like blocknumbers and blockhashes for randomness.
+
+**Target Contract:**
+
+- [Guess the New Number](https://github.com/ConsenSys/mythx-playground/blob/master/01_weak_random/GuessTheNewNumber.sol) - [Challenge on CTE](https://capturetheether.com/challenges/lotteries/guess-the-new-number/)
+
+## Part 2 - Verifying Custom Security Properties
 
 The Solidity `assert()` statement is used to specify conditions that are expected to *always* hold. If you want to prove certain assumptions about your code, you can put them into asserts and use Mythril's symbolic execution engine to do all the hard work for you.
 
