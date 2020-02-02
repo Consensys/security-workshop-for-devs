@@ -27,7 +27,7 @@ If you run into insurmountable problems ask the instructors for help.
 
 Head to the [MythX website](https://mythx.io) and sign up for a free account. In this workshop we'll be using the [Remix](https://remix.ethereum.org) plugin.
 
-- [MythX for Remix setup instructions]
+- [MythX for Remix setup instructions](https://docs.mythx.io/en/latest/tools/remix/index.html)
 
 ## Part 1 - Detecting and Preventing Common Vulnerabilities
 
