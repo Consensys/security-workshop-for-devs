@@ -8,9 +8,7 @@ In this workshop we'll practice detecting & preventing common bugs in Solidity/E
 
 ## Preparation
 
-Here's how to get set up for the workshop. It should be super easy except if you're using Windows.
-
-First, you need a web3 capable browser and some testnet ETH. You probably also have both, but if not, get [Metamask](https://metamask.io) and grab some ETH from the Ropsten faucets:
+Here's how to get set up for the workshop. First, you need a web3 capable browser and some testnet ETH. You probably also have both, but if not, get [Metamask](https://metamask.io) and grab some ETH from the Ropsten faucets:
 
 - https://faucet.metamask.io/
 - https://faucet.ropsten.be/
@@ -23,15 +21,15 @@ $ git clone https://github.com/ConsenSys/mythx-playground/
 
 If you run into insurmountable problems ask the instructors for help.
 
-### Setting up a Free MythX Account
+## Setting up MythX for Remix
 
-Head to the [MythX website](https://mythx.io) and sign up for a free account. In this workshop we'll be using the [Remix](https://remix.ethereum.org) plugin.
+Head to the [MythX website](https://mythx.io) and sign up for a free account to generate your API key. In this workshop we'll be using the [Remix](https://remix.ethereum.org) plugin.
 
-- [MythX for Remix setup instructions](https://docs.mythx.io/en/latest/tools/remix/index.html)
+- [Setup instructions](https://docs.mythx.io/en/latest/tools/remix/index.html)
 
 ## Part 1 - Detecting and Preventing Common Vulnerabilities
 
-For the remainder of the workshop we'll be looking at different ways of identifying, fixing and preventing vulnerabilities during development.
+In the first part of this workshop we'll be looking at different ways of identifying, fixing and preventing vulnerabilities during development.
 
 ### Exposure of Private Information
 
@@ -46,22 +44,6 @@ Let's start with something easy to get warmed up! Ethereum is a *public* ledger 
 ### Broken Access Controls
 
 Some of the worst incidents so far were caused by critical functions that were inadvertently exposed to attackers. Remember [Parity WalletLibrary](https://github.com/ConsenSys/mythx-playground/blob/master/02_capturing_ether/SimpleWalletLibrary.sol)?
-
-Mythril and MythX are great at discovering this bug class. Try running the following commands:
-
-**Analysis with Mythril***
-
-```
-$ myth analyze SimpleWalletLibrary.sol
-```
-
-**Analysis with MythX***
-
-```
-$ sabre SimpleWalletLibrary.sol
-```
-
-Note the "SWC" identifier reported for each issue: That's a reference to the [Smart Contract Weakness Classification (EIP 1470)](https://smartcontractsecurity.github.io/SWC-registry/). You can look up details about each issue there.
 
 **Target Contracts:**
 
